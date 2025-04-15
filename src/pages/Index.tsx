@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
@@ -84,7 +83,7 @@ export default function Index() {
           <>
             <section className="py-16 md:py-24">
               <div className="container mx-auto px-4 text-center glass-morphism rounded-xl">
-                <h1 className="text-3xl md:text-5xl font-bold mb-6 gosip-gradient-text">
+                <h1 className="text-2xl md:text-4xl font-bold mb-6 gosip-gradient-text leading-tight">
                   Early And Continuous Self-Learning
                 </h1>
                 <p className="text-xl max-w-3xl mx-auto mb-10 text-muted-foreground">
@@ -135,4 +134,3 @@ export default function Index() {
     </div>
   );
 }
-
