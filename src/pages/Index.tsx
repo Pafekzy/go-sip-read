@@ -85,7 +85,7 @@ export default function Index() {
             <section className="py-16 md:py-24">
               <div className="container mx-auto px-4 text-center">
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 gosip-gradient-text">
-                  Read. Sip. Learn. Grow.
+                  Early And Continuous Self-Learning
                 </h1>
                 <p className="text-xl max-w-3xl mx-auto mb-10 text-muted-foreground">
                   Your all-in-one platform for books, podcasts, and videos. Learn at your own pace, 
