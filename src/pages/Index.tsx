@@ -8,11 +8,11 @@ import { Link } from "react-router-dom";
 
 const features = [
   {
-    title: "Books & Articles",
-    description: "Access a vast library of books and articles for continuous learning.",
+    title: "Early And Continuous Self-Learning",
+    description: "Start your journey of continuous learning with our curated resources.",
     icon: BookOpen,
     color: "bg-gosip-soft-blue",
-    path: "/books",
+    path: "/early-learning",
   },
   {
     title: "Podcasts",

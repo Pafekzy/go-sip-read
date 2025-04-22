@@ -8,6 +8,12 @@ import Index from "./pages/Index";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import Books from "./pages/Books";
+import EarlyLearning from "./pages/EarlyLearning";
+import Podcasts from "./pages/Podcasts";
+import Videos from "./pages/Videos";
+import AiAssistant from "./pages/AiAssistant";
+import Achievements from "./pages/Achievements";
+import Groups from "./pages/Groups";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +27,12 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/books" element={<Books />} />
+          <Route path="/early-learning" element={<EarlyLearning />} />
+          <Route path="/podcasts" element={<Podcasts />} />
+          <Route path="/videos" element={<Videos />} />
+          <Route path="/ai-assistant" element={<AiAssistant />} />
+          <Route path="/achievements" element={<Achievements />} />
+          <Route path="/groups" element={<Groups />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
