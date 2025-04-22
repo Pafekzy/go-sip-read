@@ -2,7 +2,7 @@ import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Target, Rocket, Star } from "lucide-react";
+import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Target, Rocket, Star, CursorPointer } from "lucide-react";
 import { Link } from "react-router-dom";
 const features = [{
   title: "Early And Continuous Self-Learning",
@@ -34,6 +34,18 @@ const features = [{
   icon: Award,
   color: "bg-gosip-soft-purple",
   path: "/achievements"
+}, {
+  title: "Learning Groups",
+  description: "Join or create learning groups to study together and motivate each other.",
+  icon: Users,
+  color: "bg-gosip-soft-yellow",
+  path: "/groups"
+}, {
+  title: "Practice Presentness Game",
+  description: "Train your focus and mindfulness with an engaging number-matching game.",
+  icon: CursorPointer,
+  color: "bg-gosip-soft-green",
+  path: "/presentness-game"
 }, {
   title: "Learning Groups",
   description: "Join or create learning groups to study together and motivate each other.",

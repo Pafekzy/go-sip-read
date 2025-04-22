@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,6 +13,7 @@ import Videos from "./pages/Videos";
 import AiAssistant from "./pages/AiAssistant";
 import Achievements from "./pages/Achievements";
 import Groups from "./pages/Groups";
+import PresentnessGame from "./pages/PresentnessGame";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +33,7 @@ const App = () => (
           <Route path="/ai-assistant" element={<AiAssistant />} />
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/groups" element={<Groups />} />
+          <Route path="/presentness-game" element={<PresentnessGame />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
