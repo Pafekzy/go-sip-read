@@ -74,6 +74,7 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      {/* Header section */}
       <header className="container mx-auto py-4 px-4 flex justify-between items-center">
         <Logo />
         <div className="space-x-2">
@@ -107,20 +108,20 @@ export default function Index() {
           </div>
         ) : (
           <>
-            {/* Hero Section */}
-            <section className="py-16 md:py-24 relative overflow-hidden">
+            {/* Hero Section with improved padding and responsiveness */}
+            <section className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-gosip-soft-purple/30 to-gosip-soft-blue/30 -z-10" />
-              <div className="container mx-auto px-4">
-                <div className="max-w-4xl mx-auto text-center">
-                  <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight gosip-gradient-text">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-4xl mx-auto text-center space-y-6">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight gosip-gradient-text">
                     Your AI-Powered Self-Development Companion
                   </h1>
-                  <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+                  <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto px-4">
                     Stay consistent with personal growth despite your busy schedule through automation, 
                     AI-driven recommendations, and gamified learning experiences.
                   </p>
                   <Button 
-                    className="bg-gosip-purple hover:bg-gosip-purple-dark text-lg px-8 py-6 h-auto"
+                    className="bg-gosip-purple hover:bg-gosip-purple-dark text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 h-auto mt-8"
                     onClick={() => setShowLogin(true)}
                   >
                     Start Your Growth Journey
@@ -129,12 +130,12 @@ export default function Index() {
               </div>
             </section>
 
-            {/* Vision Section */}
-            <section className="py-16 bg-card">
-              <div className="container mx-auto px-4">
+            {/* Vision Section with improved responsiveness */}
+            <section className="py-12 sm:py-16 bg-card">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl mx-auto text-center">
-                  <h2 className="text-3xl font-bold mb-6 gosip-gradient-text">Our Vision</h2>
-                  <p className="text-xl text-muted-foreground leading-relaxed">
+                  <h2 className="text-2xl sm:text-3xl font-bold mb-6 gosip-gradient-text">Our Vision</h2>
+                  <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
                     "To make personal and professional development effortless, enjoyable, and embedded 
                     into the daily lives of techpreneurs."
                   </p>
@@ -142,18 +143,18 @@ export default function Index() {
               </div>
             </section>
 
-            {/* Benefits Section */}
-            <section className="py-16">
-              <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center mb-12">Why Choose GoSipRead?</h2>
-                <div className="grid md:grid-cols-3 gap-8">
+            {/* Benefits Section with improved responsiveness */}
+            <section className="py-12 sm:py-16">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Why Choose GoSipRead?</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                   {benefitCards.map((benefit, index) => (
                     <div key={index} className="gosip-card hover:scale-105 transition-transform">
-                      <div className="flex flex-col items-center text-center">
+                      <div className="flex flex-col items-center text-center p-6">
                         <div className="p-4 rounded-full bg-gosip-soft-purple mb-4">
                           <benefit.icon className="h-6 w-6 text-gosip-purple-dark" />
                         </div>
-                        <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
+                        <h3 className="text-lg sm:text-xl font-semibold mb-3">{benefit.title}</h3>
                         <p className="text-muted-foreground">{benefit.description}</p>
                       </div>
                     </div>
@@ -162,18 +163,18 @@ export default function Index() {
               </div>
             </section>
 
-            {/* Features Section */}
-            <section className="py-16 bg-gradient-to-b from-background to-gosip-soft-purple/30">
-              <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center mb-16">Everything You Need to Learn Better</h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Features Section with improved responsiveness */}
+            <section className="py-12 sm:py-16 bg-gradient-to-b from-background to-gosip-soft-purple/30">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Everything You Need to Learn Better</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                   {features.map((feature, index) => (
                     <Link to={feature.path} key={index} className="block hover:scale-105 transition-transform">
-                      <div className="gosip-card flex flex-col items-center text-center">
+                      <div className="gosip-card flex flex-col items-center text-center p-6">
                         <div className={`p-4 rounded-full ${feature.color} mb-4`}>
                           <feature.icon className="h-6 w-6 text-gosip-purple-dark" />
                         </div>
-                        <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                        <h3 className="text-lg sm:text-xl font-semibold mb-2">{feature.title}</h3>
                         <p className="text-muted-foreground">{feature.description}</p>
                       </div>
                     </Link>
@@ -185,10 +186,11 @@ export default function Index() {
         )}
       </main>
 
+      {/* Footer with improved responsiveness */}
       <footer className="bg-card py-6 border-t">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center">
+            <div className="mb-4 sm:mb-0">
               <Logo />
             </div>
             <div className="text-sm text-muted-foreground">
@@ -200,3 +202,4 @@ export default function Index() {
     </div>
   );
 }
+
