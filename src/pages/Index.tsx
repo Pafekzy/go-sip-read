@@ -2,7 +2,7 @@ import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Target, Rocket, Star, MousePointer, MessageSquare, BadgeIndianRupee } from "lucide-react";
+import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Target, Rocket, Star, MousePointer, MessageSquare, BadgeIndianRupee, BadgeDollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const features = [{
@@ -53,6 +53,12 @@ const features = [{
   icon: Users,
   color: "bg-gosip-soft-yellow",
   path: "/groups"
+}, {
+  title: "Accountability Device",
+  description: "Stack money as a commitment - meet your goals to earn bonuses, or face deductions for missed targets.",
+  icon: BadgeDollarSign,
+  color: "bg-gosip-soft-blue",
+  path: "/accountability"
 }];
 
 const benefitCards = [{
