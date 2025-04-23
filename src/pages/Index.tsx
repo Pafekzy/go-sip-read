@@ -2,7 +2,7 @@ import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Target, Rocket, Star, MousePointer, MessageSquare } from "lucide-react";
+import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Target, Rocket, Star, MousePointer, MessageSquare, BadgeIndianRupee } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const features = [{
@@ -67,6 +67,13 @@ const benefitCards = [{
   icon: Rocket,
   title: "Gamified Learning",
   description: "Join Book Wars, earn badges, and compete in monthly challenges with fellow learners."
+}, {
+  icon: BadgeIndianRupee,
+  title: "Win Real Cash",
+  description: "Earn real money (₦) rewards for your learning achievements and consistency.",
+  className: "animate-bounce hover:animate-none", // Add bounce animation on hover
+  amountClass: "inline-block animate-pulse text-gosip-purple font-bold",
+  amount: "₦5,000"
 }];
 
 export default function Index() {
@@ -135,15 +142,23 @@ export default function Index() {
             <section className="py-12 sm:py-16">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Why Choose GoSipRead?</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                   {benefitCards.map((benefit, index) => (
-                    <div key={index} className="gosip-card hover:scale-105 transition-transform">
+                    <div 
+                      key={index} 
+                      className={`gosip-card hover:scale-105 transition-transform ${benefit.className || ''}`}
+                    >
                       <div className="flex flex-col items-center text-center p-6">
                         <div className="p-4 rounded-full bg-gosip-soft-purple mb-4">
                           <benefit.icon className="h-6 w-6 text-gosip-purple-dark" />
                         </div>
                         <h3 className="text-lg sm:text-xl font-semibold mb-3">{benefit.title}</h3>
-                        <p className="text-muted-foreground">{benefit.description}</p>
+                        <p className="text-muted-foreground">
+                          {benefit.description}
+                          {benefit.amount && (
+                            <span className={benefit.amountClass}> {benefit.amount}</span>
+                          )}
+                        </p>
                       </div>
                     </div>
                   ))}
