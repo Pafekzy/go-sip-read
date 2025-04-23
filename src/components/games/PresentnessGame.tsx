@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { CursorPointer } from 'lucide-react';
+import { MousePointer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 

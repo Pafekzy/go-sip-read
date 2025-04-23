@@ -2,7 +2,7 @@ import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Target, Rocket, Star, CursorPointer } from "lucide-react";
+import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Target, Rocket, Star, MousePointer } from "lucide-react";
 import { Link } from "react-router-dom";
 const features = [{
   title: "Early And Continuous Self-Learning",
@@ -43,7 +43,7 @@ const features = [{
 }, {
   title: "Practice Presentness Game",
   description: "Train your focus and mindfulness with an engaging number-matching game.",
-  icon: CursorPointer,
+  icon: MousePointer,
   color: "bg-gosip-soft-green",
   path: "/presentness-game"
 }, {
