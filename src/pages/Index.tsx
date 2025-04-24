@@ -2,9 +2,12 @@ import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
+import { MainNavigation } from "@/components/MainNavigation";
+import { useAuth } from "@/contexts/AuthContext";
 import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Target, Rocket, Star, MousePointer, MessageSquare, BadgeIndianRupee, BadgeDollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 
+// Using existing features array from the original Index.tsx
 const features = [{
   title: "Early And Continuous Self-Learning",
   description: "Start your journey of continuous learning with our curated resources.",
@@ -61,6 +64,7 @@ const features = [{
   path: "/accountability"
 }];
 
+// Keep existing benefitCards array from the original Index.tsx
 const benefitCards = [{
   icon: Target,
   title: "Automated Tracking",
@@ -84,22 +88,10 @@ const benefitCards = [{
 
 export default function Index() {
   const [showLogin, setShowLogin] = useState(false);
+  const { user } = useAuth();
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      {/* Header section */}
-      <header className="container mx-auto py-4 px-4 flex justify-between items-center">
-        <Logo />
-        <div className="space-x-2">
-          <Button variant="ghost" onClick={() => setShowLogin(true)}>
-            Login
-          </Button>
-          <Button className="bg-gosip-purple hover:bg-gosip-purple-dark" onClick={() => setShowLogin(true)}>
-            Get Started
-          </Button>
-        </div>
-      </header>
-
       <main className="flex-1">
         {showLogin ? (
           <div className="container mx-auto px-4 py-10">
@@ -112,7 +104,9 @@ export default function Index() {
           </div>
         ) : (
           <>
-            {/* Hero Section with improved padding and responsiveness */}
+            {user && <MainNavigation />}
+            
+            {/* Hero Section */}
             <section className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-gosip-soft-purple/30 to-gosip-soft-blue/30 -z-10" />
               <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -124,14 +118,22 @@ export default function Index() {
                     Stay consistent with personal growth despite your busy schedule through automation, 
                     AI-driven recommendations, and gamified learning experiences.
                   </p>
-                  <Button className="bg-gosip-purple hover:bg-gosip-purple-dark text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 h-auto mt-8" onClick={() => setShowLogin(true)}>
-                    Start Your Growth Journey
-                  </Button>
+                  {!user ? (
+                    <Button className="bg-gosip-purple hover:bg-gosip-purple-dark text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 h-auto mt-8" onClick={() => setShowLogin(true)}>
+                      Start Your Growth Journey
+                    </Button>
+                  ) : (
+                    <Link to="/dashboard">
+                      <Button className="bg-gosip-purple hover:bg-gosip-purple-dark text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 h-auto mt-8">
+                        Go to Dashboard
+                      </Button>
+                    </Link>
+                  )}
                 </div>
               </div>
             </section>
 
-            {/* Vision Section with improved responsiveness */}
+            {/* Vision Section */}
             <section className="py-12 sm:py-16 bg-card">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl mx-auto text-center">
@@ -144,7 +146,7 @@ export default function Index() {
               </div>
             </section>
 
-            {/* Benefits Section with improved responsiveness */}
+            {/* Benefits Section */}
             <section className="py-12 sm:py-16">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Why Choose GoSipRead?</h2>
@@ -172,7 +174,7 @@ export default function Index() {
               </div>
             </section>
 
-            {/* Features Section with improved responsiveness */}
+            {/* Features Section */}
             <section className="py-12 sm:py-16 bg-gradient-to-b from-background to-gosip-soft-purple/30">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Everything You Need to Learn Better</h2>
@@ -194,20 +196,6 @@ export default function Index() {
           </>
         )}
       </main>
-
-      {/* Footer with improved responsiveness */}
-      <footer className="bg-card py-6 border-t">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center">
-            <div className="mb-4 sm:mb-0">
-              <Logo />
-            </div>
-            <div className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} GoSipRead. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
