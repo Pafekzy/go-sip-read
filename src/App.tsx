@@ -15,6 +15,7 @@ import AiAssistant from "./pages/AiAssistant";
 import Achievements from "./pages/Achievements";
 import Groups from "./pages/Groups";
 import PresentnessGame from "./pages/PresentnessGame";
+import Accountability from "./pages/Accountability";
 
 const queryClient = new QueryClient();
 
