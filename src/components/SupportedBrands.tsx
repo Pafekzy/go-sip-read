@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const brands = [
@@ -61,7 +60,7 @@ export function SupportedBrands() {
               <img
                 src={brand.logo}
                 alt={`${brand.name} logo`}
-                className="h-10 w-auto object-contain max-w-full"
+                className="h-16 w-auto object-contain max-w-full" // Increased height from h-10 to h-16
               />
             </a>
           ))}
@@ -70,4 +69,3 @@ export function SupportedBrands() {
     </section>
   );
 }
-
