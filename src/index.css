@@ -91,6 +91,17 @@
 
     --hover-brightness: var(--hover-brightness-night);
   }
+  
+  h1, h2, h3 {
+    line-height: 1.4;
+    overflow: visible;
+  }
+  
+  .heading-container, 
+  .container,
+  .gosip-card {
+    overflow: visible;
+  }
 }
 
 @layer base {
@@ -107,10 +118,12 @@
 @layer components {
   .gosip-gradient-text {
     @apply bg-gradient-to-r from-gosip-purple to-gosip-purple-dark text-transparent bg-clip-text;
+    overflow: visible;
   }
   
   .gosip-card {
     @apply p-6 rounded-xl border bg-card shadow-sm hover:shadow-md transition-shadow;
+    overflow: visible;
   }
   
   .gosip-input {
