@@ -3,29 +3,44 @@ import React from 'react';
 
 const brands = [
   {
-    name: 'SemicolonAfrica',
-    url: 'https://semicolon.africa',
-    logo: '/lovable-uploads/34446218-6f0a-4678-af8b-c7a5da04f57e.png',
+    name: 'Opay',
+    url: 'https://opay.com',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Opay_Digital_Services_Limited.png/250px-Opay_Digital_Services_Limited.png',
   },
   {
-    name: 'OpenAI',
-    url: 'https://openai.com',
-    logo: '/lovable-uploads/b20f42ab-857c-4191-8764-9efd2584ed19.png',
+    name: 'Alison',
+    url: 'https://alison.com',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Mask_Group_121227_222.png/250px-Mask_Group_121227_222.png',
   },
   {
-    name: 'Google',
-    url: 'https://google.com',
-    logo: '/lovable-uploads/1a7566c9-20cb-4386-a8b0-5057c122a553.png',
+    name: 'Coursera',
+    url: 'https://coursera.org',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Coursera_logo.PNG',
   },
   {
-    name: 'Facebook',
-    url: 'https://facebook.com',
-    logo: '/lovable-uploads/675b6e5c-20ac-4a5c-9b95-817912e5af90.png',
+    name: 'X',
+    url: 'https://x.com',
+    logo: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-black-icon.svg',
   },
   {
-    name: 'Namecheap',
-    url: 'https://namecheap.com',
-    logo: '/lovable-uploads/f6d7ab4d-2a98-4e74-84e9-ee90b93f229e.png',
+    name: 'Udemy',
+    url: 'https://udemy.com',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e3/Udemy_logo.svg',
+  },
+  {
+    name: 'Pluralsight',
+    url: 'https://pluralsight.com',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/7/76/Pluralsight_logo.png',
+  },
+  {
+    name: 'Eduonix',
+    url: 'https://eduonix.com',
+    logo: 'https://www.eduonix.com/assets/images/edu-logo.svg',
+  },
+  {
+    name: 'Skillshare',
+    url: 'https://skillshare.com',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Skillshare_Logo_2020.png',
   },
 ];
 
@@ -34,7 +49,7 @@ export function SupportedBrands() {
     <section id="supported-brands" className="py-12 border-t">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl font-bold text-center mb-8">Supported By</h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
           {brands.map((brand) => (
             <a
               key={brand.name}
@@ -46,7 +61,7 @@ export function SupportedBrands() {
               <img
                 src={brand.logo}
                 alt={`${brand.name} logo`}
-                className="h-12 w-auto object-contain max-w-full"
+                className="h-10 w-auto object-contain max-w-full"
               />
             </a>
           ))}
@@ -55,3 +70,4 @@ export function SupportedBrands() {
     </section>
   );
 }
+
