@@ -18,34 +18,9 @@ const brands = [
     logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Coursera_logo.PNG',
   },
   {
-    name: 'OpenAI',
-    url: 'https://openai.com',
-    logo: '/lovable-uploads/c9559961-5af8-475f-b17b-b3338a8ccd99.png',
-  },
-  {
     name: 'X',
     url: 'https://x.com',
     logo: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-black-icon.svg',
-  },
-  {
-    name: 'Google',
-    url: 'https://google.com',
-    logo: '/lovable-uploads/d60f57a8-3754-4b51-a317-0f1c3dcbfa04.png',
-  },
-  {
-    name: 'Facebook',
-    url: 'https://facebook.com',
-    logo: '/lovable-uploads/fde6d0fe-f60e-43c7-a384-f58c38285997.png',
-  },
-  {
-    name: 'Semicolon',
-    url: 'https://semicolon.africa',
-    logo: '/lovable-uploads/5d4b2937-8f61-4f77-a15d-0445052659da.png',
-  },
-  {
-    name: 'Namecheap',
-    url: 'https://namecheap.com',
-    logo: '/lovable-uploads/34bf1ce6-8df6-4b73-885d-8f397c13ad45.png',
   },
 ];
 
