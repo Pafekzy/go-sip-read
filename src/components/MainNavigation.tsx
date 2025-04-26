@@ -14,17 +14,18 @@ import {
   MousePointer,
   Shield
 } from "lucide-react";
+import { UserRole } from "@/contexts/AuthContext";
+
+// Import the RolePermissions type from AuthContext
+import { RolePermissions } from "@/contexts/AuthContext";
 
 interface NavItem {
   name: string;
   path: string;
   icon: React.ElementType;
-  requiredPermission?: keyof ReturnType<typeof useAuth>['getPermissionsForRole']; 
+  requiredPermission?: keyof RolePermissions; 
   requiredRole?: UserRole;
 }
-
-// Import UserRole type from AuthContext to use it properly
-import { UserRole } from "@/contexts/AuthContext";
 
 export function MainNavigation() {
   const { user, hasPermission, hasSpecificPermission } = useAuth();
