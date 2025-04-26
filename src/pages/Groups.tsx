@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Users, Code, Database, Layers, Search, ChevronDown } from "lucide-react";
@@ -55,16 +54,16 @@ export default function Groups() {
           id: "fe-react",
           name: "React",
           groups: [
-            { id: "fe-react-1", name: "FER-Modern React with Hooks", prefix: "FER", description: "Learn modern React development with hooks and context", memberCount: 42 },
-            { id: "fe-react-2", name: "FER-React Performance Masters", prefix: "FER", description: "Optimize your React applications for speed", memberCount: 28 },
+            { id: "fe-react-1", name: "FED-Modern React with Hooks", prefix: "FED", description: "Learn modern React development with hooks and context", memberCount: 42 },
+            { id: "fe-react-2", name: "FED-React Performance Masters", prefix: "FED", description: "Optimize your React applications for speed", memberCount: 28 },
           ]
         },
         {
           id: "fe-ui",
           name: "UI/UX Design",
           groups: [
-            { id: "fe-ui-1", name: "FEU-Design Systems", prefix: "FEU", description: "Create consistent design systems for apps", memberCount: 35 },
-            { id: "fe-ui-2", name: "FEU-Accessibility Champions", prefix: "FEU", description: "Making the web accessible for everyone", memberCount: 23 },
+            { id: "fe-ui-1", name: "FED-Design Systems", prefix: "FED", description: "Create consistent design systems for apps", memberCount: 35 },
+            { id: "fe-ui-2", name: "FED-Accessibility Champions", prefix: "FED", description: "Making the web accessible for everyone", memberCount: 23 },
           ]
         },
       ]
@@ -79,8 +78,8 @@ export default function Groups() {
           id: "be-node",
           name: "Node.js",
           groups: [
-            { id: "be-node-1", name: "BEN-Express API Masters", prefix: "BEN", description: "Build robust APIs with Express", memberCount: 38 },
-            { id: "be-node-2", name: "BEN-Node Performance", prefix: "BEN", description: "Optimize Node.js applications", memberCount: 25 },
+            { id: "be-node-1", name: "BED-Express API Masters", prefix: "BED", description: "Build robust APIs with Express", memberCount: 38 },
+            { id: "be-node-2", name: "BED-Node Performance", prefix: "BED", description: "Optimize Node.js applications", memberCount: 25 },
           ]
         },
         {
@@ -103,16 +102,16 @@ export default function Groups() {
           id: "fs-mern",
           name: "MERN Stack",
           groups: [
-            { id: "fs-mern-1", name: "FSM-MERN Masters", prefix: "FSM", description: "Full stack development with MERN", memberCount: 45 },
-            { id: "fs-mern-2", name: "FSM-MERN Auth Patterns", prefix: "FSM", description: "Authentication strategies for MERN apps", memberCount: 31 },
+            { id: "fs-mern-1", name: "FSD-MERN Masters", prefix: "FSD", description: "Full stack development with MERN", memberCount: 45 },
+            { id: "fs-mern-2", name: "FSD-MERN Auth Patterns", prefix: "FSD", description: "Authentication strategies for MERN apps", memberCount: 31 },
           ]
         },
         {
           id: "fs-jamstack",
           name: "JAMstack",
           groups: [
-            { id: "fs-jam-1", name: "FSJ-Next.js Projects", prefix: "FSJ", description: "Building with Next.js and headless CMS", memberCount: 33 },
-            { id: "fs-jam-2", name: "FSJ-Static Site Generators", prefix: "FSJ", description: "Fast sites with SSGs and APIs", memberCount: 27 },
+            { id: "fs-jam-1", name: "FSD-Next.js Projects", prefix: "FSD", description: "Building with Next.js and headless CMS", memberCount: 33 },
+            { id: "fs-jam-2", name: "FSD-Static Site Generators", prefix: "FSD", description: "Fast sites with SSGs and APIs", memberCount: 27 },
           ]
         },
       ]
@@ -197,6 +196,25 @@ export default function Groups() {
         <p className="text-xl text-muted-foreground mb-8">
           Join or create learning groups to study together and motivate each other.
         </p>
+
+        {/* Added Group Prefix Legend */}
+        <div className="bg-card rounded-lg p-4 mb-8 animate-fade-in">
+          <h2 className="font-semibold mb-2">Group Prefix Guide:</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="flex items-center gap-2">
+              <Code className="h-4 w-4 text-blue-500" />
+              <span><strong>FED-</strong>: Front-End Developer Groups</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Database className="h-4 w-4 text-green-500" />
+              <span><strong>BED-</strong>: Back-End Developer Groups</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Layers className="h-4 w-4 text-purple-500" />
+              <span><strong>FSD-</strong>: Full Stack Developer Groups</span>
+            </div>
+          </div>
+        </div>
 
         <div className="mb-8 flex items-center gap-4">
           <div className="relative flex-1">
