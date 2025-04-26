@@ -30,12 +30,12 @@ const brands = [
   {
     name: 'SemicolonAfrica',
     url: 'https://semicolon.africa',
-    logo: 'https://icons8.com/icon/55831/semicolon',
+    logo: 'https://logo.clearbit.com/semicolon.africa',
   },
   {
     name: 'OpenAI',
     url: 'https://openai.com',
-    logo: 'https://openai.com/content/images/2025/02/openai-new-logo.png',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/OpenAI_Logo.svg/320px-OpenAI_Logo.svg.png',
   },
   {
     name: 'Z-library',
