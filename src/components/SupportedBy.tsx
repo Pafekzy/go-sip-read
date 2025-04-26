@@ -1,4 +1,3 @@
-
 import { useTheme } from "@/components/ThemeProvider";
 
 const partners = [
@@ -40,7 +39,7 @@ const partners = [
   {
     name: "Semicolon Africa",
     url: "https://semicolon.africa",
-    logo: "https://semicolon.africa/assets/images/semicolon-logo.png"
+    logo: "/lovable-uploads/9d6df6e5-87c3-4f50-9a0a-4c0d97fef2ff.png"
   },
   {
     name: "Namecheap",
