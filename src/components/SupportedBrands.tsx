@@ -29,17 +29,17 @@ const brands = [
   {
     name: 'Pluralsight',
     url: 'https://pluralsight.com',
-    logo: '/lovable-uploads/0e7e5cae-0a2f-4b6d-8921-18c9ca492446.png',
+    logo: '/lovable-uploads/580d35a0-ac53-4f29-bc45-13fb2b2b708e.png',
   },
   {
     name: 'Eduonix',
     url: 'https://eduonix.com',
-    logo: '/lovable-uploads/342de1fd-50f0-4c26-b9ec-33dbea2f678e.png',
+    logo: '/lovable-uploads/55409a7e-8ada-4882-9e55-bba8650e6510.png',
   },
   {
     name: 'Skillshare',
     url: 'https://skillshare.com',
-    logo: '/lovable-uploads/66d76647-5a49-45d4-b90f-9af5afd4bccc.png',
+    logo: '/lovable-uploads/d06345cb-edb3-44af-ae17-e2533ae51e0d.png',
   },
 ];
 
