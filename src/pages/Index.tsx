@@ -1,144 +1,140 @@
+
 import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
-import { MainNavigation } from "@/components/MainNavigation";
-import { useAuth } from "@/contexts/AuthContext";
-import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Target, Rocket, Star, MousePointer, MessageSquare, BadgeIndianRupee, BadgeDollarSign } from "lucide-react";
+import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Target, Rocket, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// Using existing features array from the original Index.tsx
-const features = [{
-  title: "Early And Continuous Self-Learning",
-  description: "Start your journey of continuous learning with our curated resources.",
-  icon: BookOpen,
-  color: "bg-gosip-soft-blue",
-  path: "/early-learning"
-}, {
-  title: "Podcasts",
-  description: "Listen to educational podcasts from thought leaders in various fields.",
-  icon: Headphones,
-  color: "bg-gosip-soft-pink",
-  path: "/podcasts"
-}, {
-  title: "Videos",
-  description: "Watch curated videos that help you learn new concepts efficiently.",
-  icon: Film,
-  color: "bg-gosip-soft-orange",
-  path: "/videos"
-}, {
-  title: "AI Learning Assistant",
-  description: "Get personalized learning recommendations and answers to your questions.",
-  icon: MessageCircle,
-  color: "bg-gosip-soft-green",
-  path: "/ai-assistant"
-}, {
-  title: "Achievements & Badges",
-  description: "Earn badges and track achievements as you progress in your learning journey.",
-  icon: Award,
-  color: "bg-gosip-soft-purple",
-  path: "/achievements"
-}, {
-  title: "AI Mentor Discussion",
-  description: "Engage in personalized discussions with an AI mentor to guide your learning path.",
-  icon: MessageSquare,
-  color: "bg-gosip-soft-yellow",
-  path: "/ai-mentor-discussion"
-}, {
-  title: "Practice Presentness Game",
-  description: "Train your focus and mindfulness with an engaging number-matching game.",
-  icon: MousePointer,
-  color: "bg-gosip-soft-green",
-  path: "/presentness-game"
-}, {
-  title: "Learning Groups",
-  description: "Join or create learning groups to study together and motivate each other.",
-  icon: Users,
-  color: "bg-gosip-soft-yellow",
-  path: "/groups"
-}, {
-  title: "Accountability Device",
-  description: "Stack money as a commitment - meet your goals to earn bonuses, or face deductions for missed targets.",
-  icon: BadgeDollarSign,
-  color: "bg-gosip-soft-blue",
-  path: "/accountability"
-}];
+const features = [
+  {
+    title: "Early And Continuous Self-Learning",
+    description: "Start your journey of continuous learning with our curated resources.",
+    icon: BookOpen,
+    color: "bg-gosip-soft-blue",
+    path: "/early-learning",
+  },
+  {
+    title: "Podcasts",
+    description: "Listen to educational podcasts from thought leaders in various fields.",
+    icon: Headphones,
+    color: "bg-gosip-soft-pink",
+    path: "/podcasts",
+  },
+  {
+    title: "Videos",
+    description: "Watch curated videos that help you learn new concepts efficiently.",
+    icon: Film,
+    color: "bg-gosip-soft-orange",
+    path: "/videos",
+  },
+  {
+    title: "AI Learning Assistant",
+    description: "Get personalized learning recommendations and answers to your questions.",
+    icon: MessageCircle,
+    color: "bg-gosip-soft-green",
+    path: "/ai-assistant",
+  },
+  {
+    title: "Achievements & Badges",
+    description: "Earn badges and track achievements as you progress in your learning journey.",
+    icon: Award,
+    color: "bg-gosip-soft-purple",
+    path: "/achievements",
+  },
+  {
+    title: "Learning Groups",
+    description: "Join or create learning groups to study together and motivate each other.",
+    icon: Users,
+    color: "bg-gosip-soft-yellow",
+    path: "/groups",
+  },
+];
 
-// Keep existing benefitCards array from the original Index.tsx
-const benefitCards = [{
-  icon: Target,
-  title: "Automated Tracking",
-  description: "Zero manual logging needed - we automatically track your reading, watching, and listening progress."
-}, {
-  icon: Star,
-  title: "AI-Powered Mentor",
-  description: "Get personalized recommendations and gentle nudges from your AI mentor persona."
-}, {
-  icon: Rocket,
-  title: "Gamified Learning",
-  description: "Join Book Wars, earn badges, and compete in monthly challenges with fellow learners."
-}, {
-  icon: BadgeIndianRupee,
-  title: "Win Real Cash",
-  description: "Earn real money (₦) rewards for your learning achievements and consistency.",
-  className: "animate-bounce hover:animate-none", // Add bounce animation on hover
-  amountClass: "inline-block animate-pulse text-gosip-purple font-bold",
-  amount: "₦5,000"
-}];
+const benefitCards = [
+  {
+    icon: Target,
+    title: "Automated Tracking",
+    description: "Zero manual logging needed - we automatically track your reading, watching, and listening progress."
+  },
+  {
+    icon: Star,
+    title: "AI-Powered Mentor",
+    description: "Get personalized recommendations and gentle nudges from your AI mentor persona."
+  },
+  {
+    icon: Rocket,
+    title: "Gamified Learning",
+    description: "Join Book Wars, earn badges, and compete in monthly challenges with fellow learners."
+  }
+];
 
 export default function Index() {
   const [showLogin, setShowLogin] = useState(false);
-  const { user } = useAuth();
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <header className="container mx-auto py-4 px-4 flex justify-between items-center">
+        <Logo />
+        <div className="space-x-2">
+          <Button 
+            variant="ghost" 
+            onClick={() => setShowLogin(true)}
+          >
+            Login
+          </Button>
+          <Button 
+            className="bg-gosip-purple hover:bg-gosip-purple-dark"
+            onClick={() => setShowLogin(true)}
+          >
+            Get Started
+          </Button>
+        </div>
+      </header>
+
       <main className="flex-1">
         {showLogin ? (
           <div className="container mx-auto px-4 py-10">
             <LoginForm />
             <div className="text-center mt-6">
-              <Button variant="link" onClick={() => setShowLogin(false)}>
+              <Button
+                variant="link"
+                onClick={() => setShowLogin(false)}
+              >
                 Back to Home
               </Button>
             </div>
           </div>
         ) : (
           <>
-            {user && <MainNavigation />}
-            
             {/* Hero Section */}
-            <section className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden">
+            <section className="py-16 md:py-24 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-gosip-soft-purple/30 to-gosip-soft-blue/30 -z-10" />
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="max-w-4xl mx-auto text-center space-y-6">
-                  <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight tracking-tight gosip-gradient-text md:text-4xl">
+              <div className="container mx-auto px-4">
+                <div className="max-w-4xl mx-auto text-center">
+                  <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight gosip-gradient-text">
                     Your AI-Powered Self-Development Companion
                   </h1>
-                  <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto font-normal py-0 px-[16px]">
+                  <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
                     Stay consistent with personal growth despite your busy schedule through automation, 
                     AI-driven recommendations, and gamified learning experiences.
                   </p>
-                  {!user ? (
-                    <Button className="bg-gosip-purple hover:bg-gosip-purple-dark text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 h-auto mt-8" onClick={() => setShowLogin(true)}>
-                      Start Your Growth Journey
-                    </Button>
-                  ) : (
-                    <Link to="/dashboard">
-                      <Button className="bg-gosip-purple hover:bg-gosip-purple-dark text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 h-auto mt-8">
-                        Go to Dashboard
-                      </Button>
-                    </Link>
-                  )}
+                  <Button 
+                    className="bg-gosip-purple hover:bg-gosip-purple-dark text-lg px-8 py-6 h-auto"
+                    onClick={() => setShowLogin(true)}
+                  >
+                    Start Your Growth Journey
+                  </Button>
                 </div>
               </div>
             </section>
 
             {/* Vision Section */}
-            <section className="py-12 sm:py-16 bg-card">
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="py-16 bg-card">
+              <div className="container mx-auto px-4">
                 <div className="max-w-3xl mx-auto text-center">
-                  <h2 className="text-2xl sm:text-3xl font-bold mb-6 gosip-gradient-text">Our Vision</h2>
-                  <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
+                  <h2 className="text-3xl font-bold mb-6 gosip-gradient-text">Our Vision</h2>
+                  <p className="text-xl text-muted-foreground leading-relaxed">
                     "To make personal and professional development effortless, enjoyable, and embedded 
                     into the daily lives of techpreneurs."
                   </p>
@@ -147,26 +143,18 @@ export default function Index() {
             </section>
 
             {/* Benefits Section */}
-            <section className="py-12 sm:py-16">
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Why Choose GoSipRead?</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            <section className="py-16">
+              <div className="container mx-auto px-4">
+                <h2 className="text-3xl font-bold text-center mb-12">Why Choose GoSipRead?</h2>
+                <div className="grid md:grid-cols-3 gap-8">
                   {benefitCards.map((benefit, index) => (
-                    <div 
-                      key={index} 
-                      className={`gosip-card hover:scale-105 transition-transform ${benefit.className || ''}`}
-                    >
-                      <div className="flex flex-col items-center text-center p-6">
+                    <div key={index} className="gosip-card hover:scale-105 transition-transform">
+                      <div className="flex flex-col items-center text-center">
                         <div className="p-4 rounded-full bg-gosip-soft-purple mb-4">
                           <benefit.icon className="h-6 w-6 text-gosip-purple-dark" />
                         </div>
-                        <h3 className="text-lg sm:text-xl font-semibold mb-3">{benefit.title}</h3>
-                        <p className="text-muted-foreground">
-                          {benefit.description}
-                          {benefit.amount && (
-                            <span className={benefit.amountClass}> {benefit.amount}</span>
-                          )}
-                        </p>
+                        <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
+                        <p className="text-muted-foreground">{benefit.description}</p>
                       </div>
                     </div>
                   ))}
@@ -175,17 +163,17 @@ export default function Index() {
             </section>
 
             {/* Features Section */}
-            <section className="py-12 sm:py-16 bg-gradient-to-b from-background to-gosip-soft-purple/30">
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Everything You Need to Learn Better</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <section className="py-16 bg-gradient-to-b from-background to-gosip-soft-purple/30">
+              <div className="container mx-auto px-4">
+                <h2 className="text-3xl font-bold text-center mb-16">Everything You Need to Learn Better</h2>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {features.map((feature, index) => (
                     <Link to={feature.path} key={index} className="block hover:scale-105 transition-transform">
-                      <div className="gosip-card flex flex-col items-center text-center p-6">
+                      <div className="gosip-card flex flex-col items-center text-center">
                         <div className={`p-4 rounded-full ${feature.color} mb-4`}>
                           <feature.icon className="h-6 w-6 text-gosip-purple-dark" />
                         </div>
-                        <h3 className="text-lg sm:text-xl font-semibold mb-2">{feature.title}</h3>
+                        <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                         <p className="text-muted-foreground">{feature.description}</p>
                       </div>
                     </Link>
@@ -196,6 +184,19 @@ export default function Index() {
           </>
         )}
       </main>
+
+      <footer className="bg-card py-6 border-t">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-4 md:mb-0">
+              <Logo />
+            </div>
+            <div className="text-sm text-muted-foreground">
+              © {new Date().getFullYear()} GoSipRead. All rights reserved.
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

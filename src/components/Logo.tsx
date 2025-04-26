@@ -1,57 +1,13 @@
 
-import { cn } from "@/lib/utils";
+import { BookOpen } from "lucide-react";
 
-type LogoVariant = "default" | "cover" | "profile";
-
-interface LogoProps {
-  variant?: LogoVariant;
-  className?: string;
-  size?: "sm" | "md" | "lg" | "xl";
-}
-
-export function Logo({ 
-  variant = "default", 
-  className, 
-  size = "md" 
-}: LogoProps) {
-  const sizeClasses = {
-    sm: "h-8",
-    md: "h-12",
-    lg: "h-16",
-    xl: "h-20"
-  };
-
+export function Logo() {
   return (
-    <div className={cn("flex items-center gap-2", className)}>
-      {variant === "default" && (
-        <div className="dark:bg-white/10 dark:backdrop-blur-sm dark:p-2 dark:rounded-lg">
-          <img 
-            src="/lovable-uploads/e1158504-470f-4afa-83c9-901eaefc77d7.png" 
-            alt="GoSipRead Logo" 
-            className={cn("object-contain", sizeClasses[size])}
-          />
-        </div>
-      )}
-      
-      {variant === "cover" && (
-        <div className="dark:bg-white/10 dark:backdrop-blur-sm dark:p-2 dark:rounded-lg">
-          <img 
-            src="/lovable-uploads/405098cb-4a73-490f-b836-f34cb9a0bf42.png" 
-            alt="GoSipRead Cover Logo" 
-            className={cn("object-contain", sizeClasses[size])}
-          />
-        </div>
-      )}
-      
-      {variant === "profile" && (
-        <div className="dark:bg-white/10 dark:backdrop-blur-sm dark:p-2 dark:rounded-lg">
-          <img 
-            src="/lovable-uploads/78000052-b371-45c1-99d6-f13eb232a514.png" 
-            alt="GoSipRead Profile Logo" 
-            className={cn("object-contain", sizeClasses[size])}
-          />
-        </div>
-      )}
+    <div className="flex items-center gap-2">
+      <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-gosip-purple to-gosip-purple-dark flex items-center justify-center">
+        <BookOpen className="text-white h-5 w-5" />
+      </div>
+      <span className="font-bold text-xl gosip-gradient-text">GoSipRead</span>
     </div>
   );
 }
