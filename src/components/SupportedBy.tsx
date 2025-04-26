@@ -3,6 +3,11 @@ import { useTheme } from "@/components/ThemeProvider";
 
 const partners = [
   {
+    name: "Semicolon Africa",
+    url: "https://semicolon.africa",
+    logo: "/lovable-uploads/9d6df6e5-87c3-4f50-9a0a-4c0d97fef2ff.png"
+  },
+  {
     name: "Opay",
     url: "https://opay.com",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Opay_Digital_Services_Limited.png/250px-Opay_Digital_Services_Limited.png"
@@ -36,11 +41,6 @@ const partners = [
     name: "Facebook",
     url: "https://facebook.com",
     logo: "/lovable-uploads/9f0c8a76-abbd-45eb-80c1-319e3d98408a.png"
-  },
-  {
-    name: "Semicolon Africa",
-    url: "https://semicolon.africa",
-    logo: "/lovable-uploads/9d6df6e5-87c3-4f50-9a0a-4c0d97fef2ff.png"
   },
   {
     name: "Namecheap",
