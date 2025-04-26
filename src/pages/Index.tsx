@@ -51,6 +51,7 @@ export default function Index() {
             <VisionSection />
             <BenefitsSection />
             <FeaturesSection />
+            <SupportedBrands />
           </>
         )}
       </main>
@@ -66,7 +67,6 @@ export default function Index() {
             </div>
           </div>
         </div>
-        <SupportedBrands />
       </footer>
     </div>
   );

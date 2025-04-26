@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const brands = [
@@ -53,19 +54,19 @@ export function SupportedBrands() {
     <section id="supported-brands" className="py-12 border-t">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl font-bold text-center mb-8">Supported By</h2>
-        <div className="brand-logos">
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-6 items-center justify-items-center">
           {brands.map((brand) => (
             <a
               key={brand.name}
               href={brand.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:no-underline"
+              className="hover:no-underline flex items-center justify-center"
             >
               <img
                 src={brand.logo}
                 alt={`${brand.name} logo`}
-                className="brand-logo"
+                className="h-12 w-auto object-contain max-w-full"
               />
             </a>
           ))}
