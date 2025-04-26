@@ -5,6 +5,7 @@ import { ThemeProvider, useTheme } from "@/components/ThemeProvider";
 import { Home, Moon, Sun } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Logo } from "@/components/Logo";
+import { SupportedBy } from "@/components/SupportedBy";
 
 function MainLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -39,8 +40,9 @@ function MainLayout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
       
-      <footer className="py-4 px-4 border-t text-center text-sm text-muted-foreground">
-        <div className="container mx-auto">
+      <footer className="py-4 px-4 border-t">
+        <SupportedBy />
+        <div className="container mx-auto text-center text-sm text-muted-foreground">
           © {new Date().getFullYear()} GoSipRead. All rights reserved.
         </div>
       </footer>
