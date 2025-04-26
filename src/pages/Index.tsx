@@ -1,73 +1,13 @@
+
 import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Target, Rocket, Star } from "lucide-react";
-import { Link } from "react-router-dom";
+import { HeroSection } from "@/components/home/HeroSection";
+import { VisionSection } from "@/components/home/VisionSection";
+import { BenefitsSection } from "@/components/home/BenefitsSection";
+import { FeaturesSection } from "@/components/home/FeaturesSection";
 import { SupportedBrands } from "@/components/SupportedBrands";
-
-const features = [
-  {
-    title: "Early And Continuous Self-Learning",
-    description: "Start your journey of continuous learning with our curated resources.",
-    icon: BookOpen,
-    color: "bg-gosip-soft-blue",
-    path: "/early-learning",
-  },
-  {
-    title: "Podcasts",
-    description: "Listen to educational podcasts from thought leaders in various fields.",
-    icon: Headphones,
-    color: "bg-gosip-soft-pink",
-    path: "/podcasts",
-  },
-  {
-    title: "Videos",
-    description: "Watch curated videos that help you learn new concepts efficiently.",
-    icon: Film,
-    color: "bg-gosip-soft-orange",
-    path: "/videos",
-  },
-  {
-    title: "AI Learning Assistant",
-    description: "Get personalized learning recommendations and answers to your questions.",
-    icon: MessageCircle,
-    color: "bg-gosip-soft-green",
-    path: "/ai-assistant",
-  },
-  {
-    title: "Achievements & Badges",
-    description: "Earn badges and track achievements as you progress in your learning journey.",
-    icon: Award,
-    color: "bg-gosip-soft-purple",
-    path: "/achievements",
-  },
-  {
-    title: "Learning Groups",
-    description: "Join or create learning groups to study together and motivate each other.",
-    icon: Users,
-    color: "bg-gosip-soft-yellow",
-    path: "/groups",
-  },
-];
-
-const benefitCards = [
-  {
-    icon: Target,
-    title: "Automated Tracking",
-    description: "Zero manual logging needed - we automatically track your reading, watching, and listening progress."
-  },
-  {
-    icon: Star,
-    title: "AI-Powered Mentor",
-    description: "Get personalized recommendations and gentle nudges from your AI mentor persona."
-  },
-  {
-    icon: Rocket,
-    title: "Gamified Learning",
-    description: "Join Book Wars, earn badges, and compete in monthly challenges with fellow learners."
-  }
-];
 
 export default function Index() {
   const [showLogin, setShowLogin] = useState(false);
@@ -107,80 +47,10 @@ export default function Index() {
           </div>
         ) : (
           <>
-            {/* Hero Section */}
-            <section className="py-16 md:py-24 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-gosip-soft-purple/30 to-gosip-soft-blue/30 -z-10" />
-              <div className="container mx-auto px-4">
-                <div className="max-w-4xl mx-auto text-center">
-                  <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight gosip-gradient-text">
-                    Your AI-Powered Self-Development Companion
-                  </h1>
-                  <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-                    Stay consistent with personal growth despite your busy schedule through automation, 
-                    AI-driven recommendations, and gamified learning experiences.
-                  </p>
-                  <Button 
-                    className="bg-gosip-purple hover:bg-gosip-purple-dark text-lg px-8 py-6 h-auto"
-                    onClick={() => setShowLogin(true)}
-                  >
-                    Start Your Growth Journey
-                  </Button>
-                </div>
-              </div>
-            </section>
-
-            {/* Vision Section */}
-            <section className="py-16 bg-card">
-              <div className="container mx-auto px-4">
-                <div className="max-w-3xl mx-auto text-center">
-                  <h2 className="text-3xl font-bold mb-6 gosip-gradient-text">Our Vision</h2>
-                  <p className="text-xl text-muted-foreground leading-relaxed">
-                    "To make personal and professional development effortless, enjoyable, and embedded 
-                    into the daily lives of techpreneurs."
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* Benefits Section */}
-            <section className="py-16">
-              <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center mb-12">Why Choose GoSipRead?</h2>
-                <div className="grid md:grid-cols-3 gap-8">
-                  {benefitCards.map((benefit, index) => (
-                    <div key={index} className="gosip-card hover:scale-105 transition-transform">
-                      <div className="flex flex-col items-center text-center">
-                        <div className="p-4 rounded-full bg-gosip-soft-purple mb-4">
-                          <benefit.icon className="h-6 w-6 text-gosip-purple-dark" />
-                        </div>
-                        <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
-                        <p className="text-muted-foreground">{benefit.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            {/* Features Section */}
-            <section className="py-16 bg-gradient-to-b from-background to-gosip-soft-purple/30">
-              <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center mb-16">Everything You Need to Learn Better</h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {features.map((feature, index) => (
-                    <Link to={feature.path} key={index} className="block hover:scale-105 transition-transform">
-                      <div className="gosip-card flex flex-col items-center text-center">
-                        <div className={`p-4 rounded-full ${feature.color} mb-4`}>
-                          <feature.icon className="h-6 w-6 text-gosip-purple-dark" />
-                        </div>
-                        <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                        <p className="text-muted-foreground">{feature.description}</p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </section>
+            <HeroSection onGetStarted={() => setShowLogin(true)} />
+            <VisionSection />
+            <BenefitsSection />
+            <FeaturesSection />
           </>
         )}
       </main>
