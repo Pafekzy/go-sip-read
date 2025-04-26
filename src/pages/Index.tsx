@@ -1,10 +1,10 @@
-
 import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Target, Rocket, Star } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SupportedBrands } from "@/components/SupportedBrands";
 
 const features = [
   {
@@ -196,6 +196,7 @@ export default function Index() {
             </div>
           </div>
         </div>
+        <SupportedBrands />
       </footer>
     </div>
   );
