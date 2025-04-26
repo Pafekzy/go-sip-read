@@ -1,3 +1,4 @@
+
 import { useTheme } from "@/components/ThemeProvider";
 
 const partners = [
@@ -19,7 +20,7 @@ const partners = [
   {
     name: "OpenAI",
     url: "https://openai.com",
-    logo: "https://openai.com/content/images/2025/02/openai-new-logo.png"
+    logo: "/lovable-uploads/e1f836d4-20af-4fe8-8ef9-628006351d44.png"
   },
   {
     name: "X",
@@ -29,12 +30,12 @@ const partners = [
   {
     name: "Google",
     url: "https://google.com",
-    logo: "https://design.google/static/images/logo/googlelogo_color_272x92dp.png"
+    logo: "/lovable-uploads/347ef78d-9f8c-4e38-9a3e-e3927c5b7d92.png"
   },
   {
     name: "Facebook",
     url: "https://facebook.com",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282021%29.svg/1200px-Facebook_f_logo_%282021%29.svg.png"
+    logo: "/lovable-uploads/9f0c8a76-abbd-45eb-80c1-319e3d98408a.png"
   },
   {
     name: "Semicolon Africa",
@@ -44,7 +45,7 @@ const partners = [
   {
     name: "Namecheap",
     url: "https://namecheap.com",
-    logo: "https://1000logos.net/wp-content/uploads/2025/01/NameCheap-Logo.png"
+    logo: "/lovable-uploads/8b4853d8-54ae-40f2-9423-7be1f2e857eb.png"
   }
 ];
 
@@ -82,3 +83,4 @@ export function SupportedBy() {
     </section>
   );
 }
+
