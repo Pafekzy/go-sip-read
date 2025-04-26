@@ -122,7 +122,7 @@
   }
 
   .brand-logo {
-    @apply w-[var(--brand-logo-size)] h-auto opacity-80 hover:opacity-100 transition-all duration-400 ease-in-out;
+    @apply w-[var(--brand-logo-size)] h-auto opacity-80 hover:opacity-100 transition-all duration-300 ease-in-out;
   }
 
   .brand-logo:hover {
