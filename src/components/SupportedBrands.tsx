@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const brands = [
@@ -20,7 +19,7 @@ const brands = [
   {
     name: 'OpenAI',
     url: 'https://openai.com',
-    logo: 'https://openai.com/content/images/2025/02/openai-new-logo.png',
+    logo: '/lovable-uploads/52d584c5-9796-4f42-8bd7-58e06722548e.png',
   },
   {
     name: 'X',
@@ -30,22 +29,22 @@ const brands = [
   {
     name: 'Google',
     url: 'https://google.com',
-    logo: 'https://design.google/static/images/logo/googlelogo_color_272x92dp.png',
+    logo: '/lovable-uploads/ff2e6307-8330-4fed-8ede-23bd9c0e333a.png',
   },
   {
     name: 'Facebook',
     url: 'https://facebook.com',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282021%29.svg/1200px-Facebook_f_logo_%282021%29.svg.png',
+    logo: '/lovable-uploads/7a903683-349e-484c-9a9c-879c740bdfad.png',
   },
   {
-    name: 'Semicolon Africa',
+    name: 'Semicolon',
     url: 'https://semicolon.africa',
-    logo: 'https://semicolon.africa/assets/images/semicolon-logo.png',
+    logo: '/lovable-uploads/d11dcf69-41bc-4e54-b7eb-b8edb3ef8684.png',
   },
   {
     name: 'Namecheap',
     url: 'https://namecheap.com',
-    logo: 'https://1000logos.net/wp-content/uploads/2025/01/NameCheap-Logo.png',
+    logo: '/lovable-uploads/6cbb3a15-26e4-497f-a38a-5c41077d931e.png',
   },
 ];
 
