@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 
 const brands = [
   {
@@ -44,6 +45,17 @@ const brands = [
 ];
 
 export function SupportedBrands() {
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+
+  const handleImageError = (brandName: string) => {
+    console.error(`Failed to load image for ${brandName}`);
+    setImageErrors(prev => ({ ...prev, [brandName]: true }));
+  };
+
+  const handleImageLoad = (brandName: string) => {
+    console.log(`Successfully loaded image for ${brandName}`);
+  };
+
   return (
     <section id="supported-brands" className="py-12 border-t">
       <div className="container mx-auto px-4">
@@ -57,11 +69,19 @@ export function SupportedBrands() {
               rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity flex items-center justify-center w-full"
             >
-              <img
-                src={brand.logo}
-                alt={`${brand.name} logo`}
-                className="h-16 w-auto object-contain max-w-full" // Increased height from h-10 to h-16
-              />
+              {imageErrors[brand.name] ? (
+                <div className="h-16 w-full flex items-center justify-center bg-gray-100 rounded">
+                  {brand.name}
+                </div>
+              ) : (
+                <img
+                  src={brand.logo}
+                  alt={`${brand.name} logo`}
+                  className="h-16 w-auto object-contain max-w-full"
+                  onError={() => handleImageError(brand.name)}
+                  onLoad={() => handleImageLoad(brand.name)}
+                />
+              )}
             </a>
           ))}
         </div>
