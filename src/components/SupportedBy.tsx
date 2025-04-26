@@ -1,4 +1,3 @@
-
 import { useTheme } from "@/components/ThemeProvider";
 
 const partners = [
@@ -70,7 +69,7 @@ export function SupportedBy() {
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className={`${partner.name === 'Namecheap' ? 'w-[30px]' : 'w-[80px]'} object-contain transition-[filter] duration-400 ease-in-out ${
+                className={`${partner.name === 'Namecheap' ? 'w-[15px]' : 'w-[80px]'} object-contain transition-[filter] duration-400 ease-in-out ${
                   theme === 'dark' 
                     ? 'hover:brightness-[1.3]' 
                     : 'hover:brightness-[1.1]'
