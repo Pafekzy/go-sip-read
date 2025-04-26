@@ -51,7 +51,9 @@ export function FeaturesSection() {
   return (
     <section className="py-16 bg-gradient-to-b from-background to-gosip-soft-purple/30">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-16">Everything You Need to Learn Better</h2>
+        <div className="heading-container py-2">
+          <h2 className="text-3xl font-bold text-center mb-16">Everything You Need to Learn Better</h2>
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <Link to={feature.path} key={index} className="block hover:scale-105 transition-transform">
@@ -59,7 +61,9 @@ export function FeaturesSection() {
                 <div className={`p-4 rounded-full ${feature.color} mb-4`}>
                   <feature.icon className="h-6 w-6 text-gosip-purple-dark" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                <div className="heading-container py-1">
+                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                </div>
                 <p className="text-muted-foreground">{feature.description}</p>
               </div>
             </Link>

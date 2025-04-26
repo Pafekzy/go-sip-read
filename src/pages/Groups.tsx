@@ -12,14 +12,19 @@ export default function Groups() {
           Back to Home
         </Link>
         
-        <h1 className="text-4xl font-bold mb-6 gosip-gradient-text">Learning Groups</h1>
+        <div className="heading-container py-4">
+          <h1 className="text-4xl font-bold mb-6 gosip-gradient-text">Learning Groups</h1>
+        </div>
+        
         <p className="text-xl text-muted-foreground mb-8">
           Join or create learning groups to study together and motivate each other.
         </p>
         
         <div className="grid gap-6">
           <div className="gosip-card p-6">
-            <h2 className="text-2xl font-semibold mb-4">Available Groups</h2>
+            <div className="heading-container py-2">
+              <h2 className="text-2xl font-semibold mb-4">Available Groups</h2>
+            </div>
             <p className="text-muted-foreground mb-4">
               Find study groups based on your interests or create your own.
             </p>

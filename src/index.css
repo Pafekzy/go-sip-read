@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -141,5 +142,9 @@
   .brand-logo:hover {
     transform: scaleX(-1);
     filter: brightness(var(--hover-brightness));
+  }
+  
+  .heading-container {
+    @apply py-2 overflow-visible;
   }
 }
