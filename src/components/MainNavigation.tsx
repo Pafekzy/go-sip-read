@@ -11,18 +11,20 @@ import {
   Target,
   MessageCircle,
   BadgeDollarSign,
-  MousePointer
+  MousePointer,
+  Shield
 } from "lucide-react";
 
 interface NavItem {
   name: string;
   path: string;
   icon: React.ElementType;
-  requiredRole?: string;
+  requiredPermission?: keyof ReturnType<typeof useAuth>['hasSpecificPermission'] extends infer R ? R : never;
+  requiredRole?: Parameters<ReturnType<typeof useAuth>['hasPermission']>[0];
 }
 
 export function MainNavigation() {
-  const { user, hasPermission } = useAuth();
+  const { user, hasPermission, hasSpecificPermission } = useAuth();
   
   const navItems: NavItem[] = [
     { name: "Dashboard", path: "/dashboard", icon: BookOpen },
@@ -35,13 +37,24 @@ export function MainNavigation() {
     { name: "Groups", path: "/groups", icon: Users, requiredRole: "subscribed" },
     { name: "Focus Games", path: "/presentness-game", icon: MousePointer },
     { name: "Accountability", path: "/accountability", icon: BadgeDollarSign },
+    { 
+      name: "Admin Panel", 
+      path: "/admin", 
+      icon: Shield, 
+      requiredPermission: "canAccessAdminPanel"
+    },
   ];
 
   return (
     <nav className="flex flex-wrap gap-2 justify-center my-4">
       {navItems.map((item) => {
         // Skip items requiring higher permissions
-        if (item.requiredRole && !hasPermission(item.requiredRole as any)) {
+        if (item.requiredRole && !hasPermission(item.requiredRole)) {
+          return null;
+        }
+        
+        // Skip items requiring specific permissions
+        if (item.requiredPermission && !hasSpecificPermission(item.requiredPermission)) {
           return null;
         }
         

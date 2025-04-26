@@ -1,16 +1,19 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Users } from "lucide-react";
+import { Users, UserPlus, Settings, Shield } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import { PrefixGuide } from "@/components/groups/PrefixGuide";
 import { SearchBar } from "@/components/groups/SearchBar";
 import { CategoryCard } from "@/components/groups/CategoryCard";
 import { categories } from "@/data/categories";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export default function Groups() {
-  const { user, hasPermission } = useAuth();
+  const { user, hasPermission, hasSpecificPermission } = useAuth();
   const { toast } = useToast();
   const [searchQuery, setSearchQuery] = useState("");
   const [joinedGroups, setJoinedGroups] = useState<string[]>([]);
@@ -66,10 +69,12 @@ export default function Groups() {
   };
 
   const handleCreateGroup = () => {
-    if (!hasPermission('subscribed')) {
+    if (!hasSpecificPermission('canCreateGroups')) {
       toast({
-        title: "Subscription Required",
-        description: "You need to be a subscribed user to create a group",
+        title: "Permission Required",
+        description: hasPermission('subscribed') 
+          ? "You need to be a group admin or higher to create groups" 
+          : "You need to be a subscribed user to create a group",
         variant: "destructive",
       });
       return;
@@ -78,6 +83,38 @@ export default function Groups() {
     toast({
       title: "Coming Soon",
       description: "Group creation feature will be available soon",
+    });
+  };
+
+  const handleSuspendUser = () => {
+    if (!hasSpecificPermission('canSuspendUsers')) {
+      toast({
+        title: "Permission Required",
+        description: "You need to be a group admin or higher to suspend users",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    toast({
+      title: "Coming Soon",
+      description: "User suspension feature will be available soon",
+    });
+  };
+
+  const handleSetCodeWar = () => {
+    if (!hasSpecificPermission('canSetCodeWarChallenge')) {
+      toast({
+        title: "Permission Required",
+        description: "You need to be a tech mentor or higher to set code war challenges",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    toast({
+      title: "Coming Soon",
+      description: "Code war challenge feature will be available soon",
     });
   };
 
@@ -93,6 +130,57 @@ export default function Groups() {
         <p className="text-xl text-muted-foreground mb-8">
           Join or create learning groups to study together and motivate each other.
         </p>
+
+        {user && hasPermission('groupAdmin') && (
+          <Card className="mb-8 border-gosip-purple/40 bg-gradient-to-r from-background to-background/95">
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <Shield className="mr-2 h-5 w-5 text-gosip-purple" />
+                Admin Actions
+                <Badge className="ml-2 bg-gosip-purple">{user.role}</Badge>
+              </CardTitle>
+              <CardDescription>
+                Special actions available to you as a {user.role}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                {hasSpecificPermission('canCreateGroups') && (
+                  <Button 
+                    variant="outline" 
+                    className="flex items-center gap-2" 
+                    onClick={handleCreateGroup}
+                  >
+                    <UserPlus size={16} />
+                    Create Group
+                  </Button>
+                )}
+                
+                {hasSpecificPermission('canSuspendUsers') && (
+                  <Button 
+                    variant="outline" 
+                    className="flex items-center gap-2" 
+                    onClick={handleSuspendUser}
+                  >
+                    <Settings size={16} />
+                    Manage Members
+                  </Button>
+                )}
+                
+                {hasSpecificPermission('canSetCodeWarChallenge') && (
+                  <Button 
+                    variant="outline" 
+                    className="flex items-center gap-2" 
+                    onClick={handleSetCodeWar}
+                  >
+                    <Award size={16} />
+                    Set Code War
+                  </Button>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         <PrefixGuide />
         
