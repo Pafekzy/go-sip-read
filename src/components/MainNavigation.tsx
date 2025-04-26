@@ -20,8 +20,11 @@ interface NavItem {
   path: string;
   icon: React.ElementType;
   requiredPermission?: keyof ReturnType<typeof useAuth>['getPermissionsForRole']; 
-  requiredRole?: Parameters<ReturnType<typeof useAuth>['hasPermission']>[0];
+  requiredRole?: UserRole;
 }
+
+// Import UserRole type from AuthContext to use it properly
+import { UserRole } from "@/contexts/AuthContext";
 
 export function MainNavigation() {
   const { user, hasPermission, hasSpecificPermission } = useAuth();
@@ -73,4 +76,3 @@ export function MainNavigation() {
     </nav>
   );
 }
-
