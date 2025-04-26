@@ -25,12 +25,12 @@ export function CategoryCard({ category, joinedGroups, onJoinGroup, onLeaveGroup
 
   return (
     <Card key={category.id} className="gosip-card overflow-hidden">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2 text-2xl">
+      <CardHeader className="pb-4">
+        <CardTitle className="flex items-center gap-2 text-2xl leading-relaxed">
           {category.icon}
           {category.name}
         </CardTitle>
-        <CardDescription className="text-base">
+        <CardDescription className="text-base leading-relaxed">
           {category.description}
         </CardDescription>
       </CardHeader>
@@ -38,7 +38,7 @@ export function CategoryCard({ category, joinedGroups, onJoinGroup, onLeaveGroup
         <Accordion type="single" collapsible className="w-full">
           {category.subcategories.map(subcategory => (
             <AccordionItem key={subcategory.id} value={subcategory.id}>
-              <AccordionTrigger className="text-lg font-medium">
+              <AccordionTrigger className="text-lg font-medium leading-relaxed py-4">
                 {subcategory.name} ({subcategory.groups.length})
               </AccordionTrigger>
               <AccordionContent>
@@ -47,9 +47,9 @@ export function CategoryCard({ category, joinedGroups, onJoinGroup, onLeaveGroup
                     <div key={group.id} className="border rounded-md p-4 bg-card/50">
                       <div className="flex justify-between items-start mb-2">
                         <div>
-                          <h4 className="font-semibold">{group.name}</h4>
-                          <p className="text-muted-foreground text-sm">{group.description}</p>
-                          <p className="text-xs mt-1">Members: {group.memberCount}</p>
+                          <h4 className="font-semibold leading-relaxed">{group.name}</h4>
+                          <p className="text-muted-foreground text-sm leading-relaxed">{group.description}</p>
+                          <p className="text-xs mt-1 leading-relaxed">Members: {group.memberCount}</p>
                         </div>
                         <div>
                           {joinedGroups.includes(group.id) ? (
