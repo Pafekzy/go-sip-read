@@ -23,24 +23,24 @@ const brands = [
     logo: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-black-icon.svg',
   },
   {
-    name: 'Udemy',
-    url: 'https://udemy.com',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e3/Udemy_logo.svg',
+    name: 'NameCheap',
+    url: 'https://namecheap.com',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Namecheap_Logo.svg/320px-Namecheap_Logo.svg.png',
   },
   {
-    name: 'Pluralsight',
-    url: 'https://pluralsight.com',
-    logo: '/lovable-uploads/580d35a0-ac53-4f29-bc45-13fb2b2b708e.png',
+    name: 'SemicolonAfrica',
+    url: 'https://semicolon.africa',
+    logo: 'https://icons8.com/icon/55831/semicolon',
   },
   {
-    name: 'Eduonix',
-    url: 'https://eduonix.com',
-    logo: '/lovable-uploads/55409a7e-8ada-4882-9e55-bba8650e6510.png',
+    name: 'OpenAI',
+    url: 'https://openai.com',
+    logo: 'https://openai.com/content/images/2025/02/openai-new-logo.png',
   },
   {
-    name: 'Skillshare',
-    url: 'https://skillshare.com',
-    logo: '/lovable-uploads/d06345cb-edb3-44af-ae17-e2533ae51e0d.png',
+    name: 'Z-library',
+    url: 'https://z-library.sk',
+    logo: 'https://z-lib.id/img/logo.png',
   },
 ];
 
