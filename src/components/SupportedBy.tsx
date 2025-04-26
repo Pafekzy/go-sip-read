@@ -23,14 +23,14 @@ const partners = [
     logo: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Coursera_logo.PNG"
   },
   {
-    name: "OpenAI",
-    url: "https://openai.com",
-    logo: "/lovable-uploads/e1f836d4-20af-4fe8-8ef9-628006351d44.png"
-  },
-  {
     name: "X",
     url: "https://x.com",
     logo: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-black-icon.svg"
+  },
+  {
+    name: "OpenAI",
+    url: "https://openai.com",
+    logo: "/lovable-uploads/e1f836d4-20af-4fe8-8ef9-628006351d44.png"
   },
   {
     name: "Google",
