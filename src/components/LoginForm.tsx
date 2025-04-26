@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 export function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +19,7 @@ export function LoginForm() {
       setIsLoading(false);
       toast({
         title: "Success!",
-        description: "You have successfully logged in.",
+        description: "You have successfully logged in."
       });
     }, 1500);
   };

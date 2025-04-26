@@ -21,7 +21,7 @@ export default function Accountability() {
   const handleStaking = () => {
     toast({
       title: "Amount Staked",
-      description: `₦${stakingAmount} has been staked for your accountability goals`,
+      description: `₦${stakingAmount} has been staked for your accountability goals`
     });
   };
 
