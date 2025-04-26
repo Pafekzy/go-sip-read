@@ -19,7 +19,7 @@ interface NavItem {
   name: string;
   path: string;
   icon: React.ElementType;
-  requiredPermission?: keyof ReturnType<typeof useAuth>['hasSpecificPermission'] extends infer R ? R : never;
+  requiredPermission?: keyof ReturnType<typeof useAuth>['getPermissionsForRole']; 
   requiredRole?: Parameters<ReturnType<typeof useAuth>['hasPermission']>[0];
 }
 

@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Users, UserPlus, Settings, Shield } from "lucide-react";
+import { Users, UserPlus, Settings, Shield, Award } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import { PrefixGuide } from "@/components/groups/PrefixGuide";
