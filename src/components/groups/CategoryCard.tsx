@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { 
@@ -24,17 +23,29 @@ export function CategoryCard({ category, joinedGroups, onJoinGroup, onLeaveGroup
   const { toast } = useToast();
 
   return (
-    <Card key={category.id} className="gosip-card overflow-hidden">
-      <CardHeader className="pb-4">
-        <CardTitle className="flex items-center gap-2 text-2xl leading-relaxed">
+    <Card key={category.id} className="gosip-card overflow-visible">
+      <CardHeader className="pb-4 overflow-visible">
+        <CardTitle 
+          className="flex items-center gap-2 text-2xl leading-relaxed overflow-visible" 
+          style={{ 
+            lineHeight: 1.3, 
+            paddingBottom: '0.25rem' 
+          }}
+        >
           {category.icon}
           {category.name}
         </CardTitle>
-        <CardDescription className="text-base leading-relaxed">
+        <CardDescription 
+          className="text-base leading-relaxed overflow-visible"
+          style={{ 
+            lineHeight: 1.3, 
+            paddingBottom: '0.25rem' 
+          }}
+        >
           {category.description}
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="overflow-visible">
         <Accordion type="single" collapsible className="w-full">
           {category.subcategories.map(subcategory => (
             <AccordionItem key={subcategory.id} value={subcategory.id}>
