@@ -45,7 +45,7 @@ const partners = [
   {
     name: "Namecheap",
     url: "https://namecheap.com",
-    logo: "/lovable-uploads/8b4853d8-54ae-40f2-9423-7be1f2e857eb.png"
+    logo: "/lovable-uploads/b1dc74fe-152e-4b06-b8ef-63f84a9860c3.png"
   }
 ];
 
@@ -70,7 +70,7 @@ export function SupportedBy() {
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className={`${partner.name === 'Namecheap' ? 'w-[50%]' : 'w-[80px]'} object-contain transition-[filter] duration-400 ease-in-out ${
+                className={`w-[80px] object-contain transition-[filter] duration-400 ease-in-out ${
                   theme === 'dark' 
                     ? 'hover:brightness-[1.3]' 
                     : 'hover:brightness-[1.1]'
