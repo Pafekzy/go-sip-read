@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const brands = [
@@ -31,11 +30,6 @@ const brands = [
     name: 'SemicolonAfrica',
     url: 'https://semicolon.africa',
     logo: 'https://logo.clearbit.com/semicolon.africa',
-  },
-  {
-    name: 'OpenAI',
-    url: 'https://openai.com',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/OpenAI_Logo.svg/320px-OpenAI_Logo.svg.png',
   },
   {
     name: 'Z-library',
