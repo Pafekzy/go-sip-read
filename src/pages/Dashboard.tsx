@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Sidebar } from "@/components/Sidebar";
@@ -15,7 +16,7 @@ const recentContent = [
     title: "Atomic Habits",
     author: "James Clear",
     type: "book" as const,
-    progress: 65,
+    progress: 0,
     image: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=500&q=80",
   },
   {
@@ -23,7 +24,7 @@ const recentContent = [
     title: "The Science of Learning",
     author: "Learning Lab",
     type: "podcast" as const,
-    progress: 30,
+    progress: 0,
     image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=500&q=80",
   },
   {
@@ -31,7 +32,7 @@ const recentContent = [
     title: "How to Learn Anything Fast",
     author: "Jim Kwik",
     type: "video" as const,
-    progress: 100,
+    progress: 0,
     image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=500&q=80",
   },
   {
@@ -39,7 +40,7 @@ const recentContent = [
     title: "Deep Work",
     author: "Cal Newport",
     type: "book" as const,
-    progress: 20,
+    progress: 0,
     image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=500&q=80",
   },
 ];
