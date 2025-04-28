@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -15,6 +14,7 @@ import Videos from "./pages/Videos";
 import AiAssistant from "./pages/AiAssistant";
 import Achievements from "./pages/Achievements";
 import Groups from "./pages/Groups";
+import Register from "./pages/Register";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -29,6 +29,7 @@ const App = () => {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/register" element={<Register />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/books" element={<Books />} />
               <Route path="/early-learning" element={<EarlyLearning />} />

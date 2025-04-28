@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
@@ -8,9 +7,15 @@ import { VisionSection } from "@/components/home/VisionSection";
 import { BenefitsSection } from "@/components/home/BenefitsSection";
 import { FeaturesSection } from "@/components/home/FeaturesSection";
 import { SupportedBrands } from "@/components/SupportedBrands";
+import { useNavigate } from "react-router-dom";
 
 export default function Index() {
   const [showLogin, setShowLogin] = useState(false);
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate('/register');
+  };
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -25,7 +30,7 @@ export default function Index() {
           </Button>
           <Button 
             className="bg-gosip-purple hover:bg-gosip-purple-dark"
-            onClick={() => setShowLogin(true)}
+            onClick={handleGetStarted}
           >
             Get Started
           </Button>
@@ -47,7 +52,7 @@ export default function Index() {
           </div>
         ) : (
           <>
-            <HeroSection onGetStarted={() => setShowLogin(true)} />
+            <HeroSection onGetStarted={handleGetStarted} />
             <VisionSection />
             <BenefitsSection />
             <FeaturesSection />

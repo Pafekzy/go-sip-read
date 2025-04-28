@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/components/ui/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -16,7 +17,18 @@ export function LoginForm() {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate login process
+    // Check restricted admin types
+    if (["gosipstaff", "productivityguru", "techmentor"].includes(adminType)) {
+      toast({
+        title: "Access Restricted",
+        description: "Only GoSipStaff can upgrade you to this Admin Level",
+        variant: "destructive",
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    // Proceed with login for user or group admin
     setTimeout(() => {
       setIsLoading(false);
       toast({
@@ -91,6 +103,13 @@ export function LoginForm() {
                   required
                   className="gosip-input"
                 />
+                {["gosipstaff", "productivityguru", "techmentor"].includes(adminType) && (
+                  <Alert>
+                    <AlertDescription>
+                      Only GoSipStaff can upgrade you to this Admin Level
+                    </AlertDescription>
+                  </Alert>
+                )}
                 <Button
                   type="submit"
                   className="w-full bg-gradient-to-r from-gosip-purple to-gosip-purple-dark hover:opacity-90"
