@@ -1,53 +1,106 @@
 
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import React from "react";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { BookOpen, Headphones, Video } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface ContentCardProps {
+  id: number;
   title: string;
   author: string;
   type: "book" | "podcast" | "video";
   progress: number;
-  image?: string;
+  image: string;
 }
 
-export function ContentCard({ title, author, type, progress, image }: ContentCardProps) {
-  const typeColors = {
-    book: "bg-gosip-soft-blue",
-    podcast: "bg-gosip-soft-pink",
-    video: "bg-gosip-soft-orange",
+export function ContentCard({ id, title, author, type, progress, image }: ContentCardProps) {
+  const getIcon = () => {
+    switch (type) {
+      case "book":
+        return <BookOpen className="h-4 w-4" />;
+      case "podcast":
+        return <Headphones className="h-4 w-4" />;
+      case "video":
+        return <Video className="h-4 w-4" />;
+    }
   };
-  
-  const typeText = {
-    book: "Book",
-    podcast: "Podcast",
-    video: "Video",
+
+  const handleContinue = async () => {
+    try {
+      // Get current user
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.user) {
+        toast({
+          title: "Not logged in",
+          description: "Please log in to track your progress",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Record progress
+      const today = new Date().toISOString().split('T')[0];
+      const { data: existingProgress } = await supabase
+        .from('learning_progress')
+        .select('*')
+        .eq('user_id', session.user.id)
+        .eq('date', today)
+        .single();
+
+      if (existingProgress) {
+        // Add some minutes to existing progress
+        await supabase
+          .from('learning_progress')
+          .update({ minutes_spent: existingProgress.minutes_spent + 10 })
+          .eq('id', existingProgress.id);
+      } else {
+        // Create new progress entry
+        await supabase
+          .from('learning_progress')
+          .insert([
+            { user_id: session.user.id, minutes_spent: 10, date: today }
+          ]);
+      }
+
+      toast({
+        title: "Progress tracked",
+        description: "10 minutes added to your daily progress",
+      });
+    } catch (error) {
+      console.error("Error tracking progress:", error);
+    }
   };
 
   return (
-    <Card className="overflow-hidden transition-all hover:shadow-md">
-      <div className="aspect-[3/2] relative overflow-hidden">
-        <img
-          src={image || "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=500&q=80"}
-          alt={title}
-          className="w-full h-full object-cover"
-        />
-        <Badge className={`absolute top-2 right-2 ${typeColors[type]}`}>
-          {typeText[type]}
-        </Badge>
-      </div>
-      <CardHeader className="pb-2">
-        <CardTitle className="text-lg line-clamp-1">{title}</CardTitle>
-      </CardHeader>
-      <CardContent className="pb-2">
-        <p className="text-sm text-muted-foreground">by {author}</p>
-      </CardContent>
-      <CardFooter className="flex flex-col items-start gap-2">
-        <div className="flex justify-between w-full text-xs">
-          <span>Progress</span>
-          <span>{progress}%</span>
+    <Card className="overflow-hidden h-full flex flex-col">
+      <div
+        className="h-36 bg-cover bg-center"
+        style={{ backgroundImage: `url(${image})` }}
+      />
+      <CardContent className="p-4 flex-1">
+        <div className="mb-2 flex items-center gap-2">
+          <span className="text-xs font-medium uppercase text-muted-foreground bg-secondary px-2 py-0.5 rounded flex items-center gap-1">
+            {getIcon()}
+            {type}
+          </span>
         </div>
-        <Progress value={progress} className="h-2 w-full" />
+        <h3 className="font-semibold">{title}</h3>
+        <p className="text-sm text-muted-foreground">{author}</p>
+      </CardContent>
+      <CardFooter className="block p-4 pt-0">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-xs font-medium">Progress</span>
+          <span className="text-xs text-muted-foreground">{progress}%</span>
+        </div>
+        <Progress value={progress} className="h-2" />
+        <button 
+          className="w-full mt-4 text-center text-sm text-gosip-purple hover:underline"
+          onClick={handleContinue}
+        >
+          Continue
+        </button>
       </CardFooter>
     </Card>
   );
