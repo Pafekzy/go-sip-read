@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const brands = [
@@ -59,7 +58,7 @@ export function SupportedBrands() {
   return (
     <section id="supported-brands" className="py-12 border-t">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold text-center mb-8">Supported By</h2>
+        <h2 className="text-2xl font-bold text-center mb-8">Check Brands Supporting Us</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
           {brands.map((brand) => (
             <a
