@@ -45,7 +45,7 @@ export function ProgressStats() {
         const today = new Date();
         const dates = Array.from({ length: 7 }, (_, i) => {
           const date = new Date(today);
-          date.setDate(today.getDate() - (6 - i)); // Starting 6 days ago
+          date.setDate(today.getDate() - (6 - i));
           return date;
         });
 
@@ -56,19 +56,14 @@ export function ProgressStats() {
         }));
 
         // Get user progress from database
-        const { data, error } = await supabase
+        const { data } = await supabase
           .from('learning_progress')
           .select('*')
           .eq('user_id', user.id)
           .gte('date', formattedDates[0].formatted)
           .lte('date', formattedDates[6].formatted);
 
-        if (error) {
-          console.error("Error fetching progress:", error);
-          throw error;
-        }
-
-        // Map dates to progress data
+        // Map dates to progress data, defaulting to 0 minutes for days without progress
         const progressByDate = formattedDates.map(dateObj => {
           const matchingProgress = data?.find(item => 
             new Date(item.date).toISOString().split('T')[0] === dateObj.formatted
