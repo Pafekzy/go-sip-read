@@ -13,7 +13,7 @@ export function HeroSection({ onGetStarted }: HeroSectionProps) {
         <div className="max-w-4xl mx-auto text-center">
           <div className="heading-container py-2">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight gosip-gradient-text">
-              Your AI-Powered Self-Development Companion
+              GoSipRead Your Hybrid Development Companion
             </h1>
           </div>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
