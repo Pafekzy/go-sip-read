@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Sidebar } from "@/components/Sidebar";
@@ -6,8 +5,9 @@ import { ProgressStats } from "@/components/dashboard/ProgressStats";
 import { ContentCard } from "@/components/dashboard/ContentCard";
 import { QuoteCard } from "@/components/dashboard/QuoteCard";
 import { AiChatCard } from "@/components/dashboard/AiChatCard";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const recentContent = [
   {
@@ -62,6 +62,7 @@ const quotes = [
 export default function Dashboard() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [quoteIndex, setQuoteIndex] = useState(0);
+  const navigate = useNavigate();
 
   const nextQuote = () => {
     setQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
@@ -69,6 +70,10 @@ export default function Dashboard() {
 
   const prevQuote = () => {
     setQuoteIndex((prevIndex) => (prevIndex - 1 + quotes.length) % quotes.length);
+  };
+
+  const handleGoHome = () => {
+    navigate('/');
   };
 
   return (
@@ -81,11 +86,21 @@ export default function Dashboard() {
         <Navbar />
         <div className="container mx-auto px-4 py-8">
           <div className="flex items-center justify-between mb-8">
-            <div>
-              <h1 className="text-3xl font-bold mb-1">Welcome back!</h1>
-              <p className="text-muted-foreground">
-                Continue your learning journey
-              </p>
+            <div className="flex items-center gap-4">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={handleGoHome}
+                className="shrink-0"
+              >
+                <Home className="h-4 w-4" />
+              </Button>
+              <div>
+                <h1 className="text-3xl font-bold mb-1">Welcome back!</h1>
+                <p className="text-muted-foreground">
+                  Continue your learning journey
+                </p>
+              </div>
             </div>
             <Button 
               variant="outline" 
