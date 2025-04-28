@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
@@ -35,8 +34,7 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <header className="container mx-auto py-4 px-4 flex justify-between items-center">
-        <Logo />
+      <header className="container mx-auto py-4 px-4 flex justify-end items-center">
         <div className="space-x-2">
           <Button 
             variant="ghost" 
