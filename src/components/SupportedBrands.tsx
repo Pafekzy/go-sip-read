@@ -70,8 +70,8 @@ export function SupportedBrands() {
               className="hover:opacity-80 transition-opacity flex items-center justify-center w-full"
             >
               {imageErrors[brand.name] ? (
-                <div className="h-16 w-full flex items-center justify-center bg-gray-100 rounded">
-                  {brand.name}
+                <div className="h-16 w-full flex items-center justify-center">
+                  <span className="font-bold italic text-gosip-purple text-xl">OpenAI</span>
                 </div>
               ) : (
                 <img
@@ -89,3 +89,4 @@ export function SupportedBrands() {
     </section>
   );
 }
+
