@@ -3,11 +3,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useProgressData } from "@/hooks/useProgressData";
 import { ProgressChart } from "./ProgressChart";
 import { AddProgressButton } from "./AddProgressButton";
+import { ProgressUpdateFunction } from "@/types/progress";
 
 export function ProgressStats() {
   const { progressData, loading, user, setProgressData } = useProgressData();
 
-  const handleProgressUpdate = (date: string, minutes: number) => {
+  const handleProgressUpdate: ProgressUpdateFunction = (date, minutes) => {
     setProgressData(prev => 
       prev.map(item => 
         item.date === date 

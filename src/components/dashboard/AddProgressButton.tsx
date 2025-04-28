@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/button";
 import { PlusCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import { User } from "@supabase/supabase-js";
+import { ProgressUpdateFunction } from "@/types/progress";
 
 interface AddProgressButtonProps {
-  user: any;
-  onProgressUpdate: (date: string, minutes: number) => void;
+  user: User;
+  onProgressUpdate: ProgressUpdateFunction;
 }
 
 export function AddProgressButton({ user, onProgressUpdate }: AddProgressButtonProps) {

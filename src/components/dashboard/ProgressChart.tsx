@@ -1,11 +1,8 @@
-
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { ProgressData } from "@/types/progress";
 
 interface ProgressChartProps {
-  data: Array<{
-    name: string;
-    minutes: number;
-  }>;
+  data: ProgressData[];
 }
 
 export function ProgressChart({ data }: ProgressChartProps) {

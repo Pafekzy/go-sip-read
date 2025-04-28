@@ -1,12 +1,13 @@
-
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import { ProgressData } from "@/types/progress";
+import { User } from "@supabase/supabase-js";
 
 export function useProgressData() {
-  const [progressData, setProgressData] = useState<any[]>([]);
+  const [progressData, setProgressData] = useState<ProgressData[]>([]);
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
 
   // Check for authenticated user
   useEffect(() => {
@@ -28,7 +29,7 @@ export function useProgressData() {
     };
   }, []);
 
-  // Fetch user progress data
+  // Update the fetch progress data function with proper typing
   useEffect(() => {
     async function fetchProgressData() {
       if (!user) {
@@ -57,7 +58,7 @@ export function useProgressData() {
           .gte('date', formattedDates[0].formatted)
           .lte('date', formattedDates[6].formatted);
 
-        const progressByDate = formattedDates.map(dateObj => {
+        const progressByDate: ProgressData[] = formattedDates.map(dateObj => {
           const matchingProgress = data?.find(item => 
             new Date(item.date).toISOString().split('T')[0] === dateObj.formatted
           );
