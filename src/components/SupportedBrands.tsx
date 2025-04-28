@@ -34,7 +34,7 @@ const brands = [
   {
     name: 'OpenAI',
     url: 'https://openai.com',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/OpenAI_Logo.svg/320px-OpenAI_Logo.svg.png',
+    logo: '/lovable-uploads/05837980-b0ad-4090-8dd9-605032720031.png',
   },
   {
     name: 'Z-library',
