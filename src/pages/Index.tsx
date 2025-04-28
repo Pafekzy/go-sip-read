@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Index() {
   const [showLogin, setShowLogin] = useState(false);
-  const [loginTab, setLoginTab] = useState("user");  // Default to user login tab
+  const [loginTab, setLoginTab] = useState<"user" | "admin">("user");  // Specify the type explicitly
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
