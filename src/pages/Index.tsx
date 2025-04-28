@@ -29,6 +29,10 @@ export default function Index() {
     setShowLogin(true);
   };
 
+  const handleDashboard = () => {
+    navigate('/dashboard');
+  };
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <header className="container mx-auto py-4 px-4 flex justify-between items-center">
@@ -45,6 +49,12 @@ export default function Index() {
             onClick={handleAdminLogin}
           >
             Admin Login
+          </Button>
+          <Button 
+            variant="ghost"
+            onClick={handleDashboard}
+          >
+            Dashboard
           </Button>
           <Button 
             className="bg-gosip-purple hover:bg-gosip-purple-dark"
