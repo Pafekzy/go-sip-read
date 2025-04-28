@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
@@ -11,10 +12,21 @@ import { useNavigate } from "react-router-dom";
 
 export default function Index() {
   const [showLogin, setShowLogin] = useState(false);
+  const [loginTab, setLoginTab] = useState("user");  // Default to user login tab
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
     navigate('/register');
+  };
+
+  const handleUserLogin = () => {
+    setLoginTab("user");
+    setShowLogin(true);
+  };
+
+  const handleAdminLogin = () => {
+    setLoginTab("admin");
+    setShowLogin(true);
   };
 
   return (
@@ -24,15 +36,21 @@ export default function Index() {
         <div className="space-x-2">
           <Button 
             variant="ghost" 
-            onClick={() => setShowLogin(true)}
+            onClick={handleUserLogin}
           >
-            Login
+            User Login
+          </Button>
+          <Button 
+            variant="ghost" 
+            onClick={handleAdminLogin}
+          >
+            Admin Login
           </Button>
           <Button 
             className="bg-gosip-purple hover:bg-gosip-purple-dark"
             onClick={handleGetStarted}
           >
-            Get Started
+            Register
           </Button>
         </div>
       </header>
@@ -40,7 +58,7 @@ export default function Index() {
       <main className="flex-1">
         {showLogin ? (
           <div className="container mx-auto px-4 py-10">
-            <LoginForm />
+            <LoginForm defaultTab={loginTab} />
             <div className="text-center mt-6">
               <Button
                 variant="link"

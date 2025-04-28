@@ -8,7 +8,11 @@ import { useToast } from "@/components/ui/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 
-export function LoginForm() {
+interface LoginFormProps {
+  defaultTab?: "user" | "admin";
+}
+
+export function LoginForm({ defaultTab = "user" }: LoginFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [adminType, setAdminType] = useState("");
   const { toast } = useToast();
@@ -40,7 +44,7 @@ export function LoginForm() {
 
   return (
     <Card className="w-full max-w-md mx-auto">
-      <Tabs defaultValue="user" className="w-full">
+      <Tabs defaultValue={defaultTab} className="w-full">
         <CardHeader>
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="user">User Login</TabsTrigger>
