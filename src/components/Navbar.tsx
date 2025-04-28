@@ -1,10 +1,10 @@
-
 import { useState } from "react";
 import { Bell, Menu, MessageCircle, Search, User, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "./Logo";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,11 +62,13 @@ export function Navbar() {
                   <User className="mr-2 h-4 w-4" />
                   Profile
                 </Button>
+                <ThemeToggle />
               </div>
             )}
           </>
         ) : (
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             <Button variant="ghost" size="icon">
               <MessageCircle className="h-5 w-5" />
             </Button>
