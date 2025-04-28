@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 const brands = [
@@ -35,6 +36,11 @@ const brands = [
     name: 'Z-library',
     url: 'https://z-library.sk',
     logo: 'https://z-lib.id/img/logo.png',
+  },
+  {
+    name: 'OpenAI',
+    url: 'https://openai.com',
+    logo: '/lovable-uploads/031989b3-2045-45e2-8f3e-6e309c223f61.png',
   },
 ];
 
