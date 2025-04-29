@@ -1,6 +1,10 @@
 
-import { BookOpen, Headphones, Film, MessageCircle, Award, Users } from "lucide-react";
+import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Brain } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { useState, useEffect } from "react";
+import { toast } from "@/hooks/use-toast";
 
 const features = [
   {
@@ -45,9 +49,49 @@ const features = [
     color: "bg-gosip-soft-yellow",
     path: "/groups",
   },
+  {
+    title: "Practice Present Mindedness",
+    description: "Improve focus and mental clarity through mindfulness games and exercises.",
+    icon: Brain,
+    color: "bg-gosip-soft-blue",
+    path: "/mindfulness",
+  },
 ];
 
 export function FeaturesSection() {
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const checkUser = async () => {
+      const { data } = await supabase.auth.getSession();
+      setUser(data.session?.user || null);
+    };
+
+    checkUser();
+
+    const { data: authListener } = supabase.auth.onAuthStateChange((_, session) => {
+      setUser(session?.user || null);
+    });
+
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
+  }, []);
+
+  const handleFeatureClick = (path, needsAuth) => (e) => {
+    if (needsAuth && !user) {
+      e.preventDefault();
+      toast({
+        title: "Authentication Required",
+        description: "Please register or sign in to access this feature.",
+        variant: "destructive",
+      });
+      navigate("/register");
+      return false;
+    }
+  };
+
   return (
     <section className="py-16 bg-gradient-to-b from-background to-gosip-soft-purple/30">
       <div className="container mx-auto px-4">
@@ -56,7 +100,12 @@ export function FeaturesSection() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <Link to={feature.path} key={index} className="block hover:scale-105 transition-transform">
+            <Link 
+              to={feature.path} 
+              key={index} 
+              className="block hover:scale-105 transition-transform"
+              onClick={handleFeatureClick(feature.path, feature.title === "Practice Present Mindedness")}
+            >
               <div className="gosip-card flex flex-col items-center text-center">
                 <div className={`p-4 rounded-full ${feature.color} mb-4`}>
                   <feature.icon className="h-6 w-6 text-gosip-purple-dark" />

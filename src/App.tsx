@@ -18,6 +18,7 @@ import AiAssistant from "./pages/AiAssistant";
 import Achievements from "./pages/Achievements";
 import Groups from "./pages/Groups";
 import Register from "./pages/Register";
+import Mindfulness from "./pages/Mindfulness";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -43,6 +44,7 @@ const App = () => {
                 <Route path="/ai-assistant" element={<AiAssistant />} />
                 <Route path="/achievements" element={<Achievements />} />
                 <Route path="/groups" element={<Groups />} />
+                <Route path="/mindfulness" element={<Mindfulness />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
