@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
-import { Brain, Wind, Tree, Circle, Music } from "lucide-react";
+import { Brain, Wind, Trees, Circle, Music } from "lucide-react";
 
 export default function Mindfulness() {
   const navigate = useNavigate();
@@ -57,7 +57,7 @@ export default function Mindfulness() {
       id: "forest_focus",
       name: "Forest Focus",
       description: "Immerse yourself in a virtual forest to enhance your concentration and awareness.",
-      icon: Tree,
+      icon: Trees,
       color: "bg-gosip-soft-green",
       comingSoon: true,
     },

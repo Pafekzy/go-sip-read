@@ -9,6 +9,114 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      breathsync_scores: {
+        Row: {
+          duration_seconds: number
+          id: string
+          level: number
+          played_at: string
+          score: number
+          user_id: string
+        }
+        Insert: {
+          duration_seconds: number
+          id?: string
+          level?: number
+          played_at?: string
+          score: number
+          user_id: string
+        }
+        Update: {
+          duration_seconds?: number
+          id?: string
+          level?: number
+          played_at?: string
+          score?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      dot_zen_scores: {
+        Row: {
+          accuracy_percentage: number
+          id: string
+          level: number
+          played_at: string
+          score: number
+          user_id: string
+        }
+        Insert: {
+          accuracy_percentage: number
+          id?: string
+          level?: number
+          played_at?: string
+          score: number
+          user_id: string
+        }
+        Update: {
+          accuracy_percentage?: number
+          id?: string
+          level?: number
+          played_at?: string
+          score?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      echo_tap_scores: {
+        Row: {
+          id: string
+          level: number
+          played_at: string
+          reaction_time_ms: number
+          score: number
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          level?: number
+          played_at?: string
+          reaction_time_ms: number
+          score: number
+          user_id: string
+        }
+        Update: {
+          id?: string
+          level?: number
+          played_at?: string
+          reaction_time_ms?: number
+          score?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      forest_focus_scores: {
+        Row: {
+          duration_seconds: number
+          id: string
+          level: number
+          played_at: string
+          score: number
+          user_id: string
+        }
+        Insert: {
+          duration_seconds: number
+          id?: string
+          level?: number
+          played_at?: string
+          score: number
+          user_id: string
+        }
+        Update: {
+          duration_seconds?: number
+          id?: string
+          level?: number
+          played_at?: string
+          score?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
       learning_progress: {
         Row: {
           created_at: string | null
