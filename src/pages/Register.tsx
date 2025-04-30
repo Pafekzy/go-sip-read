@@ -7,10 +7,34 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { ArrowLeft } from "lucide-react";
+import { z } from "zod";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+
+// Create a schema for registration validation
+const registerSchema = z.object({
+  fullName: z.string().min(2, "Full name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
+  confirmPassword: z.string()
+}).refine(data => data.password === data.confirmPassword, {
+  message: "Passwords do not match",
+  path: ["confirmPassword"]
+});
+
+type RegisterFormData = z.infer<typeof registerSchema>;
 
 export default function Register() {
   const [isLoading, setIsLoading] = useState(false);
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+  const [formData, setFormData] = useState<RegisterFormData>({
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+  const [generalError, setGeneralError] = useState<string | null>(null);
+  
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -31,18 +55,113 @@ export default function Register() {
     checkAuth();
   }, [navigate]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    // Simulate registration process
-    setTimeout(() => {
-      setIsLoading(false);
-      toast({
-        title: "Success!",
-        description: "Registration successful. You can now login.",
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    
+    // Clear error when user types
+    if (formErrors[name]) {
+      setFormErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
       });
-    }, 1500);
+    }
+    
+    // Clear general error
+    if (generalError) {
+      setGeneralError(null);
+    }
+  };
+
+  const validateForm = (): boolean => {
+    try {
+      registerSchema.parse(formData);
+      setFormErrors({});
+      return true;
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const newErrors: Record<string, string> = {};
+        error.errors.forEach(err => {
+          if (err.path[0]) {
+            newErrors[err.path[0].toString()] = err.message;
+          }
+        });
+        setFormErrors(newErrors);
+      }
+      return false;
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) return;
+    
+    setIsLoading(true);
+    setGeneralError(null);
+
+    try {
+      // First check if the email already exists
+      const { data: existingUsers, error: checkError } = await supabase
+        .from('profiles')
+        .select('email')
+        .eq('email', formData.email)
+        .single();
+
+      if (checkError && checkError.code !== 'PGRST116') {
+        // PGRST116 means no results found, which is what we want
+        throw checkError;
+      }
+
+      if (existingUsers) {
+        toast({
+          title: "Account already exists",
+          description: "You have already been registered. Please sign in.",
+          variant: "destructive",
+        });
+        navigate("/"); // Redirect to login page
+        return;
+      }
+
+      // Register the user using Supabase Auth
+      const { data, error } = await supabase.auth.signUp({
+        email: formData.email,
+        password: formData.password,
+        options: {
+          data: {
+            full_name: formData.fullName
+          }
+        }
+      });
+
+      if (error) throw error;
+
+      // If successful
+      toast({
+        title: "Registration successful!",
+        description: "Your account has been created. You can now login.",
+      });
+      
+      // Redirect to login page
+      navigate("/");
+      
+    } catch (error: any) {
+      console.error("Registration error:", error);
+      
+      if (error.message?.includes("already registered")) {
+        toast({
+          title: "Account already exists",
+          description: "You have already been registered. Please sign in.",
+          variant: "destructive",
+        });
+        navigate("/"); // Redirect to login page
+      } else {
+        setGeneralError(error.message || "Failed to register. Please try again.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   // Show loading indicator while checking authentication
@@ -71,31 +190,69 @@ export default function Register() {
           </div>
         </CardHeader>
         <CardContent>
+          {generalError && (
+            <Alert variant="destructive" className="mb-4">
+              <AlertDescription>{generalError}</AlertDescription>
+            </Alert>
+          )}
+          
           <form onSubmit={handleSubmit} className="space-y-4">
-            <Input
-              type="text"
-              placeholder="Full Name"
-              required
-              className="gosip-input"
-            />
-            <Input
-              type="email"
-              placeholder="Email"
-              required
-              className="gosip-input"
-            />
-            <Input
-              type="password"
-              placeholder="Password"
-              required
-              className="gosip-input"
-            />
-            <Input
-              type="password"
-              placeholder="Confirm Password"
-              required
-              className="gosip-input"
-            />
+            <div>
+              <Input
+                type="text"
+                name="fullName"
+                placeholder="Full Name"
+                value={formData.fullName}
+                onChange={handleChange}
+                className={`gosip-input ${formErrors.fullName ? 'border-red-500' : ''}`}
+              />
+              {formErrors.fullName && (
+                <p className="text-xs text-red-500 mt-1">{formErrors.fullName}</p>
+              )}
+            </div>
+            
+            <div>
+              <Input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                className={`gosip-input ${formErrors.email ? 'border-red-500' : ''}`}
+              />
+              {formErrors.email && (
+                <p className="text-xs text-red-500 mt-1">{formErrors.email}</p>
+              )}
+            </div>
+            
+            <div>
+              <Input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                className={`gosip-input ${formErrors.password ? 'border-red-500' : ''}`}
+              />
+              {formErrors.password && (
+                <p className="text-xs text-red-500 mt-1">{formErrors.password}</p>
+              )}
+            </div>
+            
+            <div>
+              <Input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                className={`gosip-input ${formErrors.confirmPassword ? 'border-red-500' : ''}`}
+              />
+              {formErrors.confirmPassword && (
+                <p className="text-xs text-red-500 mt-1">{formErrors.confirmPassword}</p>
+              )}
+            </div>
+            
             <Button
               type="submit"
               className="w-full bg-gradient-to-r from-gosip-purple to-gosip-purple-dark hover:opacity-90"
