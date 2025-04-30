@@ -6,7 +6,7 @@ import { Home } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
-import FloatingCircles from "./FloatingCircles";
+import FloatingGiftBoxes from "./FloatingCircles";
 import RatingCard from "./RatingCard";
 import CommentsCard from "./CommentsCard";
 import { Comment } from "./CommentItem";
@@ -159,7 +159,7 @@ const FeedbackContainer: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background py-12 px-4 relative">
-      <FloatingCircles />
+      <FloatingGiftBoxes />
       
       <div className="container mx-auto max-w-4xl relative z-10">
         <div className="flex justify-between items-center mb-8">
