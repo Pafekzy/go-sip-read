@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -288,7 +287,7 @@ export default function Feedback() {
       {
         id: "1",
         userId: "user1",
-        userName: "John Doe",
+        userName: "Olamide Kate",
         text: "I really like the new mindfulness features. They've helped me stay focused during study sessions.",
         createdAt: new Date(Date.now() - 3600000).toISOString(),
         updatedAt: new Date(Date.now() - 3600000).toISOString(),
@@ -298,7 +297,7 @@ export default function Feedback() {
       {
         id: "2",
         userId: "user2",
-        userName: "Jane Smith",
+        userName: "Ogbehine Caleb",
         text: "The user interface is very intuitive. I'd love to see more customization options in the future.",
         createdAt: new Date(Date.now() - 7200000).toISOString(),
         updatedAt: new Date(Date.now() - 7200000).toISOString(),
