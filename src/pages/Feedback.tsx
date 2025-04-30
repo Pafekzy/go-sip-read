@@ -406,14 +406,11 @@ export default function Feedback() {
       <div className="container mx-auto max-w-4xl relative z-10">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-4xl font-bold text-center gosip-gradient-text">Join To Improve This Version 🫂</h1>
-          <Button 
-            variant="outline" 
-            as={Link} 
-            to="/"
-            className="flex items-center gap-2"
-          >
-            <Home className="h-4 w-4" />
-            Return To Home
+          <Button variant="outline" asChild>
+            <Link to="/" className="flex items-center gap-2">
+              <Home className="h-4 w-4" />
+              Return To Home
+            </Link>
           </Button>
         </div>
         
@@ -500,14 +497,11 @@ export default function Feedback() {
             </div>
           </CardContent>
           <CardFooter className="flex justify-center mt-6">
-            <Button 
-              variant="outline" 
-              as={Link} 
-              to="/"
-              className="flex items-center gap-2"
-            >
-              <Home className="h-4 w-4" />
-              Return To Home
+            <Button variant="outline" asChild>
+              <Link to="/" className="flex items-center gap-2">
+                <Home className="h-4 w-4" />
+                Return To Home
+              </Link>
             </Button>
           </CardFooter>
         </Card>
