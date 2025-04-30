@@ -1,23 +1,15 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { 
-  Card, 
-  CardHeader, 
-  CardTitle, 
-  CardContent, 
-  CardFooter 
-} from "@/components/ui/card";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Home, MessageCircle } from "lucide-react";
+import { Home } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
 import FloatingCircles from "./FloatingCircles";
-import StarRating from "./StarRating";
-import CommentItem, { Comment } from "./CommentItem";
-import { qualities } from "./constants";
+import RatingCard from "./RatingCard";
+import CommentsCard from "./CommentsCard";
+import { Comment } from "./CommentItem";
 
 const FeedbackContainer: React.FC = () => {
   const [ratings, setRatings] = useState<Record<number, number>>({});
@@ -128,6 +120,11 @@ const FeedbackContainer: React.FC = () => {
     setCommentText("");
   };
 
+  const handleCancelEdit = () => {
+    setEditingCommentId(null);
+    setCommentText("");
+  };
+
   const handleEditComment = (id: string) => {
     const comment = comments.find(c => c.id === id);
     if (comment) {
@@ -175,97 +172,24 @@ const FeedbackContainer: React.FC = () => {
           </Button>
         </div>
         
-        <Card className="mb-8 bg-card/80 backdrop-blur-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl">Rate Our App Features</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-muted-foreground mb-6">
-              Help us improve by rating these aspects of GoSipRead on a scale of 1-5 stars
-            </p>
-            <div className="grid gap-4">
-              {qualities.map((quality, index) => (
-                <StarRating
-                  key={index}
-                  quality={quality}
-                  qualityId={index}
-                  rating={ratings[index] || 0}
-                  onRatingChange={handleRatingChange}
-                />
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        <RatingCard 
+          ratings={ratings} 
+          onRatingChange={handleRatingChange} 
+        />
         
-        <Card className="mb-8 bg-card/80 backdrop-blur-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl flex items-center gap-2">
-              <MessageCircle className="h-6 w-6" />
-              Share Your Thoughts
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Textarea
-              placeholder="Tell us what you think about GoSipRead, or suggest improvements..."
-              value={commentText}
-              onChange={(e) => setCommentText(e.target.value)}
-              className="min-h-[100px]"
-            />
-          </CardContent>
-          <CardFooter className="flex justify-between">
-            {editingCommentId && (
-              <Button 
-                variant="outline" 
-                onClick={() => {
-                  setEditingCommentId(null);
-                  setCommentText("");
-                }}
-              >
-                Cancel
-              </Button>
-            )}
-            <div className="ml-auto">
-              <Button onClick={handleSubmitComment}>
-                {editingCommentId ? "Update Comment" : "Submit Feedback"}
-              </Button>
-            </div>
-          </CardFooter>
-        </Card>
-
-        <Card className="bg-card/80 backdrop-blur-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl">Community Feedback</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {comments.length === 0 ? (
-                <p className="text-center text-muted-foreground py-8">
-                  No comments yet. Be the first to share your thoughts!
-                </p>
-              ) : (
-                comments.map((comment) => (
-                  <CommentItem 
-                    key={comment.id} 
-                    comment={comment}
-                    currentUserId={user?.id}
-                    onEdit={handleEditComment}
-                    onDelete={handleDeleteComment}
-                    onLike={handleLikeComment}
-                    onDislike={handleDislikeComment}
-                  />
-                ))
-              )}
-            </div>
-          </CardContent>
-          <CardFooter className="flex justify-center mt-6">
-            <Button variant="outline" asChild>
-              <Link to="/" className="flex items-center gap-2">
-                <Home className="h-4 w-4" />
-                Return To Home
-              </Link>
-            </Button>
-          </CardFooter>
-        </Card>
+        <CommentsCard 
+          comments={comments}
+          commentText={commentText}
+          editingCommentId={editingCommentId}
+          currentUserId={user?.id}
+          onCommentTextChange={setCommentText}
+          onSubmitComment={handleSubmitComment}
+          onCancelEdit={handleCancelEdit}
+          onEditComment={handleEditComment}
+          onDeleteComment={handleDeleteComment}
+          onLikeComment={handleLikeComment}
+          onDislikeComment={handleDislikeComment}
+        />
       </div>
     </div>
   );
