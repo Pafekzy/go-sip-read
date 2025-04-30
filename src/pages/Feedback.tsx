@@ -3,10 +3,11 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/componen
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Star, Trash2, Edit, ThumbsUp, ThumbsDown, MessageCircle } from "lucide-react";
+import { Star, Trash2, Edit, ThumbsUp, ThumbsDown, MessageCircle, Home } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
+import { Link } from "react-router-dom";
 
 const qualities = [
   "Outstanding Performance",
@@ -403,7 +404,18 @@ export default function Feedback() {
       <FloatingCircles />
       
       <div className="container mx-auto max-w-4xl relative z-10">
-        <h1 className="text-4xl font-bold text-center mb-8 gosip-gradient-text">Join To Improve This Version 🫂</h1>
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-4xl font-bold text-center gosip-gradient-text">Join To Improve This Version 🫂</h1>
+          <Button 
+            variant="outline" 
+            as={Link} 
+            to="/"
+            className="flex items-center gap-2"
+          >
+            <Home className="h-4 w-4" />
+            Return To Home
+          </Button>
+        </div>
         
         <Card className="mb-8 bg-card/80 backdrop-blur-sm">
           <CardHeader>
@@ -487,6 +499,17 @@ export default function Feedback() {
               )}
             </div>
           </CardContent>
+          <CardFooter className="flex justify-center mt-6">
+            <Button 
+              variant="outline" 
+              as={Link} 
+              to="/"
+              className="flex items-center gap-2"
+            >
+              <Home className="h-4 w-4" />
+              Return To Home
+            </Button>
+          </CardFooter>
         </Card>
       </div>
     </div>
