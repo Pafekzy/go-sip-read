@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Bell, Menu, MessageCircle, Search, User, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -77,7 +78,7 @@ export function Navbar() {
             </Button>
             <Avatar>
               <AvatarImage src="" />
-              <AvatarFallback className="bg-gosip-purple text-white">US</AvatarFallback>
+              <AvatarFallback className="bg-gosip-purple text-white">9ja</AvatarFallback>
             </Avatar>
           </div>
         )}
