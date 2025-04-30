@@ -1,5 +1,4 @@
-
-import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Brain } from "lucide-react";
+import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Brain, HeartHandshake } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -55,6 +54,13 @@ const features = [
     icon: Brain,
     color: "bg-gosip-soft-blue",
     path: "/mindfulness",
+  },
+  {
+    title: "Join To Improve This Version🫂",
+    description: "Help us make GoSipRead better by providing feedback and suggestions.",
+    icon: HeartHandshake,
+    color: "bg-gosip-soft-pink",
+    path: "/feedback",
   },
 ];
 

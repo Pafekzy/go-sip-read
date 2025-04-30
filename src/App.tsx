@@ -20,6 +20,7 @@ import Groups from "./pages/Groups";
 import Register from "./pages/Register";
 import Mindfulness from "./pages/Mindfulness";
 import BreathSync from "./pages/mindfulness/BreathSync";
+import Feedback from "./pages/Feedback";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -47,6 +48,7 @@ const App = () => {
                 <Route path="/groups" element={<Groups />} />
                 <Route path="/mindfulness" element={<Mindfulness />} />
                 <Route path="/mindfulness/breathsync" element={<BreathSync />} />
+                <Route path="/feedback" element={<Feedback />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
