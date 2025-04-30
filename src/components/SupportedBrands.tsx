@@ -70,14 +70,14 @@ export function SupportedBrands() {
               className="hover:opacity-80 transition-opacity flex items-center justify-center w-full"
             >
               {imageErrors[brand.name] ? (
-                <div className="h-16 w-full flex items-center justify-center">
-                  <span className="font-bold italic text-gosip-purple text-xl">OpenAI</span>
+                <div className="h-6 w-full flex items-center justify-center">
+                  <span className="font-bold italic text-gosip-purple text-sm">OpenAI</span>
                 </div>
               ) : (
                 <img
                   src={brand.logo}
                   alt={`${brand.name} logo`}
-                  className="h-16 w-auto object-contain max-w-full"
+                  className="h-[35%] w-auto object-contain max-w-[35%]"
                   onError={() => handleImageError(brand.name)}
                   onLoad={() => handleImageLoad(brand.name)}
                 />
@@ -89,4 +89,3 @@ export function SupportedBrands() {
     </section>
   );
 }
-
