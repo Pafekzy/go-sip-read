@@ -23,31 +23,17 @@ export default function BreathSync() {
   const timerRef = useRef(null);
   const gameTimerRef = useRef(null);
 
-  // Check authentication
+  // Check authentication but don't require it
   useEffect(() => {
     const checkAuth = async () => {
       const { data } = await supabase.auth.getSession();
-      
-      if (!data.session) {
-        navigate("/");
-        toast({
-          title: "Authentication Required",
-          description: "Please register or sign in to play.",
-          variant: "destructive",
-        });
-        return;
-      }
-      
-      setUser(data.session.user);
+      setUser(data.session?.user || null);
       setLoading(false);
     };
 
     checkAuth();
 
     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_OUT') {
-        navigate("/");
-      }
       setUser(session?.user || null);
     });
 
@@ -94,7 +80,7 @@ export default function BreathSync() {
     if (timerRef.current) clearInterval(timerRef.current);
     if (gameTimerRef.current) clearInterval(gameTimerRef.current);
 
-    // Save score to database
+    // Save score to database only if user is logged in
     if (user) {
       try {
         const { error } = await supabase
@@ -120,6 +106,12 @@ export default function BreathSync() {
           variant: "destructive",
         });
       }
+    } else {
+      // Show message to non-authenticated users
+      toast({
+        title: "Score not saved",
+        description: "Create an account to save your scores and track your progress.",
+      });
     }
   };
 
@@ -233,6 +225,11 @@ export default function BreathSync() {
                   Follow the expanding and contracting circle. Hold spacebar when inhaling and release when exhaling.
                   Stay in sync with the rhythm to earn points.
                 </p>
+                {!user && (
+                  <p className="text-sm text-amber-600">
+                    Note: Sign in to save your scores and track progress over time.
+                  </p>
+                )}
                 <div className="flex justify-center">
                   <Button 
                     className="bg-gosip-purple hover:bg-gosip-purple-dark"
@@ -286,6 +283,15 @@ export default function BreathSync() {
           <CardFooter className="flex justify-between">
             {isPlaying && (
               <Button variant="destructive" onClick={endGame}>End Exercise</Button>
+            )}
+            {!isPlaying && !user && (
+              <Button 
+                variant="outline" 
+                className="ml-auto"
+                onClick={() => navigate("/register")}
+              >
+                Register to Save Scores
+              </Button>
             )}
           </CardFooter>
         </Card>
