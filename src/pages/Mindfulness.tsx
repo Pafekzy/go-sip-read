@@ -33,6 +33,14 @@ export default function Mindfulness() {
 
   const games = [
     {
+      id: "mindnumber",
+      name: "Mind Number",
+      description: "Test your pattern recognition skills by predicting the next number in sequences.",
+      icon: Brain,
+      color: "bg-gosip-soft-purple",
+      comingSoon: false,
+    },
+    {
       id: "breathsync",
       name: "Breath Sync",
       description: "Follow the rhythm to synchronize your breathing for improved focus and relaxation.",
@@ -49,14 +57,6 @@ export default function Mindfulness() {
       comingSoon: true,
     },
     {
-      id: "dot_zen",
-      name: "Dot Zen",
-      description: "Track moving dots with your eyes to practice sustained attention and mindfulness.",
-      icon: Circle,
-      color: "bg-gosip-soft-purple",
-      comingSoon: true,
-    },
-    {
       id: "echo_tap",
       name: "Echo Tap",
       description: "React to audio cues to improve your present-moment awareness and response time.",
@@ -67,7 +67,7 @@ export default function Mindfulness() {
   ];
 
   const handleGameSelect = (gameId) => {
-    if (gameId === "breathsync") {
+    if (gameId === "breathsync" || gameId === "mindnumber") {
       navigate(`/mindfulness/${gameId}`);
     }
   };

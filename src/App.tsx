@@ -20,6 +20,7 @@ import Groups from "./pages/Groups";
 import Register from "./pages/Register";
 import Mindfulness from "./pages/Mindfulness";
 import BreathSync from "./pages/mindfulness/BreathSync";
+import MindNumber from "./pages/mindfulness/MindNumber";
 import Feedback from "./pages/Feedback";
 
 // Create a client
@@ -48,6 +49,7 @@ const App = () => {
                 <Route path="/groups" element={<Groups />} />
                 <Route path="/mindfulness" element={<Mindfulness />} />
                 <Route path="/mindfulness/breathsync" element={<BreathSync />} />
+                <Route path="/mindfulness/mindnumber" element={<MindNumber />} />
                 <Route path="/feedback" element={<Feedback />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
