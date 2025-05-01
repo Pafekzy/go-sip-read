@@ -45,11 +45,11 @@ export const BreathingCircle = ({ isPlaying, breathPhase, inSync }: BreathingCir
     <div className="flex justify-center items-center h-64">
       <div 
         ref={circleRef}
-        className={`w-32 h-32 rounded-full transition-transform ${
+        className={`w-32 h-32 rounded-full transition-all duration-500 ${
           inSync 
-            ? "bg-gosip-soft-green border-4 border-green-500" 
+            ? "bg-gosip-soft-green border-4 border-green-500 shadow-lg shadow-green-200" 
             : "bg-gosip-soft-blue"
-        }`}
+        } ${breathPhase === "inhale" ? "animate-pulse" : ""}`}
       />
     </div>
   );

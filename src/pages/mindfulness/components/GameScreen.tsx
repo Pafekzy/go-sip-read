@@ -1,6 +1,7 @@
 
 import { BreathingCircle } from "./BreathingCircle";
 import { GameStats } from "./GameStats";
+import { useEffect, useState } from "react";
 
 interface GameScreenProps {
   score: number;
@@ -17,6 +18,23 @@ export const GameScreen = ({
   inSync,
   formatTime 
 }: GameScreenProps) => {
+  const [fadeIn, setFadeIn] = useState(false);
+  const [instruction, setInstruction] = useState("");
+
+  useEffect(() => {
+    setFadeIn(false);
+    
+    // Add a slight delay to make the transition smoother
+    const timer = setTimeout(() => {
+      setFadeIn(true);
+      setInstruction(breathPhase === "inhale" 
+        ? "Hold spacebar while inhaling..." 
+        : "Release spacebar while exhaling...");
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, [breathPhase]);
+
   return (
     <div className="text-center">
       <GameStats 
@@ -32,10 +50,8 @@ export const GameScreen = ({
         inSync={inSync} 
       />
       
-      <p className="mt-8 text-lg">
-        {breathPhase === "inhale" 
-          ? "Hold spacebar while inhaling..." 
-          : "Release spacebar while exhaling..."}
+      <p className={`mt-8 text-lg transition-all duration-500 ${fadeIn ? 'opacity-100' : 'opacity-0'}`}>
+        {instruction}
       </p>
     </div>
   );
