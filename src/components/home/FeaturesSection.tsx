@@ -1,3 +1,4 @@
+
 import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Brain, HeartHandshake } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -110,7 +111,7 @@ export function FeaturesSection() {
               to={feature.path} 
               key={index} 
               className="block hover:scale-105 transition-transform"
-              onClick={handleFeatureClick(feature.path, feature.title === "Practice Present Mindedness")}
+              onClick={handleFeatureClick(feature.path, false)}
             >
               <div className="gosip-card flex flex-col items-center text-center">
                 <div className={`p-4 rounded-full ${feature.color} mb-4`}>

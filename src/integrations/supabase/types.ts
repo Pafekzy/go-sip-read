@@ -170,7 +170,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      createGoSipGroup: {
+        Args: {
+          group_name: string
+          description: string
+          owner_id: string
+          avatar_image: string
+        }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never

@@ -16,26 +16,13 @@ export default function Mindfulness() {
     const checkAuth = async () => {
       setLoading(true);
       const { data } = await supabase.auth.getSession();
-      
-      if (!data.session) {
-        navigate("/");
-        toast({
-          title: "Authentication Required",
-          description: "Please register or sign in to access mindfulness exercises.",
-          variant: "destructive",
-        });
-      } else {
-        setUser(data.session.user);
-      }
+      setUser(data.session?.user || null);
       setLoading(false);
     };
 
     checkAuth();
 
     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_OUT') {
-        navigate("/");
-      }
       setUser(session?.user || null);
     });
 
@@ -80,17 +67,9 @@ export default function Mindfulness() {
   ];
 
   const handleGameSelect = (gameId) => {
-    if (!user) {
-      toast({
-        title: "Authentication Required",
-        description: "Please register or sign in to play this game.",
-        variant: "destructive",
-      });
-      navigate("/register");
-      return;
+    if (gameId === "breathsync") {
+      navigate(`/mindfulness/${gameId}`);
     }
-
-    navigate(`/mindfulness/${gameId}`);
   };
 
   if (loading) {
@@ -144,19 +123,30 @@ export default function Mindfulness() {
         </div>
 
         <div className="mt-10 text-center">
-          <Button 
-            variant="outline" 
-            onClick={() => navigate("/mindfulness/scores")}
-            className="mr-4"
-          >
-            View Past Scores
-          </Button>
-          <Button 
-            variant="outline" 
-            onClick={() => supabase.auth.signOut()}
-          >
-            Logout
-          </Button>
+          {user ? (
+            <div>
+              <Button 
+                variant="outline" 
+                onClick={() => navigate("/mindfulness/scores")}
+                className="mr-4"
+              >
+                View Past Scores
+              </Button>
+              <Button 
+                variant="outline" 
+                onClick={() => supabase.auth.signOut()}
+              >
+                Logout
+              </Button>
+            </div>
+          ) : (
+            <Button 
+              variant="outline" 
+              onClick={() => navigate("/register")}
+            >
+              Register to save progress
+            </Button>
+          )}
         </div>
       </div>
     </div>
