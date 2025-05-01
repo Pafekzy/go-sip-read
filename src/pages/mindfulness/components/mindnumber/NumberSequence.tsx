@@ -16,7 +16,7 @@ export const NumberSequence = ({ numbers, type, result }: NumberSequenceProps) =
           className={`
             w-12 h-12 flex items-center justify-center 
             rounded-md border-2 font-bold text-xl
-            ${index === numbers.length - 1 ? 'bg-gosip-soft-purple' : 'bg-gosip-soft-blue'}
+            ${index === numbers.length - 1 ? 'bg-accent' : 'bg-muted'}
             transition-all duration-300 hover:scale-110
           `}
         >
@@ -29,10 +29,10 @@ export const NumberSequence = ({ numbers, type, result }: NumberSequenceProps) =
           w-12 h-12 flex items-center justify-center 
           rounded-md border-2 border-dashed font-bold text-xl
           ${result === "correct" 
-            ? "border-green-500 bg-green-100 animate-pulse" 
+            ? "border-green-500 bg-green-100/30 dark:bg-green-950/30 animate-pulse" 
             : result === "incorrect" 
-              ? "border-red-500 bg-red-100 animate-pulse"
-              : "border-gray-300"}
+              ? "border-red-500 bg-red-100/30 dark:bg-red-950/30 animate-pulse"
+              : "border-border"}
           transition-all duration-300
         `}
       >

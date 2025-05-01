@@ -170,6 +170,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      creategosipgroup: {
+        Args: {
+          group_name: string
+          description: string
+          owner_id: string
+          avatar_image: string
+        }
+        Returns: undefined
+      }
       createGoSipGroup: {
         Args: {
           group_name: string

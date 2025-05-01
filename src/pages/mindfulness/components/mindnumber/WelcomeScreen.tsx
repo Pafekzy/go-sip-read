@@ -15,7 +15,7 @@ export const WelcomeScreen = ({ startGame, hasUser }: WelcomeScreenProps) => {
           Test your pattern recognition skills with Mind Number. You'll be shown a sequence of numbers and need to guess what comes next based on the pattern.
         </p>
         
-        <div className="bg-gosip-soft-blue p-4 rounded-md">
+        <div className="bg-accent p-4 rounded-md border border-border">
           <h3 className="font-medium mb-2">How to Play:</h3>
           <ul className="text-sm text-left space-y-2">
             <li>• You have <strong>60 seconds</strong> to score as many points as possible</li>
