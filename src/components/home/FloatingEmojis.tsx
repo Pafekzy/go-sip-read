@@ -63,7 +63,7 @@ const FloatingElement = ({ initialX, initialY, speed, size }: EmojiProps) => {
         transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
         willChange: "transform",
         transition: "transform 0.2s ease-out",
-        opacity: 0.35, 
+        opacity: 0.05, // Changed opacity from 0.35 to 0.05 (5%)
         filter: "drop-shadow(0 0 8px rgba(155, 135, 245, 0.8))",
         backgroundColor: "#9b87f5", 
       }}
