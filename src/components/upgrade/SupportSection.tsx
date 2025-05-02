@@ -16,13 +16,18 @@ export function SupportSection() {
   };
 
   return (
-    <div className="text-center">
+    <div className="bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 rounded-2xl shadow-2xl backdrop-blur-md p-8 text-white dark:text-purple-300 text-center">
       <h2 className="text-2xl font-bold mb-4">Still have questions?</h2>
-      <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
+      <p className="text-white/90 dark:text-purple-200 max-w-2xl mx-auto mb-6">
         Contact our team for detailed information about our plans and how they can benefit
         your learning journey.
       </p>
-      <RippleButton onClick={handleSupportClick}>Contact Support</RippleButton>
+      <RippleButton 
+        onClick={handleSupportClick}
+        className="hover:scale-105 transition-transform bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30"
+      >
+        Contact Support
+      </RippleButton>
     </div>
   );
 }
