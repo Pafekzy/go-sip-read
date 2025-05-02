@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { RippleButton } from "@/components/ui/ripple-button";
-import { Check, X, Gift, MessageSquare } from "lucide-react";
+import { Check, X, Gift, MessageSquare, Home } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface Feature {
   name: string;
@@ -26,6 +27,7 @@ interface PricingTier {
 
 export default function Upgrade() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
+  const navigate = useNavigate();
 
   const pricingData: PricingTier[] = [
     {
@@ -116,9 +118,24 @@ export default function Upgrade() {
     return price;
   };
 
+  const handleReturnHome = () => {
+    navigate('/');
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container max-w-7xl mx-auto px-4 py-8 md:py-16">
+        <div className="mb-8">
+          <RippleButton 
+            onClick={handleReturnHome}
+            variant="outline" 
+            className="hover:bg-secondary"
+          >
+            <Home className="mr-2 h-4 w-4" />
+            Return to Home
+          </RippleButton>
+        </div>
+        
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 gosip-gradient-text">
             Choose Your GoSipRead Plan
