@@ -22,6 +22,7 @@ import Mindfulness from "./pages/Mindfulness";
 import BreathSync from "./pages/mindfulness/BreathSync";
 import MindNumber from "./pages/mindfulness/MindNumber";
 import Feedback from "./pages/Feedback";
+import Upgrade from "./pages/Upgrade";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -35,7 +36,6 @@ const App = () => {
             <Toaster />
             <Sonner />
             <BrowserRouter>
-              <Navbar />
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/register" element={<Register />} />
@@ -51,6 +51,7 @@ const App = () => {
                 <Route path="/mindfulness/breathsync" element={<BreathSync />} />
                 <Route path="/mindfulness/mindnumber" element={<MindNumber />} />
                 <Route path="/feedback" element={<Feedback />} />
+                <Route path="/upgrade" element={<Upgrade />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>

@@ -6,9 +6,10 @@ import { ProgressStats } from "@/components/dashboard/ProgressStats";
 import { ContentCard } from "@/components/dashboard/ContentCard";
 import { QuoteCard } from "@/components/dashboard/QuoteCard";
 import { AiChatCard } from "@/components/dashboard/AiChatCard";
-import { ChevronLeft, ChevronRight, Home } from "lucide-react";
+import { ChevronLeft, ChevronRight, Home, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { RippleButton } from "@/components/ui/ripple-button";
 
 const recentContent = [
   {
@@ -77,6 +78,10 @@ export default function Dashboard() {
     navigate('/');
   };
 
+  const handleUpgrade = () => {
+    navigate('/upgrade');
+  };
+
   return (
     <div className="min-h-screen bg-background flex">
       <Sidebar 
@@ -103,14 +108,22 @@ export default function Dashboard() {
                 </p>
               </div>
             </div>
-            <Button 
-              variant="outline" 
-              size="icon"
-              onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-              className="hidden md:flex"
-            >
-              {sidebarCollapsed ? <ChevronRight /> : <ChevronLeft />}
-            </Button>
+            <div className="flex items-center gap-2">
+              <RippleButton 
+                onClick={handleUpgrade}
+                className="bg-gosip-purple-dark hover:bg-gosip-purple-darker shadow-lg hover:shadow-xl animate-pulse"
+              >
+                <Gift className="mr-1 h-4 w-4" /> Upgrade 🎁
+              </RippleButton>
+              <Button 
+                variant="outline" 
+                size="icon"
+                onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+                className="hidden md:flex"
+              >
+                {sidebarCollapsed ? <ChevronRight /> : <ChevronLeft />}
+              </Button>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">

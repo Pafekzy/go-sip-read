@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
@@ -8,6 +9,8 @@ import { BenefitsSection } from "@/components/home/BenefitsSection";
 import { FeaturesSection } from "@/components/home/FeaturesSection";
 import { SupportedBrands } from "@/components/SupportedBrands";
 import { useNavigate } from "react-router-dom";
+import { RippleButton } from "@/components/ui/ripple-button";
+import { Gift } from "lucide-react";
 
 export default function Index() {
   const [showLogin, setShowLogin] = useState(false);
@@ -30,6 +33,10 @@ export default function Index() {
 
   const handleDashboard = () => {
     navigate('/dashboard');
+  };
+
+  const handleUpgrade = () => {
+    navigate('/upgrade');
   };
 
   return (
@@ -60,6 +67,12 @@ export default function Index() {
           >
             Register
           </Button>
+          <RippleButton 
+            onClick={handleUpgrade}
+            className="bg-gosip-purple-dark hover:bg-gosip-purple-darker shadow-lg hover:shadow-xl animate-pulse"
+          >
+            <Gift className="mr-1 h-4 w-4" /> Upgrade 🎁
+          </RippleButton>
         </div>
       </header>
 
