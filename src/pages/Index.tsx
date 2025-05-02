@@ -41,7 +41,10 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <header className="container mx-auto py-4 px-4 flex justify-end items-center">
+      <header className="container mx-auto py-4 px-4 flex justify-between items-center">
+        <div className="flex items-center">
+          <Logo />
+        </div>
         <div className="space-x-2">
           <Button 
             variant="ghost" 
