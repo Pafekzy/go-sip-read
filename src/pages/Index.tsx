@@ -11,6 +11,7 @@ import { SupportedBrands } from "@/components/SupportedBrands";
 import { useNavigate } from "react-router-dom";
 import { RippleButton } from "@/components/ui/ripple-button";
 import { Gift } from "lucide-react";
+import { FloatingEmojis } from "@/components/home/FloatingEmojis";
 
 export default function Index() {
   const [showLogin, setShowLogin] = useState(false);
@@ -41,6 +42,9 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      {/* Add FloatingEmojis component here */}
+      <FloatingEmojis />
+      
       <header className="container mx-auto py-4 px-4 flex justify-between items-center">
         <div className="flex items-center">
           <Logo />
