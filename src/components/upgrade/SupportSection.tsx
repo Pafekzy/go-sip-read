@@ -4,11 +4,15 @@ import { toast } from "@/components/ui/use-toast";
 
 export function SupportSection() {
   const handleSupportClick = () => {
+    // Show toast notification
     toast({
       title: "Support Request",
-      description: "Our team will contact you shortly to answer your questions.",
+      description: "Redirecting you to our WhatsApp support group.",
       duration: 3000,
     });
+    
+    // Redirect to WhatsApp group link
+    window.open("https://chat.whatsapp.com/BCDPNyc6v7X2DtKM2oQ6PB", "_blank");
   };
 
   return (
