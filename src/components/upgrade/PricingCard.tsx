@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { RippleButton } from "@/components/ui/ripple-button";
-import { Check, X, Gift, MessageSquare } from "lucide-react";
+import { Check, X, Gift, MessageSquare, AlertTriangle } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 
 interface Feature {
@@ -47,16 +47,31 @@ export function PricingCard({
     let toastMessage = "";
     let toastTitle = "";
     
+    // Special handling for Group Admin and Tech Mentor tiers
+    if (name === "Group Admin" || name === "Tech Mentor") {
+      toastTitle = "Feature Coming Soon";
+      toastMessage = "🚧 Oops! This current version can't operate these features yet. Stay tuned! 😅";
+      
+      toast({
+        title: toastTitle,
+        description: toastMessage,
+        duration: 5000,
+      });
+      
+      return; // Stop further processing
+    }
+    
+    // Handle other pricing tiers as before
     switch (name) {
       case "Free Subscriber":
         toastTitle = "Current Plan";
         toastMessage = "You are already on the Free Subscriber plan.";
         break;
-      case "Group Admin":
+      case "Group Admin":  // This won't execute due to early return above
         toastTitle = "Group Admin Plan Selected";
         toastMessage = `Thank you for choosing the Group Admin plan! The ${billingCycle} plan costs ${formatPrice(price[billingCycle])}.`;
         break;
-      case "Tech Mentor":
+      case "Tech Mentor":  // This won't execute due to early return above
         toastTitle = "Tech Mentor Plan Selected";
         toastMessage = `Thank you for choosing the Tech Mentor plan! The ${billingCycle} plan costs ${formatPrice(price[billingCycle])}.`;
         break;
@@ -147,7 +162,11 @@ export function PricingCard({
             }`}
             onClick={handleUpgradeClick}
           >
-            {name !== "Free Subscriber" && <Gift className="mr-2 h-4 w-4" />}
+            {name === "Group Admin" || name === "Tech Mentor" ? (
+              <AlertTriangle className="mr-2 h-4 w-4" />
+            ) : name !== "Free Subscriber" ? (
+              <Gift className="mr-2 h-4 w-4" />
+            ) : null}
             {buttonText}
           </RippleButton>
         )}
