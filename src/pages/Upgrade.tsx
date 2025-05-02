@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { RippleButton } from "@/components/ui/ripple-button";
-import { Check, X, Gift, WhatsApp } from "lucide-react";
+import { Check, X, Gift, MessageSquare } from "lucide-react";
 
 interface Feature {
   name: string;
@@ -211,7 +211,7 @@ export default function Upgrade() {
                       className="w-full bg-green-600 hover:bg-green-700"
                       rippleColor="rgba(255, 255, 255, 0.5)"
                     >
-                      <WhatsApp className="mr-2 h-4 w-4" />
+                      <MessageSquare className="mr-2 h-4 w-4" />
                       {tier.buttonText}
                     </RippleButton>
                   </a>
