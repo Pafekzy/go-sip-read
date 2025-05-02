@@ -2,6 +2,7 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { RippleButton } from "@/components/ui/ripple-button";
 import { Check, X, Gift, MessageSquare } from "lucide-react";
+import { toast } from "@/components/ui/use-toast";
 
 interface Feature {
   name: string;
@@ -40,6 +41,39 @@ export function PricingCard({
       return `₦${price.toLocaleString()}`;
     }
     return price;
+  };
+
+  const handleUpgradeClick = () => {
+    let toastMessage = "";
+    let toastTitle = "";
+    
+    switch (name) {
+      case "Free Subscriber":
+        toastTitle = "Current Plan";
+        toastMessage = "You are already on the Free Subscriber plan.";
+        break;
+      case "Group Admin":
+        toastTitle = "Group Admin Plan Selected";
+        toastMessage = `Thank you for choosing the Group Admin plan! The ${billingCycle} plan costs ${formatPrice(price[billingCycle])}.`;
+        break;
+      case "Tech Mentor":
+        toastTitle = "Tech Mentor Plan Selected";
+        toastMessage = `Thank you for choosing the Tech Mentor plan! The ${billingCycle} plan costs ${formatPrice(price[billingCycle])}.`;
+        break;
+      case "Productivity Guru":
+        toastTitle = "Enterprise Plan";
+        toastMessage = "You'll be redirected to WhatsApp to discuss custom pricing for the Productivity Guru plan.";
+        break;
+      default:
+        toastTitle = "Plan Selected";
+        toastMessage = `Thank you for selecting the ${name} plan!`;
+    }
+    
+    toast({
+      title: toastTitle,
+      description: toastMessage,
+      duration: 5000,
+    });
   };
 
   return (
@@ -92,6 +126,7 @@ export function PricingCard({
             target="_blank" 
             rel="noreferrer" 
             className="w-full"
+            onClick={handleUpgradeClick}
           >
             <RippleButton
               className="w-full bg-green-600 hover:bg-green-700"
@@ -110,6 +145,7 @@ export function PricingCard({
                 ? "bg-secondary hover:bg-secondary/80"
                 : ""
             }`}
+            onClick={handleUpgradeClick}
           >
             {name !== "Free Subscriber" && <Gift className="mr-2 h-4 w-4" />}
             {buttonText}
