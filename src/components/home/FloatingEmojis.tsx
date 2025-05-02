@@ -13,8 +13,9 @@ const Emoji = ({ emoji, initialX, initialY, speed, size }: EmojiProps) => {
   const emojiRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: initialX, y: initialY });
   const [velocity, setVelocity] = useState({
-    x: (Math.random() - 0.5) * 0.5,
-    y: (Math.random() - 0.5) * 0.5,
+    // Make the movement more diagonal by ensuring both x and y have significant values
+    x: (Math.random() > 0.5 ? 1 : -1) * (0.3 + Math.random() * 0.3),
+    y: (Math.random() > 0.5 ? 1 : -1) * (0.3 + Math.random() * 0.3),
   });
 
   useEffect(() => {
@@ -62,7 +63,9 @@ const Emoji = ({ emoji, initialX, initialY, speed, size }: EmojiProps) => {
         transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
         willChange: "transform",
         transition: "transform 0.2s ease-out",
-        opacity: 0.7,
+        opacity: 0.35, // Reduced opacity to 35%
+        filter: "drop-shadow(0 0 8px rgba(155, 135, 245, 0.8))", // Purple glow effect
+        color: "#9b87f5", // Purple tint to the emojis
       }}
     >
       {emoji}
