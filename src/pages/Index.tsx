@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
@@ -75,9 +74,8 @@ export default function Index() {
                   <Button 
                     key={index}
                     variant={item.highlight ? "default" : item.special ? "ghost" : "ghost"}
-                    className={item.special ? "bg-gosip-purple-dark hover:bg-gosip-purple-darker shadow-lg hover:shadow-xl animate-pulse" : (item.highlight ? "bg-gosip-purple hover:bg-gosip-purple-dark" : "")}
+                    className={`w-full ${item.special ? "bg-gosip-purple-dark hover:bg-gosip-purple-darker shadow-lg hover:shadow-xl animate-pulse" : (item.highlight ? "bg-gosip-purple hover:bg-gosip-purple-dark" : "")}`}
                     onClick={item.onClick}
-                    fullWidth
                   >
                     {item.special && <Gift className="mr-1 h-4 w-4" />}
                     {item.label}
