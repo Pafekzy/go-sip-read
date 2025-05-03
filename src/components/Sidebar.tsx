@@ -1,8 +1,9 @@
 
-import { Home, BookOpen, Headphones, Film, Users, Award, Trophy, LineChart } from "lucide-react";
+import { Home, BookOpen, Headphones, Film, Users, Award, Trophy, LineChart, Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: Home, current: true },
@@ -22,22 +23,23 @@ interface SidebarProps {
 
 export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
   const isMobile = useIsMobile();
+  const { theme, toggleTheme } = useTheme();
   
   if (isMobile) return null;
   
   return (
     <div className={cn(
-      "h-screen border-r bg-card sticky top-0 transition-all duration-300", 
-      collapsed ? "w-16" : "w-64"
+      "h-screen border-r border-transparent bg-transparent backdrop-blur-sm sticky top-0 transition-all duration-200", 
+      collapsed ? "w-14" : "w-48"
     )}>
-      <div className="h-full py-4 flex flex-col">
+      <div className="h-full py-2 flex flex-col">
         <div className="space-y-1 px-2">
           {navigation.map((item) => (
             <Button
               key={item.name}
               variant={item.current ? "secondary" : "ghost"}
               className={cn(
-                "w-full justify-start",
+                "w-full justify-start transition-all duration-150",
                 collapsed ? "justify-center px-2" : "px-3"
               )}
               asChild
@@ -51,6 +53,20 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
               </a>
             </Button>
           ))}
+        </div>
+        <div className="mt-auto px-2 mb-4">
+          <Button 
+            variant="ghost" 
+            size="icon"
+            onClick={toggleTheme}
+            className="w-full justify-center"
+          >
+            {theme === 'light' ? (
+              <Moon className="h-5 w-5" />
+            ) : (
+              <Sun className="h-5 w-5" />
+            )}
+          </Button>
         </div>
       </div>
     </div>

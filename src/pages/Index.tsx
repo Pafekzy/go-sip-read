@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
@@ -9,16 +10,19 @@ import { FeaturesSection } from "@/components/home/FeaturesSection";
 import { SupportedBrands } from "@/components/SupportedBrands";
 import { useNavigate } from "react-router-dom";
 import { RippleButton } from "@/components/ui/ripple-button";
-import { Gift, Menu } from "lucide-react";
+import { Gift, Menu, Moon, Sun } from "lucide-react";
 import { FloatingEmojis } from "@/components/home/FloatingEmojis";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Index() {
   const [showLogin, setShowLogin] = useState(false);
-  const [loginTab, setLoginTab] = useState<"user" | "admin">("user");  // Specify the type explicitly
+  const [loginTab, setLoginTab] = useState<"user" | "admin">("user");
   const navigate = useNavigate();
   const isMobile = useIsMobile();
+  const { theme } = useTheme();
 
   const handleGetStarted = () => {
     navigate('/register');
@@ -26,11 +30,6 @@ export default function Index() {
 
   const handleUserLogin = () => {
     setLoginTab("user");
-    setShowLogin(true);
-  };
-
-  const handleAdminLogin = () => {
-    setLoginTab("admin");
     setShowLogin(true);
   };
 
@@ -42,10 +41,9 @@ export default function Index() {
     navigate('/upgrade');
   };
 
-  // Navigation items for mobile menu
+  // Navigation items for mobile menu - removed Admin login
   const navItems = [
     { label: "User Login", onClick: handleUserLogin },
-    { label: "Admin Login", onClick: handleAdminLogin },
     { label: "Dashboard", onClick: handleDashboard },
     { label: "Register", onClick: handleGetStarted, highlight: true },
     { label: "Upgrade 🎁", onClick: handleUpgrade, special: true }
@@ -81,6 +79,7 @@ export default function Index() {
                     {item.label}
                   </Button>
                 ))}
+                <ThemeToggle />
               </div>
             </SheetContent>
           </Sheet>
@@ -92,13 +91,6 @@ export default function Index() {
               className="whitespace-nowrap"
             >
               User Login
-            </Button>
-            <Button 
-              variant="ghost" 
-              onClick={handleAdminLogin}
-              className="whitespace-nowrap"
-            >
-              Admin Login
             </Button>
             <Button 
               variant="ghost"
@@ -119,6 +111,7 @@ export default function Index() {
             >
               <Gift className="mr-1 h-4 w-4" /> Upgrade 🎁
             </RippleButton>
+            <ThemeToggle />
           </div>
         )}
       </header>
