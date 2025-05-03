@@ -19,9 +19,10 @@ const navigation = [
 interface SidebarProps {
   collapsed?: boolean;
   onToggle?: () => void;
+  hidden?: boolean;
 }
 
-export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
+export function Sidebar({ collapsed = false, onToggle, hidden = false }: SidebarProps) {
   const isMobile = useIsMobile();
   const { theme, toggleTheme } = useTheme();
   
@@ -29,8 +30,9 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
   
   return (
     <div className={cn(
-      "h-screen border-r border-transparent bg-transparent backdrop-blur-sm sticky top-0 transition-all duration-200", 
-      collapsed ? "w-14" : "w-48"
+      "h-screen border-r border-transparent bg-transparent backdrop-blur-sm sticky top-0 transition-all duration-300 ease-in-out opacity-[0.35]", 
+      collapsed ? "w-14" : "w-48",
+      hidden ? "-translate-x-full" : "translate-x-0"
     )}>
       <div className="h-full py-2 flex flex-col">
         <div className="space-y-1 px-2">
