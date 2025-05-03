@@ -23,7 +23,7 @@ export function BenefitsSection() {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
-        <div className="gosip-gradient-section mb-12">
+        <div className="gosip-gradient-section">
           <h2 className="text-3xl font-bold bright-text mb-8">Why Choose GoSipRead?</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {benefitCards.map((benefit, index) => (
