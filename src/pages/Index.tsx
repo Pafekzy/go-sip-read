@@ -10,13 +10,16 @@ import { FeaturesSection } from "@/components/home/FeaturesSection";
 import { SupportedBrands } from "@/components/SupportedBrands";
 import { useNavigate } from "react-router-dom";
 import { RippleButton } from "@/components/ui/ripple-button";
-import { Gift } from "lucide-react";
+import { Gift, Menu } from "lucide-react";
 import { FloatingEmojis } from "@/components/home/FloatingEmojis";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export default function Index() {
   const [showLogin, setShowLogin] = useState(false);
   const [loginTab, setLoginTab] = useState<"user" | "admin">("user");  // Specify the type explicitly
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
 
   const handleGetStarted = () => {
     navigate('/register');
@@ -40,6 +43,15 @@ export default function Index() {
     navigate('/upgrade');
   };
 
+  // Navigation items for mobile menu
+  const navItems = [
+    { label: "User Login", onClick: handleUserLogin },
+    { label: "Admin Login", onClick: handleAdminLogin },
+    { label: "Dashboard", onClick: handleDashboard },
+    { label: "Register", onClick: handleGetStarted, highlight: true },
+    { label: "Upgrade 🎁", onClick: handleUpgrade, special: true }
+  ];
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Add FloatingEmojis component here */}
@@ -49,38 +61,68 @@ export default function Index() {
         <div className="flex items-center">
           <Logo />
         </div>
-        <div className="space-x-2">
-          <Button 
-            variant="ghost" 
-            onClick={handleUserLogin}
-          >
-            User Login
-          </Button>
-          <Button 
-            variant="ghost" 
-            onClick={handleAdminLogin}
-          >
-            Admin Login
-          </Button>
-          <Button 
-            variant="ghost"
-            onClick={handleDashboard}
-          >
-            Dashboard
-          </Button>
-          <Button 
-            className="bg-gosip-purple hover:bg-gosip-purple-dark"
-            onClick={handleGetStarted}
-          >
-            Register
-          </Button>
-          <RippleButton 
-            onClick={handleUpgrade}
-            className="bg-gosip-purple-dark hover:bg-gosip-purple-darker shadow-lg hover:shadow-xl animate-pulse"
-          >
-            <Gift className="mr-1 h-4 w-4" /> Upgrade 🎁
-          </RippleButton>
-        </div>
+        
+        {isMobile ? (
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent>
+              <div className="flex flex-col gap-3 mt-8">
+                {navItems.map((item, index) => (
+                  <Button 
+                    key={index}
+                    variant={item.highlight ? "default" : item.special ? "ghost" : "ghost"}
+                    className={item.special ? "bg-gosip-purple-dark hover:bg-gosip-purple-darker shadow-lg hover:shadow-xl animate-pulse" : (item.highlight ? "bg-gosip-purple hover:bg-gosip-purple-dark" : "")}
+                    onClick={item.onClick}
+                    fullWidth
+                  >
+                    {item.special && <Gift className="mr-1 h-4 w-4" />}
+                    {item.label}
+                  </Button>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
+        ) : (
+          <div className="flex flex-wrap items-center gap-2">
+            <Button 
+              variant="ghost" 
+              onClick={handleUserLogin}
+              className="whitespace-nowrap"
+            >
+              User Login
+            </Button>
+            <Button 
+              variant="ghost" 
+              onClick={handleAdminLogin}
+              className="whitespace-nowrap"
+            >
+              Admin Login
+            </Button>
+            <Button 
+              variant="ghost"
+              onClick={handleDashboard}
+              className="whitespace-nowrap"
+            >
+              Dashboard
+            </Button>
+            <Button 
+              className="bg-gosip-purple hover:bg-gosip-purple-dark whitespace-nowrap"
+              onClick={handleGetStarted}
+            >
+              Register
+            </Button>
+            <RippleButton 
+              onClick={handleUpgrade}
+              className="bg-gosip-purple-dark hover:bg-gosip-purple-darker shadow-lg hover:shadow-xl animate-pulse whitespace-nowrap"
+            >
+              <Gift className="mr-1 h-4 w-4" /> Upgrade 🎁
+            </RippleButton>
+          </div>
+        )}
       </header>
 
       <main className="flex-1">
