@@ -69,7 +69,7 @@ export function Navbar() {
           </>
         ) : (
           <div className="flex items-center gap-2">
-            <ThemeToggle />
+            {/* Theme toggle moved to sidebar only */}
             <Button variant="ghost" size="icon">
               <MessageCircle className="h-5 w-5" />
             </Button>

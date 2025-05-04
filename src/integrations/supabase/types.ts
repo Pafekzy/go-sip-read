@@ -188,6 +188,10 @@ export type Database = {
         }
         Returns: undefined
       }
+      genericfunctionexample: {
+        Args: { input_text: string }
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never

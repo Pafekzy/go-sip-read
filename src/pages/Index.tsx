@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
@@ -58,8 +57,8 @@ export default function Index() {
       <FloatingEmojis />
       
       <div className="flex">
-        {/* Sidebar */}
-        <Sidebar hidden={hideSidebar} />
+        {/* Sidebar - Only show when not in login page */}
+        {!showLogin && <Sidebar hidden={hideSidebar} />}
         
         <div className="flex-1">
           <header className="container mx-auto py-4 px-4 flex justify-between items-center">
@@ -87,6 +86,7 @@ export default function Index() {
                         {item.label}
                       </Button>
                     ))}
+                    {/* Keep theme toggle in mobile menu */}
                     <ThemeToggle />
                   </div>
                 </SheetContent>
@@ -119,7 +119,7 @@ export default function Index() {
                 >
                   <Gift className="mr-1 h-4 w-4" /> Upgrade 🎁
                 </RippleButton>
-                <ThemeToggle />
+                {/* Theme toggle removed from header */}
               </div>
             )}
           </header>
