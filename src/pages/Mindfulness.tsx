@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
-import { Brain, Wind, Trees, Circle, Music } from "lucide-react";
+import { Brain, Wind, Trees, Circle, Music, Zap } from "lucide-react";
 
 export default function Mindfulness() {
   const navigate = useNavigate();
@@ -49,6 +49,14 @@ export default function Mindfulness() {
       comingSoon: false,
     },
     {
+      id: "mindreflex",
+      name: "Mind Reflex",
+      description: "Test your reaction time and focus by finding target characters before time runs out.",
+      icon: Zap,
+      color: "bg-gosip-soft-orange",
+      comingSoon: false,
+    },
+    {
       id: "forest_focus",
       name: "Forest Focus",
       description: "Immerse yourself in a virtual forest to enhance your concentration and awareness.",
@@ -67,7 +75,7 @@ export default function Mindfulness() {
   ];
 
   const handleGameSelect = (gameId) => {
-    if (gameId === "breathsync" || gameId === "mindnumber") {
+    if (gameId === "breathsync" || gameId === "mindnumber" || gameId === "mindreflex") {
       navigate(`/mindfulness/${gameId}`);
     }
   };

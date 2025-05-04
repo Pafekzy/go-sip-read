@@ -1,10 +1,11 @@
 
-import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Brain, HeartHandshake, ClipboardCheck } from "lucide-react";
+import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Brain, HeartHandshake, ClipboardCheck, Home } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useState, useEffect } from "react";
 import { toast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
 
 const features = [
   {
@@ -105,6 +106,10 @@ export function FeaturesSection() {
       return false;
     }
   };
+  
+  const handleReturnHome = () => {
+    navigate("/");
+  };
 
   return (
     <section className="py-16 bg-gradient-to-b from-background to-gosip-soft-purple/30">
@@ -120,7 +125,21 @@ export function FeaturesSection() {
               className="block hover:scale-105 transition-transform"
               onClick={handleFeatureClick(feature.path, false)}
             >
-              <div className="gosip-card flex flex-col items-center text-center">
+              <div className="gosip-card flex flex-col items-center text-center relative">
+                {feature.title === "Accountability Device" && (
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    className="absolute top-2 right-2 rounded-full bg-background/80 shadow-sm hover:bg-background"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      handleReturnHome();
+                    }}
+                  >
+                    <Home className="h-4 w-4" />
+                  </Button>
+                )}
                 <div className={`p-4 rounded-full ${feature.color} mb-4`}>
                   <feature.icon className="h-6 w-6 text-gosip-purple-dark" />
                 </div>

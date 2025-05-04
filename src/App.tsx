@@ -22,6 +22,7 @@ import Register from "./pages/Register";
 import Mindfulness from "./pages/Mindfulness";
 import BreathSync from "./pages/mindfulness/BreathSync";
 import MindNumber from "./pages/mindfulness/MindNumber";
+import MindReflex from "./pages/mindfulness/MindReflex";
 import Feedback from "./pages/Feedback";
 import Upgrade from "./pages/Upgrade";
 
@@ -64,6 +65,7 @@ const App = () => {
                 <Route element={<Layout><Mindfulness /></Layout>} path="/mindfulness" />
                 <Route element={<Layout><BreathSync /></Layout>} path="/mindfulness/breathsync" />
                 <Route element={<Layout><MindNumber /></Layout>} path="/mindfulness/mindnumber" />
+                <Route element={<Layout><MindReflex /></Layout>} path="/mindfulness/mindreflex" />
                 <Route element={<Layout><Feedback /></Layout>} path="/feedback" />
                 <Route path="/upgrade" element={<Upgrade />} />
                 <Route element={<Layout><NotFound /></Layout>} path="*" />
