@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
-import { Brain, Wind, Trees, Circle, Music, Zap } from "lucide-react";
+import { Brain, Wind, Trees, Circle, Music, Zap, ArrowLeft, Home } from "lucide-react";
 
 export default function Mindfulness() {
   const navigate = useNavigate();
@@ -80,6 +80,14 @@ export default function Mindfulness() {
     }
   };
 
+  const handleNavigateBack = () => {
+    navigate(-1); // Go back to the previous page
+  };
+
+  const handleNavigateHome = () => {
+    navigate("/"); // Go to the home page
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -91,12 +99,26 @@ export default function Mindfulness() {
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
-        <div className="mb-10 text-center">
-          <div className="flex items-center justify-center mb-4">
+        <div className="flex items-center justify-between mb-10">
+          <div className="flex items-center space-x-4">
+            <Button variant="outline" onClick={handleNavigateBack}>
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back
+            </Button>
+            <Button variant="outline" onClick={handleNavigateHome}>
+              <Home className="mr-2 h-4 w-4" />
+              Home
+            </Button>
+          </div>
+          <div className="flex items-center justify-center">
             <div className="p-3 rounded-full bg-gosip-soft-purple/30">
               <Brain className="h-8 w-8 text-gosip-purple" />
             </div>
           </div>
+          <div className="w-24"></div> {/* Empty div for flex alignment */}
+        </div>
+        
+        <div className="text-center mb-10">
           <h1 className="text-3xl font-bold mb-2">Practice Present Mindedness</h1>
           <p className="text-muted-foreground max-w-xl mx-auto">
             Enhance your focus, reduce stress, and improve mental clarity through these mindfulness games and exercises.
