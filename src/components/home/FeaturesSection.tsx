@@ -1,5 +1,4 @@
-
-import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Brain, HeartHandshake } from "lucide-react";
+import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Brain, HeartHandshake, ClipboardCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -55,6 +54,13 @@ const features = [
     icon: Brain,
     color: "bg-gosip-soft-blue",
     path: "/mindfulness",
+  },
+  {
+    title: "Accountability Device",
+    description: "Track your commitments and stay accountable to your learning goals with reminders and progress tracking.",
+    icon: ClipboardCheck,
+    color: "bg-gosip-soft-green",
+    path: "/accountability",
   },
   {
     title: "Join To Improve This Version🫂",
