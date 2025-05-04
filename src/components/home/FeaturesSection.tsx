@@ -1,3 +1,4 @@
+
 import { BookOpen, Headphones, Film, MessageCircle, Award, Users, Brain, HeartHandshake, ClipboardCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -57,7 +58,7 @@ const features = [
   },
   {
     title: "Accountability Device",
-    description: "Track your commitments and stay accountable to your learning goals with reminders and progress tracking.",
+    description: "Stake money on your goals with AI or human accountability partners to ensure you follow through.",
     icon: ClipboardCheck,
     color: "bg-gosip-soft-green",
     path: "/accountability",
