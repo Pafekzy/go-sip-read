@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -142,7 +141,7 @@ export default function Register() {
         return;
       }
 
-      // Modified: Register the user using Supabase Auth with disableAutoConfirm: false
+      // Sign up the user with Supabase Auth - completely remove captcha requirements
       const { data, error } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
@@ -150,7 +149,7 @@ export default function Register() {
           data: {
             full_name: formData.fullName
           },
-          captchaToken: "disabled" // This bypasses the captcha requirement
+          emailRedirectTo: `${window.location.origin}/dashboard`
         }
       });
 
