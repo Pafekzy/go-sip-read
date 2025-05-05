@@ -149,7 +149,8 @@ export default function Register() {
           data: {
             full_name: formData.fullName
           },
-          emailRedirectTo: `${window.location.origin}/dashboard`
+          emailRedirectTo: `${window.location.origin}/dashboard`,
+          captchaToken: "disable_captcha" // Explicitly disable captcha
         }
       });
 

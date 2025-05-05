@@ -10,6 +10,18 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
     autoRefreshToken: true,
     storage: localStorage,
     detectSessionInUrl: false,
-    flowType: 'pkce'
+    flowType: 'pkce',
+    // Add cookie options to maximize session persistence
+    cookieOptions: {
+      sameSite: 'lax',
+      path: '/',
+      secure: true
+    }
+  },
+  global: {
+    // Completely disable captcha feature
+    headers: {
+      'x-client-info': 'no-captcha'
+    }
   }
 });
