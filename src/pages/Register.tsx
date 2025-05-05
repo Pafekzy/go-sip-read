@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -141,8 +142,8 @@ export default function Register() {
         return;
       }
 
-      // Sign up the user with Supabase Auth - completely remove captcha requirements
-      const { data, error } = await supabase.auth.signUp({
+      // Configure signup options to bypass captcha
+      const signUpOptions = {
         email: formData.email,
         password: formData.password,
         options: {
@@ -150,9 +151,16 @@ export default function Register() {
             full_name: formData.fullName
           },
           emailRedirectTo: `${window.location.origin}/dashboard`,
-          captchaToken: "disable_captcha" // Explicitly disable captcha
+          // The x-client-info header is set in the client.ts file,
+          // but we also add this property to ensure complete bypass
+          captchaToken: null
         }
-      });
+      };
+
+      console.log("Attempting signup with options:", { ...signUpOptions, password: "[REDACTED]" });
+      
+      // Sign up the user with Supabase Auth
+      const { data, error } = await supabase.auth.signUp(signUpOptions);
 
       if (error) throw error;
 
