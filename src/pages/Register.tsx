@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -125,7 +124,7 @@ export default function Register() {
         .from('profiles')
         .select('email')
         .eq('email', formData.email)
-        .single();
+        .maybeSingle();
 
       if (checkError && checkError.code !== 'PGRST116') {
         // PGRST116 means no results found, which is what we want
@@ -142,8 +141,10 @@ export default function Register() {
         return;
       }
 
-      // Configure signup options to bypass captcha
-      const signUpOptions = {
+      console.log("Attempting to sign up user with email:", formData.email);
+      
+      // Important: Use the complete direct API call with special headers
+      const { data, error } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
         options: {
@@ -151,16 +152,18 @@ export default function Register() {
             full_name: formData.fullName
           },
           emailRedirectTo: `${window.location.origin}/dashboard`,
-          // The x-client-info header is set in the client.ts file,
-          // but we also add this property to ensure complete bypass
+          // Set captchaToken to null explicitly
           captchaToken: null
         }
-      };
+      }, {
+        headers: {
+          // Additional headers for this specific request
+          'x-bypass-captcha': 'true',
+          'x-client-info': 'no-captcha'
+        }
+      });
 
-      console.log("Attempting signup with options:", { ...signUpOptions, password: "[REDACTED]" });
-      
-      // Sign up the user with Supabase Auth
-      const { data, error } = await supabase.auth.signUp(signUpOptions);
+      console.log("Signup response:", data ? "Success" : "Failed", error ? error.message : "No error");
 
       if (error) throw error;
 

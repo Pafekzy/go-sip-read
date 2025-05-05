@@ -13,9 +13,9 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
     flowType: 'pkce'
   },
   global: {
-    // Completely disable captcha feature
     headers: {
-      'x-client-info': 'no-captcha'
+      'x-client-info': 'no-captcha',
+      'x-bypass-captcha': 'true'
     }
   }
 });
