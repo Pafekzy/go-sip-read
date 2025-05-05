@@ -143,7 +143,7 @@ export default function Register() {
 
       console.log("Attempting to sign up user with email:", formData.email);
       
-      // Important: Use the complete direct API call with special headers
+      // Fix: Use the signUp method with only one argument containing all options
       const { data, error } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
@@ -154,12 +154,6 @@ export default function Register() {
           emailRedirectTo: `${window.location.origin}/dashboard`,
           // Set captchaToken to null explicitly
           captchaToken: null
-        }
-      }, {
-        headers: {
-          // Additional headers for this specific request
-          'x-bypass-captcha': 'true',
-          'x-client-info': 'no-captcha'
         }
       });
 
