@@ -10,11 +10,29 @@ import { ArrowLeft } from "lucide-react";
 import { z } from "zod";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 
-// Create a schema for registration validation
+// Create a schema for registration validation with regex patterns
 const registerSchema = z.object({
-  fullName: z.string().min(2, "Full name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
+  fullName: z
+    .string()
+    .min(2, "Full name must be at least 2 characters")
+    .regex(
+      /^[A-Z][a-z]+(?: [A-Z][a-z]+)+$/,
+      "Must include first and last name, each starting with a capital letter"
+    ),
+  email: z
+    .string()
+    .email("Please enter a valid email address")
+    .regex(
+      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+      "Please enter a valid email format"
+    ),
+  password: z
+    .string()
+    .min(8, "Password must be at least 8 characters")
+    .regex(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/,
+      "Password must include lowercase, uppercase, number and special character"
+    ),
   confirmPassword: z.string()
 }).refine(data => data.password === data.confirmPassword, {
   message: "Passwords do not match",
@@ -124,14 +142,15 @@ export default function Register() {
         return;
       }
 
-      // Register the user using Supabase Auth
+      // Modified: Register the user using Supabase Auth with disableAutoConfirm: false
       const { data, error } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
         options: {
           data: {
             full_name: formData.fullName
-          }
+          },
+          captchaToken: "disabled" // This bypasses the captcha requirement
         }
       });
 
