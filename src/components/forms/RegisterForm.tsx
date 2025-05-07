@@ -7,6 +7,7 @@ import { RegisterFormData, registerSchema } from "@/utils/validationSchemas";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/components/ui/use-toast";
 import { useNavigate } from "react-router-dom";
+import { z } from "zod"; // Add this import to fix the error
 
 interface RegisterFormProps {
   onSubmitStart: () => void;
