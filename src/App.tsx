@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -25,6 +24,7 @@ import MindNumber from "./pages/mindfulness/MindNumber";
 import MindReflex from "./pages/mindfulness/MindReflex";
 import Feedback from "./pages/Feedback";
 import Upgrade from "./pages/Upgrade";
+import Admin from "./pages/Admin"; // Add this new import
 
 // Create a client
 const queryClient = new QueryClient();
@@ -68,6 +68,7 @@ const App = () => {
                 <Route element={<Layout><MindReflex /></Layout>} path="/mindfulness/mindreflex" />
                 <Route element={<Layout><Feedback /></Layout>} path="/feedback" />
                 <Route path="/upgrade" element={<Upgrade />} />
+                <Route element={<Admin />} path="/admin" /> {/* Add the Admin route */}
                 <Route element={<Layout><NotFound /></Layout>} path="*" />
               </Routes>
             </BrowserRouter>

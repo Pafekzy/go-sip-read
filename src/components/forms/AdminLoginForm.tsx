@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { FormInput } from "@/components/forms/FormInput";
@@ -8,6 +7,7 @@ import { loginSchema, LoginFormData } from "@/utils/loginValidationSchema";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/components/ui/use-toast";
 import { z } from "zod";
+import { useNavigate } from "react-router-dom";
 
 interface AdminLoginFormProps {
   onSuccess: () => void;
@@ -23,6 +23,7 @@ export const AdminLoginForm = ({ onSuccess }: AdminLoginFormProps) => {
   const [generalError, setGeneralError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -89,14 +90,17 @@ export const AdminLoginForm = ({ onSuccess }: AdminLoginFormProps) => {
 
       if (error) throw error;
 
+      // Store admin type in localStorage
+      localStorage.setItem('adminType', adminType);
+      
       // If successful
       toast({
         title: "Success!",
         description: "You have successfully logged in as admin.",
       });
       
-      // Call the onSuccess callback
-      onSuccess();
+      // Navigate to admin page
+      navigate('/admin');
       
     } catch (error: any) {
       console.error("Login error:", error);
