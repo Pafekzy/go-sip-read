@@ -96,7 +96,7 @@ export function ContentCard({ id, title, author, type, progress, image }: Conten
         </div>
         <Progress value={progress} className="h-2" />
         <button 
-          className="w-full mt-4 text-center text-sm text-gosip-purple hover:underline"
+          className="w-full mt-4 text-center text-sm gosip-gradient-bg text-white rounded-md py-1.5 hover:opacity-90 transition-opacity"
           onClick={handleContinue}
         >
           Continue

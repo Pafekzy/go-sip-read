@@ -14,6 +14,21 @@ export function Layout({ children }: LayoutProps) {
   const isUpgradePage = location.pathname === "/upgrade";
   const isAdminPage = location.pathname === "/admin";
   
+  // Apply gradient styles to purple buttons
+  React.useEffect(() => {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .bg-gosip-purple {
+        background: linear-gradient(to right, var(--gosip-purple), var(--gosip-purple-dark)) !important;
+      }
+    `;
+    document.head.appendChild(style);
+    
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />

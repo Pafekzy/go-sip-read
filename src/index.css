@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -50,6 +49,10 @@
     --hover-brightness-day: 1.1;
     --hover-brightness-night: 1.3;
     --hover-brightness: var(--hover-brightness-day);
+    
+    /* GoSip Colors as CSS variables */
+    --gosip-purple: #9b87f5;
+    --gosip-purple-dark: #7E69AB;
   }
 
   .dark {
@@ -91,6 +94,10 @@
     --sidebar-ring: 260 80% 75%;
 
     --hover-brightness: var(--hover-brightness-night);
+    
+    /* GoSip Colors in dark mode */
+    --gosip-purple: #9b87f5;
+    --gosip-purple-dark: #7E69AB;
   }
   
   h1, h2, h3 {
@@ -120,6 +127,10 @@
   .gosip-gradient-text {
     @apply bg-gradient-to-r from-gosip-purple to-gosip-purple-dark text-transparent bg-clip-text;
     overflow: visible;
+  }
+  
+  .gosip-gradient-bg {
+    @apply bg-gradient-to-r from-gosip-purple to-gosip-purple-dark;
   }
   
   .gosip-card {
@@ -161,4 +172,3 @@
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
 }
-

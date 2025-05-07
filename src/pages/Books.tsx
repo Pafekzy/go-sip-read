@@ -1,7 +1,9 @@
 
 import { BookOpen } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { books } from "@/data/booksData";
+import { BookCard } from "@/components/books/BookCard";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function Books() {
   return (
@@ -14,18 +16,16 @@ export default function Books() {
         
         <h1 className="text-4xl font-bold mb-6 gosip-gradient-text">Books & Articles</h1>
         <p className="text-xl text-muted-foreground mb-8">
-          Explore our curated collection of books and articles to enhance your learning journey.
+          Explore our curated collection of books to enhance your learning journey. Download and read at your own pace.
         </p>
         
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {/* Placeholder content - to be implemented based on user needs */}
-          <div className="gosip-card">
-            <h3 className="text-xl font-semibold mb-4">Coming Soon</h3>
-            <p className="text-muted-foreground">
-              This section is under development. Check back soon for our collection of educational resources.
-            </p>
+        <ScrollArea className="h-full">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {books.map((book) => (
+              <BookCard key={book.id} book={book} />
+            ))}
           </div>
-        </div>
+        </ScrollArea>
       </div>
     </div>
   );
