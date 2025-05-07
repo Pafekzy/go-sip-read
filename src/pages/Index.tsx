@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
@@ -14,8 +15,9 @@ import { FloatingEmojis } from "@/components/home/FloatingEmojis";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { useTheme } from "@/contexts/ThemeContext";
 import { Sidebar } from "@/components/Sidebar";
+import { NotificationBar } from "@/components/notification/NotificationBar";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Index() {
   const [showLogin, setShowLogin] = useState(false);
@@ -123,6 +125,8 @@ export default function Index() {
               </div>
             )}
           </header>
+
+          <NotificationBar />
 
           <main className="flex-1">
             {showLogin ? (

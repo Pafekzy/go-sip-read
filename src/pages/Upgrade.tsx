@@ -8,6 +8,7 @@ import { BillingToggle } from "@/components/upgrade/BillingToggle";
 import { PageHeader } from "@/components/upgrade/PageHeader";
 import { SupportSection } from "@/components/upgrade/SupportSection";
 import { pricingData } from "@/data/pricingData";
+import { NotificationBar } from "@/components/notification/NotificationBar";
 
 export default function Upgrade() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
@@ -18,8 +19,9 @@ export default function Upgrade() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container max-w-7xl mx-auto px-4 py-8 md:py-16">
+    <div className="min-h-screen bg-background flex flex-col">
+      <NotificationBar />
+      <div className="container max-w-7xl mx-auto px-4 py-8 md:py-16 flex-1">
         <div className="mb-8">
           <RippleButton 
             onClick={handleReturnHome}

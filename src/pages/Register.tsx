@@ -7,6 +7,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RegisterForm } from "@/components/forms/RegisterForm";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
+import { NotificationBar } from "@/components/notification/NotificationBar";
 
 export default function Register() {
   const [isLoading, setIsLoading] = useState(false);
@@ -48,28 +49,31 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <div className="flex items-center">
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="mr-2" 
-              onClick={() => navigate("/")}
-            >
-              <ArrowLeft className="h-5 w-5" />
-            </Button>
-            <CardTitle className="text-2xl text-center flex-1 pr-8">Create Your Account</CardTitle>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <RegisterForm 
-            onSubmitStart={handleSubmitStart} 
-            onSubmitEnd={handleSubmitEnd} 
-          />
-        </CardContent>
-      </Card>
+    <div className="min-h-screen bg-background flex flex-col">
+      <NotificationBar />
+      <div className="flex-1 flex items-center justify-center p-4">
+        <Card className="w-full max-w-md">
+          <CardHeader>
+            <div className="flex items-center">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="mr-2" 
+                onClick={() => navigate("/")}
+              >
+                <ArrowLeft className="h-5 w-5" />
+              </Button>
+              <CardTitle className="text-2xl text-center flex-1 pr-8">Create Your Account</CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <RegisterForm 
+              onSubmitStart={handleSubmitStart} 
+              onSubmitEnd={handleSubmitEnd} 
+            />
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }
