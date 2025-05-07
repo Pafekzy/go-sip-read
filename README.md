@@ -8,7 +8,7 @@
 
 There are several ways of editing your application.
 
-**Use Lovable**
+**Use GoSipRead**
 
 Simply visit the [Lovable Project](https://lovable.dev/projects/127069b8-e18a-45ae-8947-c4fbba9e2114) and start prompting.
 
