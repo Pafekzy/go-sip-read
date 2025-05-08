@@ -1,6 +1,5 @@
 
 import React from "react";
-import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { useLocation } from "react-router-dom";
 import { AdminReturnButton } from "@/components/admin/AdminReturnButton";
@@ -32,7 +31,6 @@ export function Layout({ children }: LayoutProps) {
   
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
       <div className="flex-grow">
         {children}
       </div>
