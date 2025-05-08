@@ -1,12 +1,12 @@
+
 import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Layout } from "@/components/Layout";
 import Index from "./pages/Index";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
@@ -24,23 +24,10 @@ import MindNumber from "./pages/mindfulness/MindNumber";
 import MindReflex from "./pages/mindfulness/MindReflex";
 import Feedback from "./pages/Feedback";
 import Upgrade from "./pages/Upgrade";
-import Admin from "./pages/Admin"; // Add this new import
+import Admin from "./pages/Admin";
 
 // Create a client
 const queryClient = new QueryClient();
-
-// Layout wrapper component that adds Footer except for specific pages
-const Layout = ({ children }: { children: React.ReactNode }) => {
-  const location = useLocation();
-  const isUpgradePage = location.pathname === "/upgrade";
-  
-  return (
-    <>
-      {children}
-      {!isUpgradePage && <Footer />}
-    </>
-  );
-};
 
 const App = () => {
   return (
@@ -67,8 +54,8 @@ const App = () => {
                 <Route element={<Layout><MindNumber /></Layout>} path="/mindfulness/mindnumber" />
                 <Route element={<Layout><MindReflex /></Layout>} path="/mindfulness/mindreflex" />
                 <Route element={<Layout><Feedback /></Layout>} path="/feedback" />
-                <Route path="/upgrade" element={<Upgrade />} />
-                <Route element={<Admin />} path="/admin" /> {/* Add the Admin route */}
+                <Route element={<Layout><Upgrade /></Layout>} path="/upgrade" />
+                <Route element={<Layout><Admin /></Layout>} path="/admin" />
                 <Route element={<Layout><NotFound /></Layout>} path="*" />
               </Routes>
             </BrowserRouter>

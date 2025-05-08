@@ -33,10 +33,11 @@ export function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <NotificationBar />
       <div className="flex-grow">
         {children}
       </div>
+      {/* NotificationBar moved here, just above the Footer */}
+      <NotificationBar />
       {!isUpgradePage && <Footer />}
       {!isAdminPage && localStorage.getItem('adminType') && <AdminReturnButton />}
     </div>
