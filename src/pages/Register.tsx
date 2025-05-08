@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,7 +7,6 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RegisterForm } from "@/components/forms/RegisterForm";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
-import { NotificationBar } from "@/components/notification/NotificationBar";
 
 export default function Register() {
   const [isLoading, setIsLoading] = useState(false);

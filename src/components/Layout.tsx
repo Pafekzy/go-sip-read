@@ -36,7 +36,7 @@ export function Layout({ children }: LayoutProps) {
       <div className="flex-grow">
         {children}
       </div>
-      {/* NotificationBar moved here, just above the Footer */}
+      {/* NotificationBar placed here, just above the Footer */}
       <NotificationBar />
       {!isUpgradePage && <Footer />}
       {!isAdminPage && localStorage.getItem('adminType') && <AdminReturnButton />}
