@@ -5,6 +5,7 @@ export interface Book {
   author: string;
   description: string;
   coverImage: string;
+  alternateImage?: string; // Added for book format swapping
   pdfUrl: string;
   tags?: string[];
 }
@@ -48,12 +49,13 @@ export const books: Book[] = [
   },
   {
     id: 5,
-    title: "The 48 Laws of Power",
-    author: "Robert Greene",
-    description: "A guide for aspiring leaders, politicians, or anyone who wants to gain, observe, or resist ultimate control.",
-    coverImage: "https://m.media-amazon.com/images/I/71aG+xDKSYL._AC_UF1000,1000_QL80_.jpg",
+    title: "The Five Dysfunctions of a Team",
+    author: "Patrick Lencioni",
+    description: "The model reveals how team dysfunctions silently sabotage success—and shows techpreneurs how to build results-driven, resilient teams.",
+    coverImage: "/lovable-uploads/c687db92-eee6-4e8f-b545-95f577e40dfe.png", // E-book version
+    alternateImage: "/lovable-uploads/36772974-3ae1-4f58-af81-044ba124ab09.png", // Audio-book version
     pdfUrl: "https://ia800905.us.archive.org/30/items/MasterCollectionRobertGreene/Greene%2C%20Robert%20-%20The%2048%20Laws%20of%20Power.pdf",
-    tags: ["psychology", "leadership", "strategy"]
+    tags: ["self-improvement", "relationships", "leadership"]
   },
   {
     id: 6,

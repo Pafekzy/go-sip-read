@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Download, BookOpen } from "lucide-react";
@@ -10,6 +10,22 @@ interface BookCardProps {
 }
 
 export function BookCard({ book }: BookCardProps) {
+  const [currentImage, setCurrentImage] = useState(book.coverImage);
+  
+  // Image swapping effect for the Five Dysfunctions book
+  useEffect(() => {
+    // Only apply image swapping to the Five Dysfunctions book
+    if (book.title === "The Five Dysfunctions of a Team") {
+      const interval = setInterval(() => {
+        setCurrentImage(prev => 
+          prev === book.coverImage ? book.alternateImage || book.coverImage : book.coverImage
+        );
+      }, 5000); // Swap every 5 seconds
+      
+      return () => clearInterval(interval);
+    }
+  }, [book.title, book.coverImage, book.alternateImage]);
+
   const handleDownload = () => {
     window.open(book.pdfUrl, "_blank");
   };
@@ -18,7 +34,7 @@ export function BookCard({ book }: BookCardProps) {
     <Card className="overflow-hidden h-full flex flex-col">
       <div 
         className="h-56 bg-cover bg-center transition-transform duration-300 hover:scale-105"
-        style={{ backgroundImage: `url(${book.coverImage})` }}
+        style={{ backgroundImage: `url(${currentImage})` }}
       />
       <CardContent className="p-4 flex-1">
         <h3 className="font-semibold text-lg mb-1">{book.title}</h3>
