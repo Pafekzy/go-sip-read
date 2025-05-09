@@ -25,6 +25,7 @@ import MindReflex from "./pages/mindfulness/MindReflex";
 import Feedback from "./pages/Feedback";
 import Upgrade from "./pages/Upgrade";
 import Admin from "./pages/Admin";
+import VRLearning from "./pages/VRLearning";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ const App = () => {
                 <Route element={<Layout><EarlyLearning /></Layout>} path="/early-learning" />
                 <Route element={<Layout><Podcasts /></Layout>} path="/podcasts" />
                 <Route element={<Layout><Videos /></Layout>} path="/videos" />
+                <Route element={<Layout><VRLearning /></Layout>} path="/vr-learning" />
                 <Route element={<Layout><AiAssistant /></Layout>} path="/ai-assistant" />
                 <Route element={<Layout><Achievements /></Layout>} path="/achievements" />
                 <Route element={<Layout><Groups /></Layout>} path="/groups" />
