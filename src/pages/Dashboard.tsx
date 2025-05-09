@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Sidebar } from "@/components/Sidebar";
@@ -22,11 +21,11 @@ const recentContent = [
   },
   {
     id: 2,
-    title: "The Science of Learning",
-    author: "Learning Lab",
+    title: "The Science Of Conversation",
+    author: "StanK Pod Cast",
     type: "podcast" as const,
     progress: 0,
-    image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=500&q=80",
+    image: "/lovable-uploads/ced40444-1214-42e9-b13f-a7595b7b6f5d.png",
   },
   {
     id: 3,
