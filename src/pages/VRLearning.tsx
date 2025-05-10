@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Sidebar } from "@/components/Sidebar";
@@ -29,6 +28,466 @@ interface VRExperience {
 }
 
 const vrCategories: VRCategory[] = [
+  {
+    id: "african-tech-innovation",
+    title: "African Tech Innovation",
+    description: "Immersive experiences showcasing Africa's tech ecosystem, innovation hubs, and entrepreneurial opportunities.",
+    image: "https://images.unsplash.com/photo-1516583640087-3008d95aa328?auto=format&fit=crop&w=500&q=80",
+    badgeText: "Featured",
+    badgeColor: "bg-gosip-purple text-white",
+    experiences: [
+      {
+        id: "lagos-tech-hub",
+        title: "Lagos Tech Hub Experience",
+        description: "Explore Nigeria's thriving tech ecosystem and meet virtual representations of successful Nigerian founders and investors.",
+        image: "https://images.unsplash.com/photo-1580940881581-3703b144e84f?auto=format&fit=crop&w=500&q=80",
+        duration: "45 minutes",
+        difficulty: "Beginner",
+        skills: ["Ecosystem Knowledge", "Networking", "Market Research"]
+      },
+      {
+        id: "kenya-fintech",
+        title: "Kenyan FinTech Revolution",
+        description: "Learn about M-Pesa and other Kenyan financial innovations that have transformed Africa's financial landscape.",
+        image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Intermediate",
+        skills: ["Financial Innovation", "Mobile Banking", "Market Analysis"]
+      },
+      {
+        id: "cairo-startups",
+        title: "Cairo's Startup Ecosystem",
+        description: "Immerse yourself in Egypt's booming entrepreneurial scene and understand its unique strengths and opportunities.",
+        image: "https://images.unsplash.com/photo-1553701275-1d6d68d68511?auto=format&fit=crop&w=500&q=80",
+        duration: "35 minutes",
+        difficulty: "Beginner",
+        skills: ["Market Analysis", "Cultural Intelligence", "Business Development"]
+      },
+      {
+        id: "kigali-innovation",
+        title: "Kigali Innovation City",
+        description: "Experience Rwanda's ambitious tech hub that aims to become Africa's Silicon Valley through strategic investments.",
+        image: "https://images.unsplash.com/photo-1580746738542-afb09e61cd30?auto=format&fit=crop&w=500&q=80",
+        duration: "30 minutes",
+        difficulty: "Beginner",
+        skills: ["Urban Planning", "Tech Infrastructure", "Innovation Policy"]
+      }
+    ]
+  },
+  {
+    id: "sustainable-african-business",
+    title: "Sustainable African Business",
+    description: "Virtual experiences focused on sustainable business practices across various African contexts and industries.",
+    image: "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=500&q=80",
+    badgeText: "Sustainability",
+    badgeColor: "bg-green-600 text-white",
+    experiences: [
+      {
+        id: "solar-energy",
+        title: "Solar Energy Ventures",
+        description: "Explore successful solar energy business models in East Africa and understand their operational strategies.",
+        image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=500&q=80",
+        duration: "50 minutes",
+        difficulty: "Intermediate",
+        skills: ["Renewable Energy", "Business Modeling", "Impact Assessment"]
+      },
+      {
+        id: "circular-economy",
+        title: "Circular Economy Models",
+        description: "Learn about waste management and recycling businesses that are transforming environmental challenges into opportunities.",
+        image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=500&q=80",
+        duration: "45 minutes",
+        difficulty: "Advanced",
+        skills: ["Circular Design", "Supply Chain", "Waste Management"]
+      },
+      {
+        id: "ethical-fashion",
+        title: "Ethical Fashion Supply Chains",
+        description: "Visit virtual African textile factories to understand sustainable and ethical fashion production.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Intermediate",
+        skills: ["Ethical Sourcing", "Supply Chain Management", "Brand Building"]
+      },
+      {
+        id: "sustainable-agriculture",
+        title: "AgriTech Innovations",
+        description: "Experience how technology is transforming African agriculture through precision farming and supply chain innovations.",
+        image: "https://images.unsplash.com/photo-1466721591366-2d5fba72006d?auto=format&fit=crop&w=500&q=80",
+        duration: "55 minutes",
+        difficulty: "Beginner",
+        skills: ["Agricultural Technology", "Food Systems", "Rural Development"]
+      }
+    ]
+  },
+  {
+    id: "african-market-entry",
+    title: "African Market Entry",
+    description: "Strategic simulations for entering and navigating diverse African markets as a tech entrepreneur.",
+    image: "https://images.unsplash.com/photo-1627373504172-09213dd0eb6f?auto=format&fit=crop&w=500&q=80",
+    badgeText: "Strategy",
+    badgeColor: "bg-blue-600 text-white",
+    experiences: [
+      {
+        id: "regulatory-navigation",
+        title: "Regulatory Navigation Simulator",
+        description: "Practice navigating complex regulatory environments in different African countries to launch tech products successfully.",
+        image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80",
+        duration: "60 minutes",
+        difficulty: "Advanced",
+        skills: ["Regulatory Compliance", "Government Relations", "Risk Management"]
+      },
+      {
+        id: "localization-strategy",
+        title: "Market Localization Strategy",
+        description: "Learn to adapt your tech products for diverse African markets, considering cultural and economic factors.",
+        image: "https://images.unsplash.com/photo-1606591104128-ae2b86204d13?auto=format&fit=crop&w=500&q=80",
+        duration: "45 minutes",
+        difficulty: "Intermediate",
+        skills: ["Product Localization", "Cultural Intelligence", "User Experience"]
+      },
+      {
+        id: "distribution-networks",
+        title: "African Distribution Networks",
+        description: "Explore innovative distribution strategies for reaching customers in both urban and rural African markets.",
+        image: "https://images.unsplash.com/photo-1625872596435-7934585768cc?auto=format&fit=crop&w=500&q=80",
+        duration: "50 minutes",
+        difficulty: "Advanced",
+        skills: ["Distribution Strategy", "Logistics", "Last-mile Solutions"]
+      },
+      {
+        id: "partnership-building",
+        title: "Strategic Partnership Simulator",
+        description: "Practice identifying and negotiating with potential African business partners and stakeholders.",
+        image: "https://images.unsplash.com/photo-1566667712770-51d90c7a2296?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Intermediate",
+        skills: ["Partnership Development", "Negotiation", "Due Diligence"]
+      }
+    ]
+  },
+  {
+    id: "african-investment-landscape",
+    title: "African Investment Landscape",
+    description: "Navigate the complex world of investment across Africa's diverse markets and sectors.",
+    image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=500&q=80",
+    badgeText: "Finance",
+    badgeColor: "bg-amber-500 text-white",
+    experiences: [
+      {
+        id: "investor-pitch-african",
+        title: "African Investor Pitch Master",
+        description: "Practice pitching to virtual African investors and VC firms with region-specific feedback and coaching.",
+        image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=500&q=80",
+        duration: "35 minutes",
+        difficulty: "Advanced",
+        skills: ["Pitch Development", "Financial Storytelling", "Investor Relations"]
+      },
+      {
+        id: "pan-african-funding",
+        title: "Pan-African Funding Navigator",
+        description: "Learn about various funding sources across the continent and how to strategically approach each one.",
+        image: "https://images.unsplash.com/photo-1535320903710-d993d3d77d29?auto=format&fit=crop&w=500&q=80",
+        duration: "45 minutes",
+        difficulty: "Intermediate",
+        skills: ["Funding Strategy", "Financial Planning", "Investor Research"]
+      },
+      {
+        id: "valuation-fundamentals",
+        title: "African Startup Valuation",
+        description: "Master the fundamentals of startup valuation in African contexts with different economic considerations.",
+        image: "https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=500&q=80",
+        duration: "55 minutes",
+        difficulty: "Advanced",
+        skills: ["Financial Valuation", "Market Analysis", "Growth Metrics"]
+      },
+      {
+        id: "currency-management",
+        title: "Currency Risk Management",
+        description: "Develop strategies for managing currency risks when operating businesses across multiple African countries.",
+        image: "https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Advanced",
+        skills: ["Forex Management", "Financial Risk", "Treasury Operations"]
+      }
+    ]
+  },
+  {
+    id: "african-talent-development",
+    title: "African Talent Development",
+    description: "Strategies for building and managing high-performing teams across African markets.",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=80",
+    badgeText: "Talent",
+    badgeColor: "bg-indigo-600 text-white",
+    experiences: [
+      {
+        id: "remote-team-management",
+        title: "Remote African Teams",
+        description: "Learn effective strategies for building and managing distributed tech teams across different African countries.",
+        image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80",
+        duration: "50 minutes",
+        difficulty: "Intermediate",
+        skills: ["Remote Management", "Cross-cultural Teams", "Digital Collaboration"]
+      },
+      {
+        id: "talent-sourcing",
+        title: "African Tech Talent Sourcing",
+        description: "Explore various channels and strategies for finding tech talent across different African tech ecosystems.",
+        image: "https://images.unsplash.com/photo-1528901166007-3784c7dd3653?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Beginner",
+        skills: ["Talent Acquisition", "Employer Branding", "Recruitment"]
+      },
+      {
+        id: "skill-development",
+        title: "Tech Skills Accelerator",
+        description: "Design effective training programs to upskill African tech talent in emerging technologies.",
+        image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=500&q=80",
+        duration: "45 minutes",
+        difficulty: "Advanced",
+        skills: ["Training Design", "Skills Assessment", "Learning Development"]
+      },
+      {
+        id: "retention-strategies",
+        title: "Talent Retention in High-Growth Markets",
+        description: "Develop effective strategies for retaining top talent in competitive African tech hubs.",
+        image: "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=500&q=80",
+        duration: "35 minutes",
+        difficulty: "Intermediate",
+        skills: ["Employee Experience", "Compensation Strategy", "Career Development"]
+      }
+    ]
+  },
+  {
+    id: "african-consumer-insights",
+    title: "African Consumer Insights",
+    description: "Deep dive into understanding diverse African consumer behaviors and preferences for product development.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80",
+    badgeText: "Research",
+    badgeColor: "bg-cyan-600 text-white",
+    experiences: [
+      {
+        id: "urban-consumer",
+        title: "Urban African Consumer Journey",
+        description: "Follow the digital life of urban consumers across major African cities to understand their tech usage patterns.",
+        image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Beginner",
+        skills: ["User Research", "Persona Development", "Urban Markets"]
+      },
+      {
+        id: "rural-tech-adoption",
+        title: "Rural Tech Adoption Patterns",
+        description: "Experience how technology is used and adopted in rural African communities with limited infrastructure.",
+        image: "https://images.unsplash.com/photo-1469041797191-50ace28483c3?auto=format&fit=crop&w=500&q=80",
+        duration: "50 minutes",
+        difficulty: "Intermediate",
+        skills: ["Rural Markets", "Technology Adoption", "Inclusive Design"]
+      },
+      {
+        id: "payment-preferences",
+        title: "African Payment Preferences",
+        description: "Explore the diverse payment methods and financial behaviors of consumers across different African regions.",
+        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=500&q=80",
+        duration: "35 minutes",
+        difficulty: "Intermediate",
+        skills: ["Payment Systems", "Consumer Finance", "Market Segmentation"]
+      },
+      {
+        id: "mobile-first-design",
+        title: "Mobile-First Product Design",
+        description: "Learn to design tech products specifically for African mobile users with varying device capabilities and data constraints.",
+        image: "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=500&q=80",
+        duration: "45 minutes",
+        difficulty: "Advanced",
+        skills: ["Mobile UX", "Data-efficient Design", "Performance Optimization"]
+      }
+    ]
+  },
+  {
+    id: "digital-infrastructure",
+    title: "African Digital Infrastructure",
+    description: "Explore the evolving digital infrastructure landscape across Africa and its implications for tech businesses.",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=500&q=80",
+    badgeText: "Technical",
+    badgeColor: "bg-rose-600 text-white",
+    experiences: [
+      {
+        id: "connectivity-solutions",
+        title: "Last-Mile Connectivity Solutions",
+        description: "Explore innovative approaches to solving internet connectivity challenges in underserved African regions.",
+        image: "https://images.unsplash.com/photo-1494412574745-f39b9ed80b43?auto=format&fit=crop&w=500&q=80",
+        duration: "55 minutes",
+        difficulty: "Advanced",
+        skills: ["Network Infrastructure", "Connectivity Innovation", "Rural Tech"]
+      },
+      {
+        id: "data-centers",
+        title: "African Data Center Evolution",
+        description: "Understand the growth and challenges of data center infrastructure across major African tech hubs.",
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Intermediate",
+        skills: ["Cloud Infrastructure", "Data Sovereignty", "Tech Infrastructure"]
+      },
+      {
+        id: "offline-solutions",
+        title: "Designing for Offline Environments",
+        description: "Learn strategies for building tech products that work effectively in areas with intermittent connectivity.",
+        image: "https://images.unsplash.com/photo-1493962853295-0fd70327578a?auto=format&fit=crop&w=500&q=80",
+        duration: "45 minutes",
+        difficulty: "Advanced",
+        skills: ["Offline-first Design", "Data Synchronization", "Progressive Apps"]
+      },
+      {
+        id: "energy-innovation",
+        title: "Energy Solutions for Tech",
+        description: "Explore innovative power solutions for running tech businesses in regions with unreliable electricity.",
+        image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Intermediate",
+        skills: ["Energy Management", "Sustainable Tech", "Infrastructure Planning"]
+      }
+    ]
+  },
+  {
+    id: "african-digital-policy",
+    title: "African Digital Policy",
+    description: "Navigate the complex policy and regulatory environments affecting tech businesses across African markets.",
+    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=500&q=80",
+    badgeText: "Policy",
+    badgeColor: "bg-emerald-600 text-white",
+    experiences: [
+      {
+        id: "data-protection",
+        title: "Data Protection Regulations",
+        description: "Navigate the evolving landscape of data protection and privacy regulations across different African countries.",
+        image: "https://images.unsplash.com/photo-1571786256017-aee7a0c009b6?auto=format&fit=crop&w=500&q=80",
+        duration: "50 minutes",
+        difficulty: "Advanced",
+        skills: ["Regulatory Compliance", "Data Governance", "Privacy Policy"]
+      },
+      {
+        id: "fintech-regulation",
+        title: "FinTech Regulatory Environments",
+        description: "Compare regulatory approaches to fintech across major African markets and their implications for innovation.",
+        image: "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=500&q=80",
+        duration: "55 minutes",
+        difficulty: "Advanced",
+        skills: ["Financial Regulation", "Compliance Strategy", "Regulatory Innovation"]
+      },
+      {
+        id: "digital-taxation",
+        title: "Digital Taxation Frameworks",
+        description: "Understand emerging digital taxation policies across Africa and their impact on tech business operations.",
+        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=500&q=80",
+        duration: "45 minutes",
+        difficulty: "Intermediate",
+        skills: ["Tax Planning", "Financial Compliance", "Cross-border Operations"]
+      },
+      {
+        id: "policy-advocacy",
+        title: "Tech Policy Advocacy",
+        description: "Learn effective strategies for engaging with policymakers to shape favorable tech regulations.",
+        image: "https://images.unsplash.com/photo-1465379944081-7f47de8d74ac?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Advanced",
+        skills: ["Government Relations", "Policy Analysis", "Industry Collaboration"]
+      }
+    ]
+  },
+  {
+    id: "pan-african-expansion",
+    title: "Pan-African Expansion",
+    description: "Strategies for scaling tech businesses across multiple African markets successfully.",
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=500&q=80",
+    badgeText: "Growth",
+    badgeColor: "bg-blue-600 text-white",
+    experiences: [
+      {
+        id: "regional-strategy",
+        title: "Regional Market Entry Sequencing",
+        description: "Develop strategic approaches for expanding across African regions in the most effective sequence.",
+        image: "https://images.unsplash.com/photo-1484980972926-edee96e0960d?auto=format&fit=crop&w=500&q=80",
+        duration: "60 minutes",
+        difficulty: "Advanced",
+        skills: ["Market Expansion", "Regional Strategy", "Growth Management"]
+      },
+      {
+        id: "localization-at-scale",
+        title: "Product Localization at Scale",
+        description: "Learn efficient approaches to localizing your products across multiple African languages and cultures.",
+        image: "https://images.unsplash.com/photo-1490596875948-0aa0252c5c27?auto=format&fit=crop&w=500&q=80",
+        duration: "45 minutes",
+        difficulty: "Intermediate",
+        skills: ["Localization Strategy", "Cultural Adaptation", "Market Fit"]
+      },
+      {
+        id: "hub-model",
+        title: "Regional Hub Operations",
+        description: "Design effective regional hub models for managing operations across multiple African countries.",
+        image: "https://images.unsplash.com/photo-1512106374287-de3ffcfdb5c0?auto=format&fit=crop&w=500&q=80",
+        duration: "50 minutes",
+        difficulty: "Advanced",
+        skills: ["Operational Strategy", "Team Structure", "Regional Management"]
+      },
+      {
+        id: "cross-border-payments",
+        title: "Cross-Border Payment Solutions",
+        description: "Navigate the challenges of payments and financial operations when running businesses across multiple African currencies.",
+        image: "https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Intermediate",
+        skills: ["Payment Infrastructure", "Currency Management", "Financial Operations"]
+      }
+    ]
+  },
+  {
+    id: "african-creative-economy",
+    title: "African Creative Economy",
+    description: "Explore opportunities at the intersection of technology and Africa's vibrant creative industries.",
+    image: "https://images.unsplash.com/photo-1496715976403-7e36dc43f17b?auto=format&fit=crop&w=500&q=80",
+    badgeText: "Creative",
+    badgeColor: "bg-gosip-purple text-white",
+    experiences: [
+      {
+        id: "digital-content",
+        title: "Digital Content Creation",
+        description: "Learn strategies for developing and monetizing digital content tailored for African audiences.",
+        image: "https://images.unsplash.com/photo-1547586696-ea22b4d4235d?auto=format&fit=crop&w=500&q=80",
+        duration: "45 minutes",
+        difficulty: "Beginner",
+        skills: ["Content Strategy", "Digital Media", "Audience Development"]
+      },
+      {
+        id: "music-tech",
+        title: "African Music Tech Ventures",
+        description: "Explore opportunities in the rapidly evolving African music tech ecosystem with its unique distribution models.",
+        image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Intermediate",
+        skills: ["Music Industry", "Digital Distribution", "IP Management"]
+      },
+      {
+        id: "fashion-tech",
+        title: "Fashion Tech Innovations",
+        description: "Discover how technology is transforming Africa's fashion industry from production to consumer engagement.",
+        image: "https://images.unsplash.com/photo-1503160865246-f8cb0f2b3fb4?auto=format&fit=crop&w=500&q=80",
+        duration: "35 minutes",
+        difficulty: "Beginner",
+        skills: ["Fashion Industry", "E-commerce", "Digital Marketing"]
+      },
+      {
+        id: "gaming-industry",
+        title: "African Gaming Industry",
+        description: "Understand the unique opportunities and challenges in developing games for African markets and beyond.",
+        image: "https://images.unsplash.com/photo-1586182987320-4f376d39d787?auto=format&fit=crop&w=500&q=80",
+        duration: "50 minutes",
+        difficulty: "Advanced",
+        skills: ["Game Development", "User Acquisition", "Monetization Strategy"]
+      }
+    ]
+  },
   {
     id: "immersive-learning",
     title: "Immersive Learning",
@@ -98,463 +557,3 @@ const vrCategories: VRCategory[] = [
         title: "Ancient Rome Explorer",
         description: "Walk through the streets of ancient Rome in its prime, learning about Roman architecture, lifestyle, and historical events.",
         image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=500&q=80",
-        duration: "40 minutes",
-        difficulty: "Beginner",
-        skills: ["History", "Architecture", "Cultural Studies"]
-      },
-      {
-        id: "underwater-reef",
-        title: "Underwater Reef Adventure",
-        description: "Dive into coral reefs to study marine ecosystems and environmental conservation challenges.",
-        image: "https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=500&q=80",
-        duration: "35 minutes",
-        difficulty: "Intermediate",
-        skills: ["Marine Biology", "Environmental Science", "Oceanography"]
-      }
-    ]
-  },
-  {
-    id: "collaborative-environments",
-    title: "Collaborative Environments",
-    description: "Work together with others in shared virtual spaces to solve problems and complete projects.",
-    image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=500&q=80",
-    badgeText: "Teamwork",
-    badgeColor: "bg-amber-500 text-white",
-    experiences: [
-      {
-        id: "team-escape",
-        title: "Team Escape Challenges",
-        description: "Solve puzzles together with teammates in immersive virtual escape rooms that test your collective problem-solving abilities.",
-        image: "https://images.unsplash.com/photo-1569360531163-a57ef939a0d2?auto=format&fit=crop&w=500&q=80",
-        duration: "50 minutes",
-        difficulty: "Advanced",
-        skills: ["Teamwork", "Critical Thinking", "Time Management"]
-      },
-      {
-        id: "virtual-design-lab",
-        title: "Virtual Design Laboratory",
-        description: "Collaborate on 3D design projects in a shared space with real-time feedback and prototyping tools.",
-        image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=500&q=80",
-        duration: "55 minutes",
-        difficulty: "Advanced",
-        skills: ["Design Thinking", "3D Modeling", "Project Management"]
-      }
-    ]
-  },
-  {
-    id: "business-simulations",
-    title: "Business Simulations",
-    description: "Practice entrepreneurial skills in risk-free virtual business environments.",
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80",
-    badgeText: "Entrepreneurship",
-    badgeColor: "bg-indigo-600 text-white",
-    experiences: [
-      {
-        id: "startup-simulator",
-        title: "Startup Simulator",
-        description: "Build a virtual startup from ground up, making critical decisions on funding, product development, and market strategy.",
-        image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=500&q=80",
-        duration: "60 minutes",
-        difficulty: "Intermediate",
-        skills: ["Business Planning", "Financial Management", "Strategic Decision Making"]
-      },
-      {
-        id: "negotiation-master",
-        title: "Negotiation Master",
-        description: "Practice high-stakes business negotiations with AI-powered virtual characters in realistic scenarios.",
-        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80",
-        duration: "30 minutes",
-        difficulty: "Advanced",
-        skills: ["Negotiation", "Persuasion", "Strategic Communication"]
-      },
-      {
-        id: "market-dynamics",
-        title: "Market Dynamics Simulator",
-        description: "Experience how markets respond to various business decisions in this interactive economic simulator.",
-        image: "https://images.unsplash.com/photo-1535320903710-d993d3d77d29?auto=format&fit=crop&w=500&q=80",
-        duration: "45 minutes",
-        difficulty: "Advanced",
-        skills: ["Market Analysis", "Economic Principles", "Competitive Strategy"]
-      },
-      {
-        id: "investor-pitch",
-        title: "Investor Pitch Training",
-        description: "Perfect your pitch in front of virtual venture capitalists who provide real-time feedback on your presentation.",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=500&q=80",
-        duration: "25 minutes",
-        difficulty: "Intermediate",
-        skills: ["Presentation Skills", "Financial Storytelling", "Investor Relations"]
-      }
-    ]
-  },
-  {
-    id: "leadership-training",
-    title: "Leadership Training",
-    description: "Develop essential leadership skills through immersive virtual scenarios and challenges.",
-    image: "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=500&q=80",
-    badgeText: "Management",
-    badgeColor: "bg-emerald-600 text-white",
-    experiences: [
-      {
-        id: "crisis-management",
-        title: "Crisis Management",
-        description: "Test and improve your leadership skills in high-pressure crisis scenarios requiring quick decision-making.",
-        image: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=500&q=80",
-        duration: "40 minutes",
-        difficulty: "Advanced",
-        skills: ["Decision Making", "Stress Management", "Team Leadership"]
-      },
-      {
-        id: "virtual-team-building",
-        title: "Virtual Team Building",
-        description: "Lead diverse teams through collaborative challenges designed to build trust and enhance group dynamics.",
-        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=80",
-        duration: "50 minutes",
-        difficulty: "Intermediate",
-        skills: ["Team Building", "Conflict Resolution", "Emotional Intelligence"]
-      },
-      {
-        id: "ethical-dilemmas",
-        title: "Ethical Leadership Dilemmas",
-        description: "Navigate complex ethical scenarios that challenge your values and decision-making as a business leader.",
-        image: "https://images.unsplash.com/photo-1544535830-3d7d03fe967a?auto=format&fit=crop&w=500&q=80",
-        duration: "35 minutes",
-        difficulty: "Advanced",
-        skills: ["Ethical Reasoning", "Principled Leadership", "Corporate Governance"]
-      },
-      {
-        id: "executive-presence",
-        title: "Executive Presence Builder",
-        description: "Refine your leadership presence and charisma in virtual boardroom and public speaking scenarios.",
-        image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=500&q=80",
-        duration: "30 minutes",
-        difficulty: "Intermediate",
-        skills: ["Executive Presence", "Communication", "Confidence Building"]
-      }
-    ]
-  },
-  {
-    id: "market-research",
-    title: "Market Research",
-    description: "Conduct virtual market research and customer testing in immersive environments.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80",
-    badgeText: "Customer Insights",
-    badgeColor: "bg-cyan-600 text-white",
-    experiences: [
-      {
-        id: "customer-journey",
-        title: "Customer Journey Mapping",
-        description: "Experience your product or service from the customer's perspective in a virtual environment.",
-        image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=500&q=80",
-        duration: "35 minutes",
-        difficulty: "Beginner",
-        skills: ["Customer Experience", "Empathy", "Service Design"]
-      },
-      {
-        id: "virtual-focus-groups",
-        title: "Virtual Focus Groups",
-        description: "Observe and interact with AI-simulated consumer focus groups responding to your product concepts.",
-        image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=500&q=80",
-        duration: "45 minutes",
-        difficulty: "Intermediate",
-        skills: ["Qualitative Research", "Consumer Insights", "Product Development"]
-      },
-      {
-        id: "competitor-analysis",
-        title: "Competitor Analysis Lab",
-        description: "Analyze competitor products and strategies through interactive virtual demonstrations and simulations.",
-        image: "https://images.unsplash.com/photo-1571844307880-751c6d86f3f3?auto=format&fit=crop&w=500&q=80",
-        duration: "40 minutes",
-        difficulty: "Advanced",
-        skills: ["Competitive Analysis", "Strategic Planning", "Market Positioning"]
-      },
-      {
-        id: "market-trends",
-        title: "Market Trends Explorer",
-        description: "Visualize and interact with market data in a 3D environment to identify emerging patterns and opportunities.",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80",
-        duration: "30 minutes",
-        difficulty: "Intermediate",
-        skills: ["Trend Analysis", "Data Visualization", "Strategic Foresight"]
-      }
-    ]
-  },
-  {
-    id: "product-design",
-    title: "Product Design",
-    description: "Create and test product prototypes in virtual environments before investing in physical development.",
-    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=500&q=80",
-    badgeText: "Innovation",
-    badgeColor: "bg-rose-600 text-white",
-    experiences: [
-      {
-        id: "virtual-prototyping",
-        title: "Virtual Prototyping Studio",
-        description: "Design and test product prototypes in a virtual workshop with professional tools and instant feedback.",
-        image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=500&q=80",
-        duration: "55 minutes",
-        difficulty: "Advanced",
-        skills: ["Product Design", "Prototyping", "User Testing"]
-      },
-      {
-        id: "design-thinking",
-        title: "Design Thinking Workshop",
-        description: "Apply design thinking methodology in virtual collaborative spaces to solve real business problems.",
-        image: "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=500&q=80",
-        duration: "60 minutes",
-        difficulty: "Intermediate",
-        skills: ["Design Thinking", "Problem Solving", "Innovation"]
-      },
-      {
-        id: "user-experience",
-        title: "UX Testing Laboratory",
-        description: "Observe how users interact with your digital products in a controlled virtual environment.",
-        image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=500&q=80",
-        duration: "40 minutes",
-        difficulty: "Intermediate",
-        skills: ["User Experience", "Usability Testing", "Interface Design"]
-      },
-      {
-        id: "sustainability-design",
-        title: "Sustainable Product Design",
-        description: "Learn principles of sustainable design while creating eco-friendly product concepts in VR.",
-        image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=500&q=80",
-        duration: "45 minutes",
-        difficulty: "Intermediate",
-        skills: ["Sustainable Design", "Life Cycle Assessment", "Eco-Innovation"]
-      }
-    ]
-  },
-  {
-    id: "financial-literacy",
-    title: "Financial Literacy",
-    description: "Master financial concepts through interactive VR experiences and simulations.",
-    image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=500&q=80",
-    badgeText: "Finance",
-    badgeColor: "bg-green-600 text-white",
-    experiences: [
-      {
-        id: "investment-simulator",
-        title: "Investment Portfolio Simulator",
-        description: "Build and manage virtual investment portfolios and see the long-term outcomes of different strategies.",
-        image: "https://images.unsplash.com/photo-1535320903710-d993d3d77d29?auto=format&fit=crop&w=500&q=80",
-        duration: "50 minutes",
-        difficulty: "Intermediate",
-        skills: ["Investment Strategy", "Risk Management", "Financial Planning"]
-      },
-      {
-        id: "startup-funding",
-        title: "Startup Funding Journey",
-        description: "Navigate the complex world of startup financing from seed funding to IPO in this interactive simulation.",
-        image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=500&q=80",
-        duration: "55 minutes",
-        difficulty: "Advanced",
-        skills: ["Fundraising", "Valuation", "Cap Tables"]
-      },
-      {
-        id: "cash-flow-manager",
-        title: "Cash Flow Management",
-        description: "Learn to manage business cash flow through challenging scenarios in this practical simulation.",
-        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=500&q=80",
-        duration: "40 minutes",
-        difficulty: "Intermediate",
-        skills: ["Cash Flow Analysis", "Financial Forecasting", "Business Finance"]
-      },
-      {
-        id: "financial-statements",
-        title: "Financial Statements Explorer",
-        description: "Understand financial statements through interactive visualizations that bring numbers to life.",
-        image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=500&q=80",
-        duration: "35 minutes",
-        difficulty: "Beginner",
-        skills: ["Financial Literacy", "Accounting Basics", "Financial Analysis"]
-      }
-    ]
-  },
-  {
-    id: "global-business",
-    title: "Global Business",
-    description: "Experience international business environments and cross-cultural business practices.",
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=500&q=80",
-    badgeText: "International",
-    badgeColor: "bg-blue-600 text-white",
-    experiences: [
-      {
-        id: "global-negotiations",
-        title: "Cross-Cultural Negotiations",
-        description: "Practice business negotiations with virtual counterparts from different cultural backgrounds.",
-        image: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=500&q=80",
-        duration: "45 minutes",
-        difficulty: "Advanced",
-        skills: ["Cross-cultural Communication", "Global Business Etiquette", "Negotiation"]
-      },
-      {
-        id: "global-markets",
-        title: "Global Market Entry Simulation",
-        description: "Plan and execute a market entry strategy for your business in different international markets.",
-        image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=500&q=80",
-        duration: "60 minutes",
-        difficulty: "Advanced",
-        skills: ["International Business", "Market Entry Strategy", "Global Economics"]
-      },
-      {
-        id: "supply-chain",
-        title: "Global Supply Chain Explorer",
-        description: "Follow products from raw materials to consumer across international supply chains in this interactive experience.",
-        image: "https://images.unsplash.com/photo-1494412574745-f39b9ed80b43?auto=format&fit=crop&w=500&q=80",
-        duration: "50 minutes",
-        difficulty: "Intermediate",
-        skills: ["Supply Chain Management", "Logistics", "International Trade"]
-      },
-      {
-        id: "cultural-immersion",
-        title: "Business Culture Immersion",
-        description: "Experience business meetings and networking in different cultural contexts to build cultural intelligence.",
-        image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80",
-        duration: "40 minutes",
-        difficulty: "Beginner",
-        skills: ["Cultural Intelligence", "Global Mindset", "International Relations"]
-      }
-    ]
-  }
-];
-
-export default function VRLearning() {
-  const [selectedCategory, setSelectedCategory] = useState<VRCategory | null>(null);
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const navigate = useNavigate();
-
-  const handleCategorySelect = (category: VRCategory) => {
-    setSelectedCategory(category);
-  };
-
-  const handleBackToCategories = () => {
-    setSelectedCategory(null);
-  };
-
-  return (
-    <div className="min-h-screen bg-background flex">
-      <Sidebar 
-        collapsed={sidebarCollapsed} 
-        onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} 
-      />
-      <div className="flex-1 flex flex-col">
-        <Navbar />
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-4">
-              {selectedCategory && (
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={handleBackToCategories}
-                  className="flex items-center gap-1"
-                >
-                  <ChevronLeft className="h-4 w-4" /> Back
-                </Button>
-              )}
-              <div>
-                <h1 className="text-3xl font-bold mb-1">VR Learning</h1>
-                <p className="text-muted-foreground">
-                  {selectedCategory 
-                    ? `Exploring ${selectedCategory.title}`
-                    : "Immersive educational experiences in virtual reality"
-                  }
-                </p>
-              </div>
-            </div>
-            <div>
-              <Button 
-                variant="outline" 
-                size="icon"
-                onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-                className="hidden md:flex"
-              >
-                {sidebarCollapsed ? <ChevronRight /> : <ChevronLeft />}
-              </Button>
-            </div>
-          </div>
-
-          {!selectedCategory ? (
-            // Categories view
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {vrCategories.map((category) => (
-                <Card 
-                  key={category.id} 
-                  className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group"
-                  onClick={() => handleCategorySelect(category)}
-                >
-                  <div className="h-40 overflow-hidden">
-                    <img 
-                      src={category.image} 
-                      alt={category.title} 
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <CardHeader className="pb-2">
-                    <div className="flex justify-between items-start">
-                      <CardTitle>{category.title}</CardTitle>
-                      <Badge className={category.badgeColor}>{category.badgeText}</Badge>
-                    </div>
-                    <CardDescription>{category.description}</CardDescription>
-                  </CardHeader>
-                  <CardFooter className="pt-1">
-                    <Button variant="ghost" size="sm" className="ml-auto flex items-center gap-1">
-                      Explore <ChevronRight className="h-4 w-4" />
-                    </Button>
-                  </CardFooter>
-                </Card>
-              ))}
-            </div>
-          ) : (
-            // Experiences view for selected category
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-2xl font-semibold mb-4">{selectedCategory.title} Experiences</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {selectedCategory.experiences.map((experience) => (
-                    <Card key={experience.id} className="overflow-hidden">
-                      <div className="h-48 overflow-hidden">
-                        <img 
-                          src={experience.image} 
-                          alt={experience.title} 
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <CardHeader>
-                        <CardTitle className="text-xl">{experience.title}</CardTitle>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <span>{experience.duration}</span>
-                          <span>•</span>
-                          <span className={`${
-                            experience.difficulty === 'Beginner' ? 'text-green-500' : 
-                            experience.difficulty === 'Intermediate' ? 'text-amber-500' : 'text-red-500'
-                          }`}>
-                            {experience.difficulty}
-                          </span>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4">{experience.description}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {experience.skills.map((skill, index) => (
-                            <Badge key={index} variant="outline" className="bg-secondary/50">
-                              {skill}
-                            </Badge>
-                          ))}
-                        </div>
-                      </CardContent>
-                      <CardFooter>
-                        <Button className="w-full">Start Experience</Button>
-                      </CardFooter>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}

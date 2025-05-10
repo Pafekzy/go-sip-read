@@ -1,5 +1,5 @@
 
-import { Home, BookOpen, Headphones, Film, Users, Award, Trophy, LineChart, Moon, Sun, Tv } from "lucide-react";
+import { Home, BookOpen, Headphones, Film, Users, Award, Trophy, LineChart, Moon, Sun, Tv, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -10,7 +10,7 @@ const navigation = [
   { name: "Books", href: "/books", icon: BookOpen, current: false },
   { name: "Podcasts", href: "/podcasts", icon: Headphones, current: false },
   { name: "Videos", href: "/videos", icon: Film, current: false },
-  { name: "V.R Learning", href: "/vr-learning", icon: Tv, current: false },
+  { name: "V.R Learning", href: "/vr-learning", icon: Globe, current: false },
   { name: "Groups", href: "/groups", icon: Users, current: false },
   { name: "Badges", href: "/badges", icon: Award, current: false },
   { name: "Challenges", href: "/challenges", icon: Trophy, current: false },
