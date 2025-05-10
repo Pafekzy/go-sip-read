@@ -37,29 +37,43 @@ export function Navbar() {
               variant="ghost" 
               size="icon" 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 h-10 w-10 flex items-center justify-center"
+              aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X /> : <Menu />}
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
             
             {isMenuOpen && (
-              <div className="absolute top-full left-0 right-0 bg-background border-b p-4 flex flex-col gap-4 animate-fade-in">
+              <div className="absolute top-full left-0 right-0 bg-background border-b p-4 flex flex-col gap-4 animate-fade-in shadow-md">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
                   <input
                     type="text"
-                    placeholder="Search books, podcasts, videos..."
+                    placeholder="Search..."
                     className="w-full py-2 pl-10 pr-4 rounded-full bg-secondary border-0 focus:outline-none focus:ring-2 focus:ring-gosip-purple/30"
                   />
                 </div>
-                <Button variant="ghost" className="justify-start">
+                <Button 
+                  variant="ghost" 
+                  className="justify-start py-2 h-auto"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   <MessageCircle className="mr-2 h-4 w-4" />
                   AI Chat
                 </Button>
-                <Button variant="ghost" className="justify-start">
+                <Button 
+                  variant="ghost" 
+                  className="justify-start py-2 h-auto"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   <Bell className="mr-2 h-4 w-4" />
                   Notifications
                 </Button>
-                <Button variant="ghost" className="justify-start">
+                <Button 
+                  variant="ghost" 
+                  className="justify-start py-2 h-auto"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   <User className="mr-2 h-4 w-4" />
                   Profile
                 </Button>
@@ -69,11 +83,10 @@ export function Navbar() {
           </>
         ) : (
           <div className="flex items-center gap-2">
-            {/* Theme toggle moved to sidebar only */}
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className="h-10 w-10 flex items-center justify-center">
               <MessageCircle className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className="h-10 w-10 flex items-center justify-center">
               <Bell className="h-5 w-5" />
             </Button>
             <Avatar>

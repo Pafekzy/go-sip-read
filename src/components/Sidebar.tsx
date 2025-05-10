@@ -31,28 +31,28 @@ export function Sidebar({ collapsed = false, onToggle, hidden = false }: Sidebar
   
   return (
     <div className={cn(
-      "h-screen border-r border-transparent bg-transparent backdrop-blur-sm sticky top-0 transition-all duration-300 ease-in-out opacity-[0.35]", 
+      "h-screen border-r border-transparent bg-transparent backdrop-blur-sm sticky top-0 transition-all duration-300 ease-in-out opacity-[0.35] hover:opacity-100", 
       collapsed ? "w-14" : "w-48",
       hidden ? "-translate-x-full" : "translate-x-0"
     )}>
       <div className="h-full py-2 flex flex-col">
-        <div className="space-y-1 px-2">
+        <div className="space-y-1 px-2 overflow-y-auto flex-grow">
           {navigation.map((item) => (
             <Button
               key={item.name}
               variant={item.current ? "secondary" : "ghost"}
               className={cn(
-                "w-full justify-start transition-all duration-150",
+                "w-full justify-start transition-all duration-150 h-auto py-2",
                 collapsed ? "justify-center px-2" : "px-3"
               )}
               asChild
             >
               <a href={item.href}>
                 <item.icon className={cn(
-                  "h-5 w-5",
+                  "h-5 w-5 shrink-0",
                   collapsed ? "" : "mr-3"
                 )} />
-                {!collapsed && <span>{item.name}</span>}
+                {!collapsed && <span className="truncate">{item.name}</span>}
               </a>
             </Button>
           ))}
@@ -62,7 +62,7 @@ export function Sidebar({ collapsed = false, onToggle, hidden = false }: Sidebar
             variant="ghost" 
             size="icon"
             onClick={toggleTheme}
-            className="w-full justify-center"
+            className="w-full justify-center h-10 w-10 flex items-center justify-center"
           >
             {theme === 'light' ? (
               <Moon className="h-5 w-5" />

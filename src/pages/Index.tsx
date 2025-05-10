@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { Logo } from "@/components/Logo";
@@ -9,7 +10,7 @@ import { FeaturesSection } from "@/components/home/FeaturesSection";
 import { SupportedBrands } from "@/components/SupportedBrands";
 import { useNavigate } from "react-router-dom";
 import { RippleButton } from "@/components/ui/ripple-button";
-import { Gift, Menu, Moon, Sun } from "lucide-react";
+import { Gift, Menu, X } from "lucide-react";
 import { FloatingEmojis } from "@/components/home/FloatingEmojis";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -22,26 +23,31 @@ export default function Index() {
   const [showLogin, setShowLogin] = useState(false);
   const [loginTab, setLoginTab] = useState<"user" | "admin">("user");
   const [hideSidebar, setHideSidebar] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   const { theme } = useTheme();
 
   const handleGetStarted = () => {
     navigate('/register');
+    setMobileMenuOpen(false);
   };
 
   const handleUserLogin = () => {
     setLoginTab("user");
     setShowLogin(true);
     setHideSidebar(true); // Hide sidebar when login button is clicked
+    setMobileMenuOpen(false);
   };
 
   const handleDashboard = () => {
     navigate('/dashboard');
+    setMobileMenuOpen(false);
   };
 
   const handleUpgrade = () => {
     navigate('/upgrade');
+    setMobileMenuOpen(false);
   };
 
   // Navigation items for mobile menu - removed Admin login
@@ -57,7 +63,7 @@ export default function Index() {
       {/* Add FloatingEmojis component here */}
       <FloatingEmojis />
       
-      <div className="flex">
+      <div className="flex w-full">
         {/* Sidebar - Only show when not in login page */}
         {!showLogin && <Sidebar hidden={hideSidebar} />}
         
@@ -68,30 +74,38 @@ export default function Index() {
             </div>
             
             {isMobile ? (
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="outline" size="icon">
-                    <Menu className="h-5 w-5" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent>
-                  <div className="flex flex-col gap-3 mt-8">
-                    {navItems.map((item, index) => (
-                      <Button 
-                        key={index}
-                        variant={item.highlight ? "default" : item.special ? "ghost" : "ghost"}
-                        className={`w-full ${item.special ? "bg-gosip-purple-dark hover:bg-gosip-purple-darker shadow-lg hover:shadow-xl animate-pulse" : (item.highlight ? "bg-gosip-purple hover:bg-gosip-purple-dark" : "")}`}
-                        onClick={item.onClick}
-                      >
-                        {item.special && <Gift className="mr-1 h-4 w-4" />}
-                        {item.label}
-                      </Button>
-                    ))}
-                    {/* Keep theme toggle in mobile menu */}
-                    <ThemeToggle />
+              <div className="relative">
+                <Button 
+                  variant="outline" 
+                  size="icon"
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="h-10 w-10 flex items-center justify-center"
+                  aria-label="Toggle menu"
+                >
+                  {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                </Button>
+                
+                {mobileMenuOpen && (
+                  <div className="absolute top-full right-0 w-64 mt-2 py-2 bg-background rounded-lg shadow-lg border z-50 animate-fade-in">
+                    <div className="flex flex-col gap-1 p-2">
+                      {navItems.map((item, index) => (
+                        <Button 
+                          key={index}
+                          variant={item.highlight ? "default" : item.special ? "ghost" : "ghost"}
+                          className={`w-full justify-start h-auto py-2 ${item.special ? "bg-gosip-purple-dark hover:bg-gosip-purple-darker shadow-lg hover:shadow-xl animate-pulse" : (item.highlight ? "bg-gosip-purple hover:bg-gosip-purple-dark" : "")}`}
+                          onClick={item.onClick}
+                        >
+                          {item.special && <Gift className="mr-1 h-4 w-4" />}
+                          {item.label}
+                        </Button>
+                      ))}
+                      <div className="flex justify-center mt-2">
+                        <ThemeToggle />
+                      </div>
+                    </div>
                   </div>
-                </SheetContent>
-              </Sheet>
+                )}
+              </div>
             ) : (
               <div className="flex flex-wrap items-center gap-2">
                 <Button 
@@ -120,7 +134,6 @@ export default function Index() {
                 >
                   <Gift className="mr-1 h-4 w-4" /> Upgrade 🎁
                 </RippleButton>
-                {/* Theme toggle removed from header */}
               </div>
             )}
           </header>
