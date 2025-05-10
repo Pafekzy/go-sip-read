@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Sidebar } from "@/components/Sidebar";
@@ -557,3 +558,156 @@ const vrCategories: VRCategory[] = [
         title: "Ancient Rome Explorer",
         description: "Walk through the streets of ancient Rome in its prime, learning about Roman architecture, lifestyle, and historical events.",
         image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=500&q=80",
+        duration: "35 minutes",
+        difficulty: "Beginner",
+        skills: ["Historical Knowledge", "Architecture", "Cultural Studies"]
+      },
+      {
+        id: "serengeti-safari",
+        title: "Serengeti Virtual Safari",
+        description: "Experience a virtual safari through Tanzania's Serengeti National Park and observe African wildlife in their natural habitat.",
+        image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Beginner",
+        skills: ["Wildlife Conservation", "Ecosystem Knowledge", "Geography"]
+      },
+      {
+        id: "cairo-pyramids",
+        title: "Pyramids of Giza Tour",
+        description: "Explore the ancient Egyptian pyramids, including inside access to areas typically restricted to the public.",
+        image: "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=500&q=80",
+        duration: "45 minutes",
+        difficulty: "Beginner",
+        skills: ["Historical Knowledge", "Archaeology", "Egyptian Culture"]
+      },
+      {
+        id: "victoria-falls",
+        title: "Victoria Falls Experience",
+        description: "Visit the majestic Victoria Falls between Zambia and Zimbabwe and learn about its geological significance.",
+        image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=500&q=80",
+        duration: "30 minutes",
+        difficulty: "Beginner",
+        skills: ["Geography", "Geology", "Environmental Science"]
+      }
+    ]
+  },
+  // Add more categories and experiences here...
+];
+
+function VRLearning() {
+  const navigate = useNavigate();
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [sidebarHidden, setSidebarHidden] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<VRCategory | null>(vrCategories[0]);
+
+  const toggleSidebar = () => {
+    setSidebarCollapsed(!sidebarCollapsed);
+  };
+
+  const handleCategorySelect = (category: VRCategory) => {
+    setSelectedCategory(category);
+  };
+
+  return (
+    <div className="flex h-screen overflow-hidden bg-background">
+      <Sidebar collapsed={sidebarCollapsed} onToggle={toggleSidebar} hidden={sidebarHidden} />
+      
+      <div className="flex flex-col flex-1 overflow-hidden">
+        <Navbar />
+        
+        <div className="flex flex-1 overflow-hidden">
+          {/* Left panel with categories */}
+          <div className={`border-r border-border bg-card transition-all ${sidebarHidden ? "w-0" : sidebarCollapsed ? "w-24" : "w-72"}`}>
+            <div className="p-4 flex items-center justify-between">
+              <h2 className={`font-semibold text-lg ${sidebarCollapsed ? "hidden" : "block"}`}>VR Categories</h2>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => setSidebarHidden(!sidebarHidden)}
+                className="h-8 w-8"
+              >
+                {sidebarHidden ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
+              </Button>
+            </div>
+            
+            <div className="overflow-y-auto h-[calc(100vh-10rem)]">
+              {vrCategories.map((category) => (
+                <div 
+                  key={category.id}
+                  onClick={() => handleCategorySelect(category)}
+                  className={`p-3 transition-all cursor-pointer hover:bg-accent ${selectedCategory?.id === category.id ? 'bg-accent' : ''}`}
+                >
+                  {sidebarCollapsed ? (
+                    <div className="flex justify-center">
+                      <div 
+                        className="w-12 h-12 rounded-md bg-cover bg-center" 
+                        style={{ backgroundImage: `url(${category.image})` }}
+                      />
+                    </div>
+                  ) : (
+                    <div className="flex gap-3 items-center">
+                      <div 
+                        className="w-12 h-12 rounded-md bg-cover bg-center" 
+                        style={{ backgroundImage: `url(${category.image})` }}
+                      />
+                      <div>
+                        <h3 className="font-medium">{category.title}</h3>
+                        <p className="text-xs text-muted-foreground line-clamp-1">{category.description}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Main content area */}
+          <div className="flex-1 overflow-y-auto pb-8">
+            {selectedCategory && (
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-6">
+                  <h1 className="text-3xl font-bold">{selectedCategory.title}</h1>
+                  <Badge className={selectedCategory.badgeColor}>{selectedCategory.badgeText}</Badge>
+                </div>
+                
+                <p className="text-lg text-muted-foreground mb-8">{selectedCategory.description}</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {selectedCategory.experiences.map((experience) => (
+                    <Card key={experience.id} className="overflow-hidden transition-all hover:shadow-lg">
+                      <div 
+                        className="h-48 bg-cover bg-center" 
+                        style={{ backgroundImage: `url(${experience.image})` }}
+                      />
+                      <CardHeader>
+                        <CardTitle>{experience.title}</CardTitle>
+                        <CardDescription className="flex items-center gap-2">
+                          <span className="font-medium">{experience.duration}</span>
+                          <span>•</span>
+                          <span>{experience.difficulty}</span>
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground">{experience.description}</p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {experience.skills.map((skill, index) => (
+                            <Badge key={index} variant="outline">{skill}</Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                      <CardFooter>
+                        <Button className="w-full bg-gosip-purple">Start Experience</Button>
+                      </CardFooter>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default VRLearning;
