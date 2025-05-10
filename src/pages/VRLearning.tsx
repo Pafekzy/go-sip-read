@@ -140,6 +140,282 @@ const vrCategories: VRCategory[] = [
         skills: ["Design Thinking", "3D Modeling", "Project Management"]
       }
     ]
+  },
+  {
+    id: "business-simulations",
+    title: "Business Simulations",
+    description: "Practice entrepreneurial skills in risk-free virtual business environments.",
+    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80",
+    badgeText: "Entrepreneurship",
+    badgeColor: "bg-indigo-600 text-white",
+    experiences: [
+      {
+        id: "startup-simulator",
+        title: "Startup Simulator",
+        description: "Build a virtual startup from ground up, making critical decisions on funding, product development, and market strategy.",
+        image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=500&q=80",
+        duration: "60 minutes",
+        difficulty: "Intermediate",
+        skills: ["Business Planning", "Financial Management", "Strategic Decision Making"]
+      },
+      {
+        id: "negotiation-master",
+        title: "Negotiation Master",
+        description: "Practice high-stakes business negotiations with AI-powered virtual characters in realistic scenarios.",
+        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80",
+        duration: "30 minutes",
+        difficulty: "Advanced",
+        skills: ["Negotiation", "Persuasion", "Strategic Communication"]
+      },
+      {
+        id: "market-dynamics",
+        title: "Market Dynamics Simulator",
+        description: "Experience how markets respond to various business decisions in this interactive economic simulator.",
+        image: "https://images.unsplash.com/photo-1535320903710-d993d3d77d29?auto=format&fit=crop&w=500&q=80",
+        duration: "45 minutes",
+        difficulty: "Advanced",
+        skills: ["Market Analysis", "Economic Principles", "Competitive Strategy"]
+      },
+      {
+        id: "investor-pitch",
+        title: "Investor Pitch Training",
+        description: "Perfect your pitch in front of virtual venture capitalists who provide real-time feedback on your presentation.",
+        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=500&q=80",
+        duration: "25 minutes",
+        difficulty: "Intermediate",
+        skills: ["Presentation Skills", "Financial Storytelling", "Investor Relations"]
+      }
+    ]
+  },
+  {
+    id: "leadership-training",
+    title: "Leadership Training",
+    description: "Develop essential leadership skills through immersive virtual scenarios and challenges.",
+    image: "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=500&q=80",
+    badgeText: "Management",
+    badgeColor: "bg-emerald-600 text-white",
+    experiences: [
+      {
+        id: "crisis-management",
+        title: "Crisis Management",
+        description: "Test and improve your leadership skills in high-pressure crisis scenarios requiring quick decision-making.",
+        image: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Advanced",
+        skills: ["Decision Making", "Stress Management", "Team Leadership"]
+      },
+      {
+        id: "virtual-team-building",
+        title: "Virtual Team Building",
+        description: "Lead diverse teams through collaborative challenges designed to build trust and enhance group dynamics.",
+        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=80",
+        duration: "50 minutes",
+        difficulty: "Intermediate",
+        skills: ["Team Building", "Conflict Resolution", "Emotional Intelligence"]
+      },
+      {
+        id: "ethical-dilemmas",
+        title: "Ethical Leadership Dilemmas",
+        description: "Navigate complex ethical scenarios that challenge your values and decision-making as a business leader.",
+        image: "https://images.unsplash.com/photo-1544535830-3d7d03fe967a?auto=format&fit=crop&w=500&q=80",
+        duration: "35 minutes",
+        difficulty: "Advanced",
+        skills: ["Ethical Reasoning", "Principled Leadership", "Corporate Governance"]
+      },
+      {
+        id: "executive-presence",
+        title: "Executive Presence Builder",
+        description: "Refine your leadership presence and charisma in virtual boardroom and public speaking scenarios.",
+        image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=500&q=80",
+        duration: "30 minutes",
+        difficulty: "Intermediate",
+        skills: ["Executive Presence", "Communication", "Confidence Building"]
+      }
+    ]
+  },
+  {
+    id: "market-research",
+    title: "Market Research",
+    description: "Conduct virtual market research and customer testing in immersive environments.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80",
+    badgeText: "Customer Insights",
+    badgeColor: "bg-cyan-600 text-white",
+    experiences: [
+      {
+        id: "customer-journey",
+        title: "Customer Journey Mapping",
+        description: "Experience your product or service from the customer's perspective in a virtual environment.",
+        image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=500&q=80",
+        duration: "35 minutes",
+        difficulty: "Beginner",
+        skills: ["Customer Experience", "Empathy", "Service Design"]
+      },
+      {
+        id: "virtual-focus-groups",
+        title: "Virtual Focus Groups",
+        description: "Observe and interact with AI-simulated consumer focus groups responding to your product concepts.",
+        image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=500&q=80",
+        duration: "45 minutes",
+        difficulty: "Intermediate",
+        skills: ["Qualitative Research", "Consumer Insights", "Product Development"]
+      },
+      {
+        id: "competitor-analysis",
+        title: "Competitor Analysis Lab",
+        description: "Analyze competitor products and strategies through interactive virtual demonstrations and simulations.",
+        image: "https://images.unsplash.com/photo-1571844307880-751c6d86f3f3?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Advanced",
+        skills: ["Competitive Analysis", "Strategic Planning", "Market Positioning"]
+      },
+      {
+        id: "market-trends",
+        title: "Market Trends Explorer",
+        description: "Visualize and interact with market data in a 3D environment to identify emerging patterns and opportunities.",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80",
+        duration: "30 minutes",
+        difficulty: "Intermediate",
+        skills: ["Trend Analysis", "Data Visualization", "Strategic Foresight"]
+      }
+    ]
+  },
+  {
+    id: "product-design",
+    title: "Product Design",
+    description: "Create and test product prototypes in virtual environments before investing in physical development.",
+    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=500&q=80",
+    badgeText: "Innovation",
+    badgeColor: "bg-rose-600 text-white",
+    experiences: [
+      {
+        id: "virtual-prototyping",
+        title: "Virtual Prototyping Studio",
+        description: "Design and test product prototypes in a virtual workshop with professional tools and instant feedback.",
+        image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=500&q=80",
+        duration: "55 minutes",
+        difficulty: "Advanced",
+        skills: ["Product Design", "Prototyping", "User Testing"]
+      },
+      {
+        id: "design-thinking",
+        title: "Design Thinking Workshop",
+        description: "Apply design thinking methodology in virtual collaborative spaces to solve real business problems.",
+        image: "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=500&q=80",
+        duration: "60 minutes",
+        difficulty: "Intermediate",
+        skills: ["Design Thinking", "Problem Solving", "Innovation"]
+      },
+      {
+        id: "user-experience",
+        title: "UX Testing Laboratory",
+        description: "Observe how users interact with your digital products in a controlled virtual environment.",
+        image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Intermediate",
+        skills: ["User Experience", "Usability Testing", "Interface Design"]
+      },
+      {
+        id: "sustainability-design",
+        title: "Sustainable Product Design",
+        description: "Learn principles of sustainable design while creating eco-friendly product concepts in VR.",
+        image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=500&q=80",
+        duration: "45 minutes",
+        difficulty: "Intermediate",
+        skills: ["Sustainable Design", "Life Cycle Assessment", "Eco-Innovation"]
+      }
+    ]
+  },
+  {
+    id: "financial-literacy",
+    title: "Financial Literacy",
+    description: "Master financial concepts through interactive VR experiences and simulations.",
+    image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=500&q=80",
+    badgeText: "Finance",
+    badgeColor: "bg-green-600 text-white",
+    experiences: [
+      {
+        id: "investment-simulator",
+        title: "Investment Portfolio Simulator",
+        description: "Build and manage virtual investment portfolios and see the long-term outcomes of different strategies.",
+        image: "https://images.unsplash.com/photo-1535320903710-d993d3d77d29?auto=format&fit=crop&w=500&q=80",
+        duration: "50 minutes",
+        difficulty: "Intermediate",
+        skills: ["Investment Strategy", "Risk Management", "Financial Planning"]
+      },
+      {
+        id: "startup-funding",
+        title: "Startup Funding Journey",
+        description: "Navigate the complex world of startup financing from seed funding to IPO in this interactive simulation.",
+        image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=500&q=80",
+        duration: "55 minutes",
+        difficulty: "Advanced",
+        skills: ["Fundraising", "Valuation", "Cap Tables"]
+      },
+      {
+        id: "cash-flow-manager",
+        title: "Cash Flow Management",
+        description: "Learn to manage business cash flow through challenging scenarios in this practical simulation.",
+        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Intermediate",
+        skills: ["Cash Flow Analysis", "Financial Forecasting", "Business Finance"]
+      },
+      {
+        id: "financial-statements",
+        title: "Financial Statements Explorer",
+        description: "Understand financial statements through interactive visualizations that bring numbers to life.",
+        image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=500&q=80",
+        duration: "35 minutes",
+        difficulty: "Beginner",
+        skills: ["Financial Literacy", "Accounting Basics", "Financial Analysis"]
+      }
+    ]
+  },
+  {
+    id: "global-business",
+    title: "Global Business",
+    description: "Experience international business environments and cross-cultural business practices.",
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=500&q=80",
+    badgeText: "International",
+    badgeColor: "bg-blue-600 text-white",
+    experiences: [
+      {
+        id: "global-negotiations",
+        title: "Cross-Cultural Negotiations",
+        description: "Practice business negotiations with virtual counterparts from different cultural backgrounds.",
+        image: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=500&q=80",
+        duration: "45 minutes",
+        difficulty: "Advanced",
+        skills: ["Cross-cultural Communication", "Global Business Etiquette", "Negotiation"]
+      },
+      {
+        id: "global-markets",
+        title: "Global Market Entry Simulation",
+        description: "Plan and execute a market entry strategy for your business in different international markets.",
+        image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=500&q=80",
+        duration: "60 minutes",
+        difficulty: "Advanced",
+        skills: ["International Business", "Market Entry Strategy", "Global Economics"]
+      },
+      {
+        id: "supply-chain",
+        title: "Global Supply Chain Explorer",
+        description: "Follow products from raw materials to consumer across international supply chains in this interactive experience.",
+        image: "https://images.unsplash.com/photo-1494412574745-f39b9ed80b43?auto=format&fit=crop&w=500&q=80",
+        duration: "50 minutes",
+        difficulty: "Intermediate",
+        skills: ["Supply Chain Management", "Logistics", "International Trade"]
+      },
+      {
+        id: "cultural-immersion",
+        title: "Business Culture Immersion",
+        description: "Experience business meetings and networking in different cultural contexts to build cultural intelligence.",
+        image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80",
+        duration: "40 minutes",
+        difficulty: "Beginner",
+        skills: ["Cultural Intelligence", "Global Mindset", "International Relations"]
+      }
+    ]
   }
 ];
 
