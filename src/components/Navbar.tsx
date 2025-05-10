@@ -31,6 +31,7 @@ export function Navbar() {
           </div>
         )}
 
+        {/* Mobile layout */}
         {isMobile ? (
           <>
             <Button 
@@ -82,7 +83,8 @@ export function Navbar() {
             )}
           </>
         ) : (
-          <div className="flex items-center gap-2">
+          /* Desktop layout - modified to prevent wrapping at different zoom levels */
+          <div className="flex items-center gap-2 flex-shrink-0">
             <Button variant="ghost" size="icon" className="h-10 w-10 flex items-center justify-center">
               <MessageCircle className="h-5 w-5" />
             </Button>

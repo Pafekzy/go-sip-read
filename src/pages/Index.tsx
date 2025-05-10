@@ -107,33 +107,36 @@ export default function Index() {
                 )}
               </div>
             ) : (
-              <div className="flex flex-wrap items-center gap-2">
-                <Button 
-                  variant="ghost" 
-                  onClick={handleUserLogin}
-                  className="whitespace-nowrap"
-                >
-                  User Login
-                </Button>
-                <Button 
-                  variant="ghost"
-                  onClick={handleDashboard}
-                  className="whitespace-nowrap"
-                >
-                  Dashboard
-                </Button>
-                <Button 
-                  className="bg-gosip-purple hover:bg-gosip-purple-dark whitespace-nowrap"
-                  onClick={handleGetStarted}
-                >
-                  Register
-                </Button>
-                <RippleButton 
-                  onClick={handleUpgrade}
-                  className="bg-gosip-purple-dark hover:bg-gosip-purple-darker shadow-lg hover:shadow-xl animate-pulse whitespace-nowrap"
-                >
-                  <Gift className="mr-1 h-4 w-4" /> Upgrade 🎁
-                </RippleButton>
+              /* Modified desktop layout that doesn't collapse on zoom */
+              <div className="flex items-center lg:ml-auto">
+                <div className="flex flex-nowrap items-center gap-2">
+                  <Button 
+                    variant="ghost" 
+                    onClick={handleUserLogin}
+                    className="whitespace-nowrap flex-shrink-0"
+                  >
+                    User Login
+                  </Button>
+                  <Button 
+                    variant="ghost"
+                    onClick={handleDashboard}
+                    className="whitespace-nowrap flex-shrink-0"
+                  >
+                    Dashboard
+                  </Button>
+                  <Button 
+                    className="bg-gosip-purple hover:bg-gosip-purple-dark whitespace-nowrap flex-shrink-0"
+                    onClick={handleGetStarted}
+                  >
+                    Register
+                  </Button>
+                  <RippleButton 
+                    onClick={handleUpgrade}
+                    className="bg-gosip-purple-dark hover:bg-gosip-purple-darker shadow-lg hover:shadow-xl animate-pulse whitespace-nowrap flex-shrink-0"
+                  >
+                    <Gift className="mr-1 h-4 w-4" /> Upgrade 🎁
+                  </RippleButton>
+                </div>
               </div>
             )}
           </header>
