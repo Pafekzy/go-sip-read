@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Sidebar } from "@/components/Sidebar";
@@ -495,4 +496,207 @@ const vrCategories: VRCategory[] = [{
     image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=500&q=80",
     duration: "40 minutes",
     difficulty: "Beginner",
-    skills: ["Wildlife Conservation", "Ecosystem Knowledge", "Geography
+    skills: ["Wildlife Conservation", "Ecosystem Knowledge", "Geography"]
+  }]
+}];
+
+export default function VRLearning() {
+  const [selectedCategory, setSelectedCategory] = useState<VRCategory | null>(null);
+  const [selectedExperience, setSelectedExperience] = useState<VRExperience | null>(null);
+  const navigate = useNavigate();
+
+  const handleCategorySelect = (category: VRCategory) => {
+    setSelectedCategory(category);
+    setSelectedExperience(null);
+  };
+
+  const handleExperienceSelect = (experience: VRExperience) => {
+    setSelectedExperience(experience);
+  };
+
+  const handleBack = () => {
+    if (selectedExperience) {
+      setSelectedExperience(null);
+    } else if (selectedCategory) {
+      setSelectedCategory(null);
+    }
+  };
+
+  const handleHome = () => {
+    navigate('/dashboard');
+  };
+
+  const renderDifficultyBadge = (difficulty: string) => {
+    let color = '';
+    switch (difficulty) {
+      case 'Beginner':
+        color = 'bg-green-500';
+        break;
+      case 'Intermediate':
+        color = 'bg-blue-500';
+        break;
+      case 'Advanced':
+        color = 'bg-purple-500';
+        break;
+      default:
+        color = 'bg-gray-500';
+    }
+    return <Badge className={`${color} text-white`}>{difficulty}</Badge>;
+  };
+
+  return (
+    <div className="min-h-screen bg-background flex">
+      <Sidebar />
+      <div className="flex-1">
+        <Navbar />
+        <div className="container mx-auto py-6 px-4">
+          <div className="flex items-center mb-6">
+            {(selectedCategory || selectedExperience) && (
+              <Button 
+                variant="outline" 
+                onClick={handleBack} 
+                className="mr-2"
+                size="sm"
+              >
+                <ChevronLeft className="h-4 w-4 mr-1" /> Back
+              </Button>
+            )}
+            <Button 
+              variant="outline" 
+              onClick={handleHome} 
+              size="sm"
+              className="mr-4"
+            >
+              <Home className="h-4 w-4 mr-1" /> Home
+            </Button>
+            <h1 className="text-3xl font-bold tracking-tight">
+              {selectedExperience ? selectedExperience.title : 
+               selectedCategory ? selectedCategory.title : 
+               "VR Learning Experiences"}
+            </h1>
+          </div>
+          
+          {!selectedCategory && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {vrCategories.map((category) => (
+                <Card 
+                  key={category.id} 
+                  className="overflow-hidden cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                  onClick={() => handleCategorySelect(category)}
+                >
+                  <div className="relative h-48">
+                    <img 
+                      src={category.image} 
+                      alt={category.title} 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-3 right-3">
+                      <Badge className={`${category.badgeColor}`}>
+                        {category.badgeText}
+                      </Badge>
+                    </div>
+                  </div>
+                  <CardHeader className="p-4 pb-2">
+                    <CardTitle>{category.title}</CardTitle>
+                    <CardDescription className="line-clamp-2">
+                      {category.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardFooter className="p-4 pt-0 text-sm text-muted-foreground">
+                    {category.experiences.length} experiences
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          )}
+          
+          {selectedCategory && !selectedExperience && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {selectedCategory.experiences.map((experience) => (
+                <Card 
+                  key={experience.id} 
+                  className="overflow-hidden cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                  onClick={() => handleExperienceSelect(experience)}
+                >
+                  <div className="relative h-40">
+                    <img 
+                      src={experience.image} 
+                      alt={experience.title} 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-3 right-3">
+                      {renderDifficultyBadge(experience.difficulty)}
+                    </div>
+                  </div>
+                  <CardHeader className="p-4 pb-2">
+                    <CardTitle className="text-xl">{experience.title}</CardTitle>
+                    <CardDescription className="line-clamp-2">
+                      {experience.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardFooter className="p-4 pt-0 flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">{experience.duration}</span>
+                    <Button size="sm" className="bg-gosip-purple hover:bg-gosip-purple-dark">
+                      Start Experience
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          )}
+          
+          {selectedExperience && (
+            <Card className="bg-card shadow-md">
+              <div className="relative h-64 sm:h-96">
+                <img 
+                  src={selectedExperience.image} 
+                  alt={selectedExperience.title} 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-4 right-4">
+                  {renderDifficultyBadge(selectedExperience.difficulty)}
+                </div>
+              </div>
+              <CardHeader>
+                <div className="flex justify-between items-center mb-2">
+                  <CardTitle className="text-2xl">{selectedExperience.title}</CardTitle>
+                  <span className="text-muted-foreground">{selectedExperience.duration}</span>
+                </div>
+                <CardDescription className="text-base">
+                  {selectedExperience.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="mb-6">
+                  <h3 className="text-lg font-medium mb-2">Skills you'll develop:</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedExperience.skills.map((skill, index) => (
+                      <Badge key={index} variant="secondary" className="text-sm">{skill}</Badge>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="mb-6">
+                  <h3 className="text-lg font-medium mb-2">What you'll need:</h3>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                    <li>VR headset (recommended) or computer with modern browser</li>
+                    <li>Quiet environment with space to move</li>
+                    <li>45-60 minutes of uninterrupted time</li>
+                  </ul>
+                </div>
+              </CardContent>
+              <CardFooter className="flex justify-between items-center">
+                <Button variant="outline" onClick={handleBack}>
+                  <ChevronLeft className="h-4 w-4 mr-1" /> Back to experiences
+                </Button>
+                <Button className="bg-gosip-purple hover:bg-gosip-purple-dark">
+                  Launch VR Experience
+                </Button>
+              </CardFooter>
+            </Card>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
