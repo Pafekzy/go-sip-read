@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -170,5 +171,10 @@
   .bright-text {
     @apply text-white font-medium tracking-wide;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Glass effect utility class */
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/5 rounded-xl;
   }
 }

@@ -18,15 +18,12 @@ export function HeroSection({ onGetStarted }: HeroSectionProps) {
 
   return (
     <section className="py-16 md:py-24 relative overflow-visible">
-      {/* Subtle dual-tone gradient background with low opacity */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gosip-soft-purple/30 via-gosip-soft-blue/20 to-gosip-soft-gray/10 -z-10" />
+      {/* Glass effect with backdrop blur */}
+      <div className="absolute inset-0 backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/5 rounded-xl -z-10" />
       
-      {/* Additional overlay for text contrast */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent -z-10" />
+      {/* Additional glass shimmer effect */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-gosip-purple/10 via-transparent to-gosip-purple/10 rounded-xl -z-10" />
       
-      {/* Updated gradient background with more solid purple effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gosip-purple/70 via-gosip-purple-dark/60 to-gosip-soft-purple/50 -z-10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-transparent to-gosip-soft-purple/30 -z-10" />
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="heading-container py-2 overflow-visible">
