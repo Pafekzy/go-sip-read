@@ -18,6 +18,12 @@ export function HeroSection({ onGetStarted }: HeroSectionProps) {
 
   return (
     <section className="py-16 md:py-24 relative overflow-visible">
+      {/* Subtle dual-tone gradient background with low opacity */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gosip-soft-purple/30 via-gosip-soft-blue/20 to-gosip-soft-gray/10 -z-10" />
+      
+      {/* Additional overlay for text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent -z-10" />
+      
       {/* Updated gradient background with more solid purple effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-gosip-purple/70 via-gosip-purple-dark/60 to-gosip-soft-purple/50 -z-10" />
       <div className="absolute inset-0 bg-gradient-to-t from-transparent to-gosip-soft-purple/30 -z-10" />
