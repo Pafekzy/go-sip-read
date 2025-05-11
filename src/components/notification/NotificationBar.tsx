@@ -37,7 +37,7 @@ export function NotificationBar() {
         // Mobile layout - vertical stack
         <div className="container mx-auto flex flex-col space-y-2">
           <div className="flex justify-center items-center text-gosip-purple-dark text-center">
-            <Calendar className="h-4 w-4 mr-1 flex-shrink-0" />
+            <Calendar className="h-5 w-5 mr-2 flex-shrink-0 font-bold" strokeWidth={2.5} />
             <span className="font-semibold text-sm">Get ready to win ₦300,000 or MORE!</span>
           </div>
           
@@ -47,29 +47,29 @@ export function NotificationBar() {
           </div>
           
           <div className="flex justify-center items-center text-gosip-purple-dark text-center">
-            <Award className="h-4 w-4 mr-1 flex-shrink-0" />
+            <Award className="h-5 w-5 mr-2 flex-shrink-0 font-bold" strokeWidth={2.5} />
             <span className="italic text-xs">
               Earn free certificates from Alison, Coursera, Semicolon
             </span>
           </div>
         </div>
       ) : (
-        // Desktop layout - horizontal
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex items-center text-gosip-purple-dark">
-            <Calendar className="h-4 w-4 mr-1" />
-            <span className="font-semibold">Get ready to win ₦300,000 or MORE! Code War on January 27th</span>
+        // Desktop layout - horizontal with improved responsiveness
+        <div className="container mx-auto flex flex-wrap lg:flex-nowrap justify-between items-center gap-4">
+          <div className="flex items-center text-gosip-purple-dark whitespace-nowrap">
+            <Calendar className="h-6 w-6 mr-2 flex-shrink-0" strokeWidth={2.5} />
+            <span className="font-semibold">Get ready to win ₦300,000 or MORE!</span>
           </div>
           
-          <div className="flex items-center whitespace-nowrap">
+          <div className="flex items-center whitespace-nowrap mx-4">
             <span className="mr-2">Featuring:</span>
             <span className="font-medium text-gosip-purple">{currentGroup}</span>
           </div>
           
           <div className="flex items-center text-gosip-purple-dark whitespace-nowrap">
-            <Award className="h-4 w-4 mr-1" />
+            <Award className="h-6 w-6 mr-2 flex-shrink-0" strokeWidth={2.5} />
             <span className="italic">
-              Earn free certificates from Alison, Coursera, Semicolon, and X
+              Earn free certificates from Alison, Coursera, Semicolon
             </span>
           </div>
         </div>
