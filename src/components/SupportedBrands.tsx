@@ -21,6 +21,7 @@ const brands = [
     name: 'X',
     url: 'https://x.com',
     logo: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-black-icon.svg',
+    customSize: 'scale-50', // Add custom scaling for X
   },
   {
     name: 'NameCheap',
@@ -31,6 +32,7 @@ const brands = [
     name: 'SemicolonAfrica',
     url: 'https://semicolon.africa',
     logo: 'https://logo.clearbit.com/semicolon.africa',
+    customSize: 'scale-50', // Add custom scaling for Semicolon Africa
   },
   {
     name: 'Z-library',
@@ -77,7 +79,7 @@ export function SupportedBrands() {
                 <img
                   src={brand.logo}
                   alt={`${brand.name} logo`}
-                  className="h-[35%] w-auto object-contain max-w-[35%]"
+                  className={`h-[35%] w-auto object-contain max-w-[35%] ${brand.customSize || ''}`}
                   onError={() => handleImageError(brand.name)}
                   onLoad={() => handleImageLoad(brand.name)}
                 />
