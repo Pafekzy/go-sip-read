@@ -56,7 +56,7 @@ This project is built with:
 
 - Vite: Fast, modern frontend build tool optimized for development and hot reload.
 - TypeScript: Superset of JavaScript adding static types for safer, scalable code.
-- React
+c
 - shadcn-ui
 - Tailwind CSS
 
