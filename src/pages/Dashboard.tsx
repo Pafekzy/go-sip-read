@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Sidebar } from "@/components/Sidebar";
@@ -45,33 +46,9 @@ const recentContent = [
   },
 ];
 
-const quotes = [
-  {
-    text: "The more that you read, the more things you will know. The more that you learn, the more places you'll go.",
-    author: "Dr. Seuss",
-  },
-  {
-    text: "Live as if you were to die tomorrow. Learn as if you were to live forever.",
-    author: "Mahatma Gandhi",
-  },
-  {
-    text: "The beautiful thing about learning is that nobody can take it away from you.",
-    author: "B.B. King",
-  },
-];
-
 export default function Dashboard() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [quoteIndex, setQuoteIndex] = useState(0);
   const navigate = useNavigate();
-
-  const nextQuote = () => {
-    setQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
-  };
-
-  const prevQuote = () => {
-    setQuoteIndex((prevIndex) => (prevIndex - 1 + quotes.length) % quotes.length);
-  };
 
   const handleGoHome = () => {
     navigate('/');
@@ -129,31 +106,8 @@ export default function Dashboard() {
             <div className="lg:col-span-2">
               <ProgressStats />
             </div>
-            <div className="relative">
-              <QuoteCard 
-                text={quotes[quoteIndex].text} 
-                author={quotes[quoteIndex].author} 
-              />
-              <div className="absolute top-1/2 -left-3 transform -translate-y-1/2">
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="rounded-full bg-background shadow-sm"
-                  onClick={prevQuote}
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </Button>
-              </div>
-              <div className="absolute top-1/2 -right-3 transform -translate-y-1/2">
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="rounded-full bg-background shadow-sm"
-                  onClick={nextQuote}
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </Button>
-              </div>
+            <div>
+              <QuoteCard autoTransition={true} transitionTime={11000} />
             </div>
           </div>
 
