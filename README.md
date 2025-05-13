@@ -62,7 +62,7 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/127069b8-e18a-45ae-8947-c4fbba9e2114) and click on Share -> Publish.
+Simply open [pafekzy.online](https://lovable.dev/projects/127069b8-e18a-45ae-8947-c4fbba9e2114) and click on Share -> Publish.
 
 ## Can I connect a custom domain to my Lovable project?
 
