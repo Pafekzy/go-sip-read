@@ -4,6 +4,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Download, BookOpen } from "lucide-react";
 import { Book } from "@/data/booksData";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 interface BookCardProps {
   book: Book;
@@ -32,10 +33,15 @@ export function BookCard({ book }: BookCardProps) {
 
   return (
     <Card className="overflow-hidden h-full flex flex-col">
-      <div 
-        className="h-56 bg-cover bg-center transition-transform duration-300 hover:scale-105"
-        style={{ backgroundImage: `url(${currentImage})` }}
-      />
+      <div className="p-4 pb-0">
+        <AspectRatio ratio={2/3} className="overflow-hidden rounded-md">
+          <img 
+            src={currentImage} 
+            alt={`${book.title} cover`}
+            className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+          />
+        </AspectRatio>
+      </div>
       <CardContent className="p-4 flex-1">
         <h3 className="font-semibold text-lg mb-1">{book.title}</h3>
         <p className="text-sm text-muted-foreground mb-2">{book.author}</p>
