@@ -57,7 +57,7 @@ This project is built with:
 - Vite: Fast, modern frontend build tool optimized for development and hot reload.
 - TypeScript: Superset of JavaScript adding static types for safer, scalable code.
 - React: JavaScript library for building user interfaces with component-based architecture.
-- shadcn-ui
+- shadcn-ui: Tailwind-based component library for building modern, accessible UI elements.
 - Tailwind CSS
 
 ## How can I deploy this project?
