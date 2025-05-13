@@ -54,7 +54,7 @@ npm run dev
 
 This project is built with:
 
-- Vite
+- Vite: Fast, modern frontend build tool optimized for development and hot reload.
 - TypeScript
 - React
 - shadcn-ui
