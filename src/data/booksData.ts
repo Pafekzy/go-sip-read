@@ -1,14 +1,15 @@
 
+// Simply make sure the Book type is exported
 export interface Book {
-  id: number;
+  id: string;
   title: string;
   author: string;
   description: string;
   coverImage: string;
   alternateImage?: string;
-  pdfUrl: string;
-  tags?: string[];
   category: string;
+  tags?: string[];
+  pdfUrl: string;
 }
 
 // Define our book categories

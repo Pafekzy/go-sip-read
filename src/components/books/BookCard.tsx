@@ -12,6 +12,10 @@ interface BookCardProps {
 
 export function BookCard({ book }: BookCardProps) {
   const [currentImage, setCurrentImage] = useState(book.coverImage);
+  const [imageError, setImageError] = useState(false);
+  
+  // Fallback placeholder image when loading fails
+  const fallbackImage = "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&h=1200";
   
   // Image swapping effect for the Five Dysfunctions book
   useEffect(() => {
@@ -27,6 +31,12 @@ export function BookCard({ book }: BookCardProps) {
     }
   }, [book.title, book.coverImage, book.alternateImage]);
 
+  const handleImageError = () => {
+    console.log(`Image failed to load for: ${book.title}`);
+    setImageError(true);
+    setCurrentImage(fallbackImage);
+  };
+
   const handleDownload = () => {
     window.open(book.pdfUrl, "_blank");
   };
@@ -34,11 +44,13 @@ export function BookCard({ book }: BookCardProps) {
   return (
     <Card className="overflow-hidden h-full flex flex-col">
       <div className="p-4 pb-0">
-        <AspectRatio ratio={2/3} className="overflow-hidden rounded-md">
+        <AspectRatio ratio={2/3} className="overflow-hidden rounded-md bg-muted">
           <img 
-            src={currentImage} 
+            src={imageError ? fallbackImage : currentImage} 
             alt={`${book.title} cover`}
             className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+            onError={handleImageError}
+            loading="lazy"
           />
         </AspectRatio>
       </div>
