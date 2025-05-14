@@ -25,7 +25,7 @@ export const categories = [
 export const books: Book[] = [
   // === Personal Growth Category ===
   {
-    id: 1,
+    id: "1",
     title: "The Psychology of Money",
     author: "Morgan Housel",
     description: "Timeless lessons on wealth, greed, and happiness. The book explores how our relationship with money influences our financial decisions.",
@@ -35,7 +35,7 @@ export const books: Book[] = [
     category: "Finance & Wealth"
   },
   {
-    id: 2,
+    id: "2",
     title: "Atomic Habits",
     author: "James Clear",
     description: "An easy & proven way to build good habits & break bad ones. The book explores the compound effects of small changes.",
@@ -45,7 +45,7 @@ export const books: Book[] = [
     category: "Personal Growth"
   },
   {
-    id: 3,
+    id: "3",
     title: "Think and Grow Rich",
     author: "Napoleon Hill",
     description: "This book has been called the 'Granddaddy of All Motivational Literature.' It explores mindset principles of wealth.",
@@ -55,7 +55,7 @@ export const books: Book[] = [
     category: "Finance & Wealth"
   },
   {
-    id: 4,
+    id: "4",
     title: "Rich Dad Poor Dad",
     author: "Robert Kiyosaki",
     description: "What the rich teach their kids about money that the poor and middle class do not.",
@@ -65,7 +65,7 @@ export const books: Book[] = [
     category: "Finance & Wealth"
   },
   {
-    id: 5,
+    id: "5",
     title: "The Five Dysfunctions of a Team",
     author: "Patrick Lencioni",
     description: "The model reveals how team dysfunctions silently sabotage success—and shows techpreneurs how to build results-driven, resilient teams.",
@@ -76,7 +76,7 @@ export const books: Book[] = [
     category: "Leadership"
   },
   {
-    id: 6,
+    id: "6",
     title: "How to Win Friends and Influence People",
     author: "Dale Carnegie",
     description: "One of the first bestselling self-help books. Its purpose is to enable you to make friends quickly and easily.",
@@ -86,7 +86,7 @@ export const books: Book[] = [
     category: "Relationships"
   },
   {
-    id: 7,
+    id: "7",
     title: "The 7 Habits of Highly Effective People",
     author: "Stephen R. Covey",
     description: "A holistic approach to life and work that has influenced millions around the world.",
@@ -96,7 +96,7 @@ export const books: Book[] = [
     category: "Personal Growth"
   },
   {
-    id: 8,
+    id: "8",
     title: "Mindset: The New Psychology of Success",
     author: "Carol S. Dweck",
     description: "How we can learn to fulfill our potential by changing our mindset from fixed to growth.",
@@ -106,7 +106,7 @@ export const books: Book[] = [
     category: "Psychology"
   },
   {
-    id: 9,
+    id: "9",
     title: "The Power of Habit",
     author: "Charles Duhigg",
     description: "Why we do what we do in life and business. Explores the science behind habit creation and reformation.",
@@ -116,7 +116,7 @@ export const books: Book[] = [
     category: "Psychology"
   },
   {
-    id: 10,
+    id: "10",
     title: "Deep Work",
     author: "Cal Newport",
     description: "Rules for focused success in a distracted world. The book argues that deep work is becoming more valuable.",
@@ -127,7 +127,7 @@ export const books: Book[] = [
   },
   // === Personal Growth Category (Additional books) ===
   {
-    id: 11,
+    id: "11",
     title: "Outliers",
     author: "Malcolm Gladwell",
     description: "The story of success and what makes high-achievers different from ordinary people.",
@@ -137,7 +137,7 @@ export const books: Book[] = [
     category: "Personal Growth"
   },
   {
-    id: 12,
+    id: "12",
     title: "Grit: The Power of Passion and Perseverance",
     author: "Angela Duckworth",
     description: "Angela Duckworth shows anyone striving to succeed that the secret to outstanding achievement is not talent, but a special blend of passion and persistence.",
@@ -149,7 +149,7 @@ export const books: Book[] = [
   
   // === Finance & Wealth Category (Additional books) ===
   {
-    id: 13,
+    id: "13",
     title: "The Intelligent Investor",
     author: "Benjamin Graham",
     description: "The definitive book on value investing and fundamental analysis strategies.",
@@ -159,7 +159,7 @@ export const books: Book[] = [
     category: "Finance & Wealth"
   },
   {
-    id: 14,
+    id: "14",
     title: "The Total Money Makeover",
     author: "Dave Ramsey",
     description: "A proven plan for financial fitness with practical steps to get out of debt and build wealth.",
@@ -171,7 +171,7 @@ export const books: Book[] = [
   
   // === Leadership Category (Additional books) ===
   {
-    id: 15,
+    id: "15",
     title: "Leaders Eat Last",
     author: "Simon Sinek",
     description: "Why some teams pull together and others don't. Simon explores how leaders can inspire cooperation and trust.",
@@ -181,7 +181,7 @@ export const books: Book[] = [
     category: "Leadership"
   },
   {
-    id: 16,
+    id: "16",
     title: "Good to Great",
     author: "Jim Collins",
     description: "Why some companies make the leap and others don't. A fascinating study of what distinguishes great companies from good ones.",
@@ -193,7 +193,7 @@ export const books: Book[] = [
   
   // === Relationships Category (Additional books) ===
   {
-    id: 17,
+    id: "17",
     title: "The 5 Love Languages",
     author: "Gary Chapman",
     description: "The secret to love that lasts. Learn the five ways people express and experience love.",
@@ -203,7 +203,7 @@ export const books: Book[] = [
     category: "Relationships"
   },
   {
-    id: 18,
+    id: "18",
     title: "Difficult Conversations",
     author: "Douglas Stone, Bruce Patton, Sheila Heen",
     description: "How to discuss what matters most when stakes are high. A guide to handling tough conversations.",
@@ -215,7 +215,7 @@ export const books: Book[] = [
   
   // === Psychology Category (Additional books) ===
   {
-    id: 19,
+    id: "19",
     title: "Thinking, Fast and Slow",
     author: "Daniel Kahneman",
     description: "An exploration of the two cognitive systems that drive the way we think and how they shape our judgments.",
@@ -225,7 +225,7 @@ export const books: Book[] = [
     category: "Psychology"
   },
   {
-    id: 20,
+    id: "20",
     title: "Emotional Intelligence",
     author: "Daniel Goleman",
     description: "Why emotional intelligence can matter more than IQ for success in work and relationships.",
@@ -237,7 +237,7 @@ export const books: Book[] = [
   
   // === Health & Wellness Category (Additional books) ===
   {
-    id: 21,
+    id: "21",
     title: "Why We Sleep",
     author: "Matthew Walker",
     description: "Unlocking the power of sleep and dreams. A fascinating exploration of the science behind sleep.",
@@ -247,7 +247,7 @@ export const books: Book[] = [
     category: "Health & Wellness"
   },
   {
-    id: 22,
+    id: "22",
     title: "The Body Keeps the Score",
     author: "Bessel van der Kolk",
     description: "Brain, mind, and body in the healing of trauma. A revolutionary examination of trauma.",
@@ -259,7 +259,7 @@ export const books: Book[] = [
   
   // === Adding more Personal Growth books ===
   {
-    id: 23,
+    id: "23",
     title: "Daring Greatly",
     author: "Brené Brown",
     description: "How the courage to be vulnerable transforms the way we live, love, parent, and lead.",
@@ -269,7 +269,7 @@ export const books: Book[] = [
     category: "Personal Growth"
   },
   {
-    id: 24,
+    id: "24",
     title: "The Subtle Art of Not Giving a F*ck",
     author: "Mark Manson",
     description: "A counterintuitive approach to living a good life by focusing on what truly matters.",
@@ -279,7 +279,7 @@ export const books: Book[] = [
     category: "Personal Growth"
   },
   {
-    id: 25,
+    id: "25",
     title: "Essentialism: The Disciplined Pursuit of Less",
     author: "Greg McKeown",
     description: "A systematic discipline for discerning what is essential and eliminating everything else.",
@@ -289,7 +289,7 @@ export const books: Book[] = [
     category: "Personal Growth"
   },
   {
-    id: 26,
+    id: "26",
     title: "The Gifts of Imperfection",
     author: "Brené Brown",
     description: "Let go of who you think you're supposed to be and embrace who you are.",
@@ -299,7 +299,7 @@ export const books: Book[] = [
     category: "Personal Growth"
   },
   {
-    id: 27,
+    id: "27",
     title: "Quiet: The Power of Introverts",
     author: "Susan Cain",
     description: "How introverts can harness their natural strengths in a world that often favors extroverts.",
@@ -309,7 +309,7 @@ export const books: Book[] = [
     category: "Personal Growth"
   },
   {
-    id: 28,
+    id: "28",
     title: "Man's Search for Meaning",
     author: "Viktor E. Frankl",
     description: "A Holocaust survivor's memoir and exploration of the human search for purpose even in extreme suffering.",
@@ -319,7 +319,7 @@ export const books: Book[] = [
     category: "Personal Growth"
   },
   {
-    id: 29,
+    id: "29",
     title: "The Four Agreements",
     author: "Don Miguel Ruiz",
     description: "A practical guide to personal freedom based on ancient Toltec wisdom.",
@@ -329,7 +329,7 @@ export const books: Book[] = [
     category: "Personal Growth"
   },
   {
-    id: 30,
+    id: "30",
     title: "The War of Art",
     author: "Steven Pressfield",
     description: "Break through the blocks and win your creative battles with this guide to overcoming resistance.",
@@ -341,7 +341,7 @@ export const books: Book[] = [
   
   // === Adding more Finance & Wealth books ===
   {
-    id: 31,
+    id: "31",
     title: "The Millionaire Next Door",
     author: "Thomas J. Stanley & William D. Danko",
     description: "The surprising secrets of America's wealthy and how they accumulated their wealth.",
@@ -351,7 +351,7 @@ export const books: Book[] = [
     category: "Finance & Wealth"
   },
   {
-    id: 32,
+    id: "32",
     title: "The Little Book of Common Sense Investing",
     author: "John C. Bogle",
     description: "The only way to guarantee your fair share of stock market returns by the founder of Vanguard.",
@@ -361,7 +361,7 @@ export const books: Book[] = [
     category: "Finance & Wealth"
   },
   {
-    id: 33,
+    id: "33",
     title: "Your Money or Your Life",
     author: "Vicki Robin & Joe Dominguez",
     description: "9 steps to transforming your relationship with money and achieving financial independence.",
@@ -371,7 +371,7 @@ export const books: Book[] = [
     category: "Finance & Wealth"
   },
   {
-    id: 34,
+    id: "34",
     title: "I Will Teach You to Be Rich",
     author: "Ramit Sethi",
     description: "No guilt. No excuses. No BS. Just a 6-week program that works for managing personal finances.",
@@ -381,7 +381,7 @@ export const books: Book[] = [
     category: "Finance & Wealth"
   },
   {
-    id: 35,
+    id: "35",
     title: "Money: Master the Game",
     author: "Tony Robbins",
     description: "7 simple steps to financial freedom compiled from interviews with 50 of the world's most successful investors.",
@@ -393,7 +393,7 @@ export const books: Book[] = [
   
   // === Adding more Leadership books ===
   {
-    id: 36,
+    id: "36",
     title: "Start with Why",
     author: "Simon Sinek",
     description: "How great leaders inspire everyone to take action by starting with their purpose.",
@@ -403,7 +403,7 @@ export const books: Book[] = [
     category: "Leadership"
   },
   {
-    id: 37,
+    id: "37",
     title: "Extreme Ownership",
     author: "Jocko Willink & Leif Babin",
     description: "How U.S. Navy SEALs lead and win by taking responsibility for everything in their world.",
@@ -413,7 +413,7 @@ export const books: Book[] = [
     category: "Leadership"
   },
   {
-    id: 38,
+    id: "38",
     title: "Dare to Lead",
     author: "Brené Brown",
     description: "Brave work. Tough conversations. Whole hearts. A guide to courageous leadership.",
@@ -423,7 +423,7 @@ export const books: Book[] = [
     category: "Leadership"
   },
   {
-    id: 39,
+    id: "39",
     title: "The 21 Irrefutable Laws of Leadership",
     author: "John C. Maxwell",
     description: "Follow them and people will follow you. A comprehensive guide to leadership principles.",
@@ -433,7 +433,7 @@ export const books: Book[] = [
     category: "Leadership"
   },
   {
-    id: 40,
+    id: "40",
     title: "Tribal Leadership",
     author: "Dave Logan, John King & Halee Fischer-Wright",
     description: "Leveraging natural groups to build a thriving organization by understanding cultural stages.",
@@ -445,7 +445,7 @@ export const books: Book[] = [
   
   // === Adding more Relationships books ===
   {
-    id: 41,
+    id: "41",
     title: "Attached",
     author: "Amir Levine & Rachel Heller",
     description: "The new science of adult attachment and how it can help you find and keep love.",
@@ -455,7 +455,7 @@ export const books: Book[] = [
     category: "Relationships"
   },
   {
-    id: 42,
+    id: "42",
     title: "Nonviolent Communication",
     author: "Marshall B. Rosenberg",
     description: "A language of life that helps people connect compassionately with themselves and each other.",
@@ -465,7 +465,7 @@ export const books: Book[] = [
     category: "Relationships"
   },
   {
-    id: 43,
+    id: "43",
     title: "Boundaries",
     author: "Henry Cloud & John Townsend",
     description: "When to say yes, how to say no to take control of your life and relationships.",
@@ -475,7 +475,7 @@ export const books: Book[] = [
     category: "Relationships"
   },
   {
-    id: 44,
+    id: "44",
     title: "The Seven Principles for Making Marriage Work",
     author: "John Gottman & Nan Silver",
     description: "A practical guide for improving marriages based on decades of research.",
@@ -485,7 +485,7 @@ export const books: Book[] = [
     category: "Relationships"
   },
   {
-    id: 45,
+    id: "45",
     title: "Hold Me Tight",
     author: "Dr. Sue Johnson",
     description: "Seven conversations for a lifetime of love using Emotionally Focused Therapy.",
@@ -497,7 +497,7 @@ export const books: Book[] = [
   
   // === Adding more Psychology books ===
   {
-    id: 46,
+    id: "46",
     title: "Flow",
     author: "Mihaly Csikszentmihalyi",
     description: "The psychology of optimal experience and how to achieve states of heightened focus and creativity.",
@@ -507,7 +507,7 @@ export const books: Book[] = [
     category: "Psychology"
   },
   {
-    id: 47,
+    id: "47",
     title: "Influence: The Psychology of Persuasion",
     author: "Robert B. Cialdini",
     description: "The classic book on the psychology of why people say yes and how to apply these insights.",
@@ -517,7 +517,7 @@ export const books: Book[] = [
     category: "Psychology"
   },
   {
-    id: 48,
+    id: "48",
     title: "Predictably Irrational",
     author: "Dan Ariely",
     description: "The hidden forces that shape our decisions and why humans make systematic and predictable mistakes.",
@@ -527,7 +527,7 @@ export const books: Book[] = [
     category: "Psychology"
   },
   {
-    id: 49,
+    id: "49",
     title: "Blink",
     author: "Malcolm Gladwell",
     description: "The power of thinking without thinking and how our unconscious minds make split-second decisions.",
@@ -537,7 +537,7 @@ export const books: Book[] = [
     category: "Psychology"
   },
   {
-    id: 50,
+    id: "50",
     title: "The Happiness Hypothesis",
     author: "Jonathan Haidt",
     description: "Finding modern truth in ancient wisdom by examining ten great ideas from across civilizations.",
@@ -549,7 +549,7 @@ export const books: Book[] = [
   
   // === Adding more Health & Wellness books ===
   {
-    id: 51,
+    id: "51",
     title: "Breath",
     author: "James Nestor",
     description: "The new science of a lost art exploring how breathing affects every aspect of our health.",
@@ -559,7 +559,7 @@ export const books: Book[] = [
     category: "Health & Wellness"
   },
   {
-    id: 52,
+    id: "52",
     title: "The Blue Zones",
     author: "Dan Buettner",
     description: "Lessons for living longer from people who've lived the longest in special regions of the world.",
@@ -569,7 +569,7 @@ export const books: Book[] = [
     category: "Health & Wellness"
   },
   {
-    id: 53,
+    id: "53",
     title: "Atomic Wellness",
     author: "Lauren Meyers",
     description: "Simple habits for radical health improvements based on the latest research in wellness.",
@@ -579,7 +579,7 @@ export const books: Book[] = [
     category: "Health & Wellness"
   },
   {
-    id: 54,
+    id: "54",
     title: "The Circadian Code",
     author: "Satchin Panda",
     description: "Unlock the power of your body's natural rhythm for improved health, weight loss, and mood.",
@@ -589,7 +589,7 @@ export const books: Book[] = [
     category: "Health & Wellness"
   },
   {
-    id: 55,
+    id: "55",
     title: "Lifespan",
     author: "David A. Sinclair",
     description: "Why we age—and why we don't have to. The latest science on extending human health and longevity.",
@@ -599,7 +599,7 @@ export const books: Book[] = [
     category: "Health & Wellness"
   },
   {
-    id: 56,
+    id: "56",
     title: "How Not to Die",
     author: "Michael Greger",
     description: "Discover the foods scientifically proven to prevent and reverse disease.",
@@ -609,7 +609,7 @@ export const books: Book[] = [
     category: "Health & Wellness"
   },
   {
-    id: 57,
+    id: "57",
     title: "The Brain That Changes Itself",
     author: "Norman Doidge",
     description: "Stories of personal triumph from the frontiers of brain science on neuroplasticity.",
@@ -619,3 +619,4 @@ export const books: Book[] = [
     category: "Health & Wellness"
   }
 ];
+
