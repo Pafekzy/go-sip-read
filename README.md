@@ -58,13 +58,13 @@ This project is built with:
 - TypeScript: Superset of JavaScript adding static types for safer, scalable code.
 - React: JavaScript library for building user interfaces with component-based architecture.
 - shadcn-ui: Tailwind-based component library for building modern, accessible UI elements.
-- Tailwind CSS
+- Tailwind CSS: Utility-first CSS framework for rapid, customizable web design.
 
 ## How can I deploy this project?
 
-Simply open [pafekzy.online](https://lovable.dev/projects/127069b8-e18a-45ae-8947-c4fbba9e2114) and click on Share -> Publish.
+Simply open [pafekzy.online](https://fullstack.pafekzy.online) and click on Share -> Publish.
 
-## Can I connect a custom domain to my Lovable project?
+## Can I connect a custom domain to my fullstack project?
 
 Yes, you can!
 
