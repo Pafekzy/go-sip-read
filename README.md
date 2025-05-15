@@ -12,7 +12,7 @@ There are several ways of editing your application.
 
 Simply visit the [Lovable Project](https://lovable.dev/projects/127069b8-e18a-45ae-8947-c4fbba9e2114) and start prompting.
 
-Changes made via Lovable will be committed automatically to this repo.
+Changes made via GoSipRead will be committed automatically to this repo.
 
 **I Used V.S code**
 
